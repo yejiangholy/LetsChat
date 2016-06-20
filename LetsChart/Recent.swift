@@ -139,6 +139,33 @@ func DeleteRecentItem(recent : NSDictionary)
     }
 }
 
+//MARK: Clear recent counter function 
+
+func ClearRecentCounter(chatRoomID: String)
+{
+    firebase.childByAppendingPath("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value) { (snapshot: FDataSnapshot!) in
+        
+        if snapshot.exists(){
+            for recent in snapshot.value.allValues{
+                if recent.objectForKey("userId") as? String == currentUser.objectId {
+                    
+                    ClearRecentCounter((recent as? NSDictionary)!)
+                }
+            }
+        }
+        
+    }
+}
+
+func ClearRecentCounter(recent: NSDictionary)
+{
+    firebase.childByAppendingPath("Recent").childByAppendingPath(recent["recentId"] as? String).updateChildValues(["counter" : 0]) { (error, ref) in
+        if error != nil {
+            print("Error could't update rencents counter: \(error.localizedDescription)")
+        }
+    }
+}
+
 //MARK: Helper golbal functions 
 
 private let dateFormat = "yyyyMMddHHmmss"

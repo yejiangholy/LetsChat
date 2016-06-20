@@ -41,13 +41,21 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        
+        //updateRecent
+       ClearRecentCounter(chatRoomId)
+        
+        ref.removeAllObservers()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.senderId = currentUser.objectId
         self.senderDisplayName = currentUser.name
         
-        //do not want to avatar image now
         collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         
@@ -257,16 +265,6 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     
     func loadmessage()
     {
-        ref.childByAppendingPath(chatRoomId).observeSingleEventOfType(.Value, withBlock: {
-            snapshot in
-            //get dictionay 
-            // create JSQ mesages 
-            
-            self.insertMessages()
-            self.finishReceivingMessageAnimated(true)
-            self.initialloadComplete = true 
-        })
-        
         ref.childByAppendingPath(chatRoomId).observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
@@ -299,6 +297,17 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
             
             //delete messages
         })
+        
+        ref.childByAppendingPath(chatRoomId).observeSingleEventOfType(.Value, withBlock: {
+            snapshot in
+            //get dictionay
+            // create JSQ mesages
+            
+            self.insertMessages()
+            self.finishReceivingMessageAnimated(true)
+            self.initialloadComplete = true
+        })
+
 
     }
     
