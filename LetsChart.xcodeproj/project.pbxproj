@@ -16,6 +16,9 @@
 		2395E4201D0CB56D005D64A6 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2395E41E1D0CB56D005D64A6 /* ProgressHUD.m */; };
 		2395E4221D0CF5BC005D64A6 /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395E4211D0CF5BC005D64A6 /* RecentTableViewCell.swift */; };
 		2395E4241D0CF8BE005D64A6 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2395E4231D0CF8BE005D64A6 /* RecentViewController.swift */; };
+		2396566A1D18651A009B0DD4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239656691D18651A009B0DD4 /* FBSDKCoreKit.framework */; };
+		2396566C1D1865A2009B0DD4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2396566B1D1865A2009B0DD4 /* FBSDKLoginKit.framework */; };
+		2396566E1D186F75009B0DD4 /* RegisterFBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2396566D1D186F75009B0DD4 /* RegisterFBUser.swift */; };
 		239C1AED1D10B925008D79EE /* ChooseUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */; };
 		239C1AEF1D10EACE008D79EE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEE1D10EACE008D79EE /* ChatViewController.swift */; };
 		23A605241D14FABB00DA3C31 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A605231D14FABB00DA3C31 /* Camera.swift */; };
@@ -91,6 +94,9 @@
 		2395E41E1D0CB56D005D64A6 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		2395E4211D0CF5BC005D64A6 /* RecentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		2395E4231D0CF8BE005D64A6 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		239656691D18651A009B0DD4 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		2396566B1D1865A2009B0DD4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2396566D1D186F75009B0DD4 /* RegisterFBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFBUser.swift; sourceTree = "<group>"; };
 		239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserViewController.swift; sourceTree = "<group>"; };
 		239C1AEE1D10EACE008D79EE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		23A605231D14FABB00DA3C31 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -311,12 +317,14 @@
 			files = (
 				231AF5C81D0FD1A700273C92 /* libc++.tbd in Frameworks */,
 				231AF5C61D0FD18C00273C92 /* libicucore.tbd in Frameworks */,
+				2396566C1D1865A2009B0DD4 /* FBSDKLoginKit.framework in Frameworks */,
 				23C89C401D0BF7120000858B /* libswscale.a in Frameworks */,
 				23C89C3D1D0BF7120000858B /* libavfilter.a in Frameworks */,
 				23C89C431D0BF7120000858B /* libx264.a in Frameworks */,
 				23C89C391D0BF7120000858B /* backendless.a in Frameworks */,
 				23C89A931D0BF5F90000858B /* libz.tbd in Frameworks */,
 				23C89C3E1D0BF7120000858B /* libavformat.a in Frameworks */,
+				2396566A1D18651A009B0DD4 /* FBSDKCoreKit.framework in Frameworks */,
 				23C89C3F1D0BF7120000858B /* libavutil.a in Frameworks */,
 				23C89C3C1D0BF7120000858B /* libavdevice.a in Frameworks */,
 				23C89A911D0BF5C30000858B /* libsqlite3.tbd in Frameworks */,
@@ -391,9 +399,31 @@
 			name = RecentViewControlers;
 			sourceTree = "<group>";
 		};
+		2396566F1D186FB0009B0DD4 /* Assist Items */ = {
+			isa = PBXGroup;
+			children = (
+				23A605231D14FABB00DA3C31 /* Camera.swift */,
+				23DAF9151D1654E600BBB13D /* Avatar.swift */,
+				2396566D1D186F75009B0DD4 /* RegisterFBUser.swift */,
+			);
+			name = "Assist Items";
+			sourceTree = "<group>";
+		};
+		239656701D18700C009B0DD4 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				2388EE161D0E770D00E0E9AF /* Recent.swift */,
+				23EB6E8B1D1327E50065749B /* OutgoingMessage.swift */,
+				23EB6E8D1D136A1E0065749B /* IncomingMessage.swift */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
 		23C89A541D0BCB350000858B = {
 			isa = PBXGroup;
 			children = (
+				2396566B1D1865A2009B0DD4 /* FBSDKLoginKit.framework */,
+				239656691D18651A009B0DD4 /* FBSDKCoreKit.framework */,
 				2395E41B1D0CB56D005D64A6 /* ProgressHUD */,
 				23C89B6C1D0BF7110000858B /* lib */,
 				23C89A5F1D0BCB350000858B /* LetsChart */,
@@ -418,15 +448,12 @@
 		23C89A5F1D0BCB350000858B /* LetsChart */ = {
 			isa = PBXGroup;
 			children = (
-				2395E4191D0C7806005D64A6 /* Supporting */,
+				239656701D18700C009B0DD4 /* Messages */,
+				2396566F1D186FB0009B0DD4 /* Assist Items */,
 				2395E4251D0CFAF7005D64A6 /* RecentViewControlers */,
 				2395E41A1D0C7822005D64A6 /* LoginViewControlers */,
 				23C89A641D0BCB350000858B /* Main.storyboard */,
-				2388EE161D0E770D00E0E9AF /* Recent.swift */,
-				23EB6E8B1D1327E50065749B /* OutgoingMessage.swift */,
-				23EB6E8D1D136A1E0065749B /* IncomingMessage.swift */,
-				23A605231D14FABB00DA3C31 /* Camera.swift */,
-				23DAF9151D1654E600BBB13D /* Avatar.swift */,
+				2395E4191D0C7806005D64A6 /* Supporting */,
 			);
 			path = LetsChart;
 			sourceTree = "<group>";
@@ -1023,6 +1050,7 @@
 			files = (
 				2388EE171D0E770D00E0E9AF /* Recent.swift in Sources */,
 				239C1AED1D10B925008D79EE /* ChooseUserViewController.swift in Sources */,
+				2396566E1D186F75009B0DD4 /* RegisterFBUser.swift in Sources */,
 				23C89C471D0C545D0000858B /* LoginViewController.swift in Sources */,
 				2395E4241D0CF8BE005D64A6 /* RecentViewController.swift in Sources */,
 				23EB6E8C1D1327E50065749B /* OutgoingMessage.swift in Sources */,

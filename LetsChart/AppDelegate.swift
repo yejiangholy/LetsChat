@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -31,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
        
         Firebase.defaultConfig().persistenceEnabled = true
+        
+        //facebook 
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
@@ -86,6 +90,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         coordinate = newLocation.coordinate
     }
 
+    
+    //MARK: FacebookLogin 
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
+        let result = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        
+        if result {
+            
+            let token = FBSDKAccessToken.currentAccessToken()
+            let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email"], tokenString: token.tokenString, version: nil, HTTPMethod: "GET")
+            
+            request.startWithCompletionHandler({ (connection, result, error) in
+                
+                if error == nil {
+                    let facebookId = result["id"]! as! String
+                    let avatarUrl = "https://graph.facebook.com/\(facebookId)/picture?type=normal"
+                    
+                     //update backendless user with avatar link
+                    updateBackendlessUser(facebookId, avatarUrl: avatarUrl)
+                    
+                } else {
+                    print("Facebook request error \(error)")
+                }
+            })
+            
+            let filedsMapping = ["id" : "facebookId" , "name" : "name" , "email" : "email"]
+            
+            backendless.userService.loginWithFacebookSDK(token, fieldsMapping: filedsMapping)
+        }
+        
+        return result 
+    }
 
 }
 

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController , UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
     @IBOutlet weak var emailTextField: UITextField!
-
+ 
     @IBOutlet weak var usernameTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
@@ -59,11 +59,66 @@ class RegisterViewController: UIViewController {
         
     }
     
+    
+    @IBAction func uploadPhotoButtonPressed(sender: AnyObject) {
+        
+    let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let camera = Camera(delegate_: self)
+        
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .Default) { (alert: UIAlertAction!) in
+            
+            camera.PresentPhoteCamera(self, canEdit: true)
+            
+            
+        }
+        let sharePhoto = UIAlertAction(title: "Photo Library", style: .Default) { (alert : UIAlertAction!) in
+            
+            camera.PresentPhotoLibrary(self, canEdit: true)
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) in
+        }
+        
+        optionMenu.addAction(takePhoto)
+        optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    //MARK: UIImagepickercontroller delegate  
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        self.avatarImage = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+    }
+    
     //MARK: Backendless user registration 
     func register(email:String , username:String , password: String , avatarImage: UIImage?)
     {
         if avatarImage == nil{
             newUser!.setProperty("Avatar", object: "")
+        } else {
+            
+            uploadAvatar(avatarImage!, result: { (imageLink) in
+                
+                let properties = ["Avatar" : imageLink!]
+                
+                currentUser!.updateProperties(properties)
+                
+                self.backendless.userService.update(currentUser, response: { (updatedUser: BackendlessUser!) in
+                    print("Updated current user avatar")
+                    
+                    }, error: { (fault: Fault!) in
+                        
+                        print("Error could't set avatar image:\(fault)")
+                })
+            })
         }
         
         newUser!.email  = email

@@ -20,7 +20,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUt-9Z-v6P">
                                 <rect key="frame" x="20" y="530" width="560" height="50"/>
-                                <color key="backgroundColor" red="0.16671181247612316" green="0.16277974841652712" blue="0.72383814102564104" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.082103244960308075" green="0.66929322481155396" blue="0.9562036395072937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wkp-OB-Skc"/>
                                 </constraints>
@@ -44,16 +44,26 @@
                                     <segue destination="fNT-SD-Q13" kind="show" id="nvy-PB-s7c"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRt-vU-cka" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="20" y="399" width="560" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eZa-it-dxm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5SB-21-MMB"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7WZ-Oo-rgK"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8BJ-O9-za6"/>
+                            <constraint firstItem="3AU-0u-sAc" firstAttribute="top" secondItem="HRt-vU-cka" secondAttribute="bottom" constant="14" id="ERw-Zw-dwq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kUt-9Z-v6P" secondAttribute="bottom" constant="20" id="EYO-Yi-bKB"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="G54-xy-Upd"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="GOw-GD-kOo"/>
+                            <constraint firstItem="HRt-vU-cka" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HTp-IN-Swi"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="top" secondItem="3AU-0u-sAc" secondAttribute="bottom" constant="15" id="SKw-6H-Ydp"/>
+                            <constraint firstItem="HRt-vU-cka" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bBq-bx-psy"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="top" secondItem="3AU-0u-sAc" secondAttribute="bottom" constant="17" id="ify-1J-lCH"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jbe-vg-DZN"/>
                         </constraints>
@@ -64,6 +74,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="j0J-eO-Due"/>
+                    <connections>
+                        <outlet property="fbLoginButton" destination="HRt-vU-cka" id="BGG-Ln-NRa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,7 +146,13 @@
                             <constraint firstItem="zR7-B1-v2D" firstAttribute="leading" secondItem="pq3-ds-75n" secondAttribute="leadingMargin" id="zl0-XA-2hP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Register" id="eKE-K2-nKT"/>
+                    <navigationItem key="navigationItem" title="Register" id="eKE-K2-nKT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="bCF-5U-NYf">
+                            <connections>
+                                <action selector="uploadPhotoButtonPressed:" destination="fNT-SD-Q13" id="vr6-sw-Vij"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="lrL-IN-2Xj" id="2nZ-HU-KQF"/>
                         <outlet property="passwordTextField" destination="niK-XT-Il9" id="BRO-oI-4zJ"/>

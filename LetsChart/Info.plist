@@ -45,5 +45,27 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Let&apos;s Chat needs to use your location :) </string>
+    
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb1137656086312460</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>1137656086312460</string>
+    <key>FacebookDisplayName</key>
+    <string>LetsChat</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
+    
 </dict>
 </plist>
