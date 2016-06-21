@@ -40,6 +40,9 @@ class LoginViewController: UIViewController {
             
             // log in user 
             loginUser(email!, password: password!)
+            
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+            
         } else {
             // warning to user
             
@@ -56,6 +59,8 @@ class LoginViewController: UIViewController {
             
             self.emailTextField.text = ""
             self.passwordTextField.text = ""
+            
+            registerUserDeviceId()
             
             //segue to recents view 
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatVC") as! UITabBarController

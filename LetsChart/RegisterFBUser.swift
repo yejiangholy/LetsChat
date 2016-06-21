@@ -8,9 +8,46 @@
 
 import Foundation
 
+public func registerUserDeviceId() {
+    
+    if backendless.messagingService.getRegistration().deviceId != nil {
+        
+        let deviceId = backendless.messagingService.getRegistration().deviceId
+        
+        let properties = ["deviceId" : deviceId]
+        
+       backendless.userService.currentUser.assignProperties(properties)
+        backendless.userService.update(backendless.userService.currentUser)
+    }
+    
+}
+
 public func updateBackendlessUser(facebookId: String, avatarUrl: String){
     
-    let whereClause = "facebookId = '\(facebookId)'"
+    let properties : [String : String]!
+    
+    if backendless.messagingService.getRegistration().deviceId != nil {
+        
+   let deviceId = backendless.messagingService.getRegistration().deviceId
+    
+    properties = ["Avatar" : avatarUrl , "deviceId" : deviceId]
+        
+    } else {
+        properties = ["Avatar" : avatarUrl]
+    }
+    
+    backendless.userService.currentUser.updateProperties(properties)
+    
+    backendless.userService.update(backendless.userService.currentUser, response: { (updatedUser: BackendlessUser!) in
+        print("updated user is :\(updatedUser)")
+        
+    }) { (fault : Fault!) in
+        print("Error could't update the devices id: \(fault)")
+    }
+    
+    
+    
+    /*let whereClause = "facebookId = '\(facebookId)'"
     
     let dataQuery = BackendlessDataQuery()
     
@@ -30,5 +67,5 @@ public func updateBackendlessUser(facebookId: String, avatarUrl: String){
     }) { (fault: Fault!) in
         
         print("Server error :\(fault)")
-    }
+    }*/
 }

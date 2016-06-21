@@ -99,6 +99,8 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
     //MARK: Backendless user registration 
     func register(email:String , username:String , password: String , avatarImage: UIImage?)
     {
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+        
         if avatarImage == nil{
             newUser!.setProperty("Avatar", object: "")
         } else {
@@ -143,8 +145,9 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
     {
         backendless.userService.login(email, password: password, response: { (user : BackendlessUser!) -> Void in
             
-              //segue to recents view controller 
+            registerUserDeviceId()
             
+              //segue to recents view controller
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatVC") as! UITabBarController
             self.presentViewController(vc, animated: true, completion: nil)
             

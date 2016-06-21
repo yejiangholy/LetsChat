@@ -936,6 +936,12 @@
 				TargetAttributes = {
 					23C89A5C1D0BCB350000858B = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9896F4436N;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					23C89A701D0BCB350000858B = {
 						CreatedOnToolsVersion = 7.3.1;
