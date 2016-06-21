@@ -16,7 +16,7 @@ public func registerUserDeviceId() {
         
         let properties = ["deviceId" : deviceId]
         
-       backendless.userService.currentUser.assignProperties(properties)
+       backendless.userService.currentUser.updateProperties(properties)
         backendless.userService.update(backendless.userService.currentUser)
     }
     
@@ -69,3 +69,14 @@ public func updateBackendlessUser(facebookId: String, avatarUrl: String){
         print("Server error :\(fault)")
     }*/
 }
+
+
+func removeDeviceIdFromUser(){
+    
+    let properties = ["deviceId" : ""]
+    
+    backendless.userService.currentUser!.updateProperties(properties)
+    backendless.userService.update(backendless.userService.currentUser)
+}
+
+

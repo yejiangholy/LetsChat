@@ -171,6 +171,8 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
         
         let image = info[UIImagePickerControllerEditedImage] as? UIImage
         
+        ImageUser.image = image
+        
         uploadAvatar(image!) { (imageLink) in
             let properties = ["Avatar" : imageLink!]
             
@@ -224,6 +226,9 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
     
     func logOutUser()
     {
+        
+        removeDeviceIdFromUser()
+        
         backendless.userService.logout()
         
         if FBSDKAccessToken.currentAccessToken() != nil {
@@ -231,6 +236,9 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
         }
+        
+        // unregister user's device from push notification
+        PushUserResign()
         
         //show login view 
         

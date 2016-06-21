@@ -30,6 +30,7 @@
 		239657461D18AE96009B0DD4 /* MediaLibiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2396572C1D18AE96009B0DD4 /* MediaLibiOS.a */; };
 		239657471D18AE96009B0DD4 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239657371D18AE96009B0DD4 /* libspeex.a */; };
 		239657481D18AE96009B0DD4 /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2396573D1D18AE96009B0DD4 /* libx264.a */; };
+		2396574A1D19B9D0009B0DD4 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239657491D19B9D0009B0DD4 /* PushNotifications.swift */; };
 		239C1AED1D10B925008D79EE /* ChooseUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */; };
 		239C1AEF1D10EACE008D79EE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEE1D10EACE008D79EE /* ChatViewController.swift */; };
 		23A605241D14FABB00DA3C31 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A605231D14FABB00DA3C31 /* Camera.swift */; };
@@ -279,6 +280,7 @@
 		2396573A1D18AE96009B0DD4 /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
 		2396573B1D18AE96009B0DD4 /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		2396573D1D18AE96009B0DD4 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
+		239657491D19B9D0009B0DD4 /* PushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
 		239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserViewController.swift; sourceTree = "<group>"; };
 		239C1AEE1D10EACE008D79EE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		23A605231D14FABB00DA3C31 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				23A605231D14FABB00DA3C31 /* Camera.swift */,
 				23DAF9151D1654E600BBB13D /* Avatar.swift */,
 				2396566D1D186F75009B0DD4 /* RegisterFBUser.swift */,
+				239657491D19B9D0009B0DD4 /* PushNotifications.swift */,
 			);
 			name = "Assist Items";
 			sourceTree = "<group>";
@@ -1056,6 +1059,7 @@
 			files = (
 				2388EE171D0E770D00E0E9AF /* Recent.swift in Sources */,
 				239C1AED1D10B925008D79EE /* ChooseUserViewController.swift in Sources */,
+				2396574A1D19B9D0009B0DD4 /* PushNotifications.swift in Sources */,
 				2396566E1D186F75009B0DD4 /* RegisterFBUser.swift in Sources */,
 				23C89C471D0C545D0000858B /* LoginViewController.swift in Sources */,
 				2395E4241D0CF8BE005D64A6 /* RecentViewController.swift in Sources */,
