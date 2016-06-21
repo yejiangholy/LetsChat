@@ -174,9 +174,9 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
         uploadAvatar(image!) { (imageLink) in
             let properties = ["Avatar" : imageLink!]
             
-            currentUser!.updateProperties(properties)
+            backendless.userService.currentUser!.updateProperties(properties)
             
-            backendless.userService.update(currentUser, response: { (updateUser: BackendlessUser!) in
+            backendless.userService.update(backendless.userService.currentUser, response: { (updateUser: BackendlessUser!) in
                 print("Updated current user \(updateUser)")
                 
                 }, error: { (fault: Fault!) in
@@ -190,11 +190,11 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
     //MARK: UpdateUI 
     
     func updateUI(){
-        UserNameLable.text = currentUser.name
+        UserNameLable.text = backendless.userService.currentUser.name
         
         avatarSwitch.setOn(avatarSwitchStatus, animated: true)
         
-        if let imageLink = currentUser.getProperty("Avatar") {
+        if let imageLink = backendless.userService.currentUser.getProperty("Avatar") {
             getImageFromURL(imageLink as! String, result: { (image) in
                 
                 self.ImageUser.image = image

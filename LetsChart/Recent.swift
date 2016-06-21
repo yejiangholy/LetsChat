@@ -16,8 +16,6 @@ public let KFIRSTRUN = "firstRun"
 
 let firebase  =  Firebase(url: "https://letschart.firebaseio.com/")
 let backendless = Backendless.sharedInstance()
-let currentUser = backendless.userService.currentUser
-
 //MARK: Create Chatroom 
 
 func startChatId(user1:BackendlessUser , user2:BackendlessUser) -> String {
@@ -104,7 +102,7 @@ func UpdateRecentItem(recent: NSDictionary, lastMessage: String )
     
     var counter = recent["counter"] as! Int
     
-    if recent["userId"] as? String != currentUser.objectId{
+    if recent["userId"] as? String != backendless.userService.currentUser.objectId{
         counter += 1
     }
     let values = ["lastMessage": lastMessage , "counter": counter , "date":date]
@@ -122,8 +120,8 @@ func RestartRecentChat(recent:NSDictionary)
 {
     for userId in recent["members"] as! [String]
     {
-        if userId != currentUser.objectId{
-            CreateRecent(userId, ChatRoomId: (recent["chatRoomID"] as? String)! , members: recent["members"] as! [String], withUsername: currentUser.name, withUseruserId: currentUser.objectId)
+        if userId != backendless.userService.currentUser.objectId{
+            CreateRecent(userId, ChatRoomId: (recent["chatRoomID"] as? String)! , members: recent["members"] as! [String], withUsername: backendless.userService.currentUser.name, withUseruserId: backendless.userService.currentUser.objectId)
         }
     }
 }
@@ -147,7 +145,7 @@ func ClearRecentCounter(chatRoomID: String)
         
         if snapshot.exists(){
             for recent in snapshot.value.allValues{
-                if recent.objectForKey("userId") as? String == currentUser.objectId {
+                if recent.objectForKey("userId") as? String == backendless.userService.currentUser.objectId {
                     
                     ClearRecentCounter((recent as? NSDictionary)!)
                 }

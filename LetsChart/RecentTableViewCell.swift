@@ -10,7 +10,6 @@ import UIKit
 
 class RecentTableViewCell: UITableViewCell {
     
-    let backendless = Backendless.sharedInstance()
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLable: UILabel!
     @IBOutlet weak var lastMessageLable: UILabel!
@@ -40,7 +39,7 @@ class RecentTableViewCell: UITableViewCell {
         
         //get the backendless user and download profile image 
         
-        let whereClause = "objectId = '\(withUserId)'"
+        let whereClause = "objectId = '\(withUserId!)'"
         let dataQuery = BackendlessDataQuery()
         dataQuery.whereClause = whereClause
         
@@ -48,9 +47,15 @@ class RecentTableViewCell: UITableViewCell {
         
         dataStore.find(dataQuery, response: { (users : BackendlessCollection!) ->Void in
             
-            let withUser = users.data.first as? BackendlessUser
+            let withUser = users.data[0] as! BackendlessUser
             
-            //use withUser to get our avatar
+            if let avatarURL = withUser.getProperty("Avatar") {
+                getImageFromURL(avatarURL as! String, result: { (image) in
+                    
+                    self.avatarImageView.image = image
+                })
+            }
+            
             
         }) {(fault:Fault!)-> Void in
             print("error, cound't get user image: \(fault)")

@@ -15,17 +15,12 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
-    let backendless = Backendless.sharedInstance()
-    var currentUser: BackendlessUser?
-    
     
     override func viewWillAppear(animated: Bool) {
         
         backendless.userService.setStayLoggedIn(true)
         
-        currentUser = backendless.userService.currentUser
-        
-        if currentUser != nil {
+        if backendless.userService.currentUser != nil {
             
             dispatch_async(dispatch_get_main_queue()){ // make sure UI changing will happend in the main queue 
                 

@@ -17,8 +17,6 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    var backendless = Backendless.sharedInstance()
-    
     var newUser:BackendlessUser?
     var email:String?
     var username:String?
@@ -109,9 +107,9 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
                 
                 let properties = ["Avatar" : imageLink!]
                 
-                currentUser!.updateProperties(properties)
+                backendless.userService.currentUser!.updateProperties(properties)
                 
-                self.backendless.userService.update(currentUser, response: { (updatedUser: BackendlessUser!) in
+                backendless.userService.update(backendless.userService.currentUser, response: { (updatedUser: BackendlessUser!) in
                     print("Updated current user avatar")
                     
                     }, error: { (fault: Fault!) in

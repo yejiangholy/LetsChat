@@ -111,7 +111,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         //set chatVC recent to our recent
         chatVC.withUser = withUser
-        chatVC.chatRoomId = startChatId(currentUser, user2: withUser)
+        chatVC.chatRoomId = startChatId(backendless.userService.currentUser, user2: withUser)
         
         
         
@@ -120,7 +120,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
     //MARK: Load Recents from firebase 
     
     func loadRecents(){
-        firebase.childByAppendingPath("Recent").queryOrderedByChild("userId").queryEqualToValue(currentUser.objectId).observeEventType(.Value, withBlock: { snapshot in
+        firebase.childByAppendingPath("Recent").queryOrderedByChild("userId").queryEqualToValue(backendless.userService.currentUser.objectId).observeEventType(.Value, withBlock: { snapshot in
             self.recents.removeAll()
             
             if snapshot.exists(){
@@ -132,11 +132,11 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     self.recents.append(recent as! NSDictionary)
                     
                     //add function to have offline access as well
-                    /*
+                    
                     firebase.childByAppendingPath("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(recent["chatRoomId"]).observeEventType(.Value, withBlock: {
                         snapshot in
                         
-                    })*/
+                    })
                     
                 }
             }

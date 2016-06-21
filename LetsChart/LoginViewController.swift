@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
             ProgressHUD.dismiss()
             
         }) { (fault:Fault!) -> Void in
-            print("could't login user \(fault)")
+            ProgressHUD.showError("Invalid password entered, Please try again")
         }
     }
 }

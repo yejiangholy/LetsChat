@@ -62,7 +62,7 @@ class IncomingMessage {
         
         let mediaItem = JSQLocationMediaItem(location: nil)
 
-        if userId == currentUser.objectId
+        if userId == backendless.userService.currentUser.objectId
         {
              mediaItem.appliesMediaViewMaskAsOutgoing = true
         }else {
@@ -91,7 +91,7 @@ class IncomingMessage {
 
         
         let mediaItem = JSQPhotoMediaItem(image: nil)
-        mediaItem.appliesMediaViewMaskAsOutgoing = (userId == currentUser.objectId)
+        mediaItem.appliesMediaViewMaskAsOutgoing = (userId == backendless.userService.currentUser.objectId)
         
         imageFromString(item) { (image: UIImage?) -> Void in
             mediaItem.image = image

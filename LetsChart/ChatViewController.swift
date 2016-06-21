@@ -53,8 +53,8 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.senderId = currentUser.objectId
-        self.senderDisplayName = currentUser.name
+        self.senderId = backendless.userService.currentUser.objectId
+        self.senderDisplayName = backendless.userService.currentUser.name
         
         collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
@@ -88,7 +88,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
         let data = messages[indexPath.row]
         
-        if data.senderId == currentUser.objectId{
+        if data.senderId == backendless.userService.currentUser.objectId{
             cell.textView?.textColor = UIColor.whiteColor()
         } else {
             cell.textView?.textColor = UIColor.blackColor()
@@ -115,7 +115,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
         let data = messages[indexPath.row]
         
-        if data.senderId == currentUser.objectId {
+        if data.senderId == backendless.userService.currentUser.objectId {
             
             return outgoingBubble
         } else {
@@ -233,14 +233,14 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
         if let textMessage = text {
             
-            outgoingMessage = OutgoingMessage(message: textMessage, senderId: currentUser.objectId, senderName: currentUser.name, date: date , status: "Delivered", type: "text")
+            outgoingMessage = OutgoingMessage(message: textMessage, senderId: backendless.userService.currentUser.objectId, senderName: backendless.userService.currentUser.name, date: date , status: "Delivered", type: "text")
             
         }
         // if have picture message
         if let pic = picture {
             
             let imageData = UIImageJPEGRepresentation(pic, 1.0)
-            outgoingMessage = OutgoingMessage(message: "Picture", pictureData: imageData!, senderId: currentUser.objectId, senderName: currentUser.name , date: date, status: "Delievered", type: "picture")
+            outgoingMessage = OutgoingMessage(message: "Picture", pictureData: imageData!, senderId: backendless.userService.currentUser.objectId, senderName: backendless.userService.currentUser.name , date: date, status: "Delievered", type: "picture")
             
         }
         // if have location message
@@ -249,7 +249,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
             let latitude: NSNumber = NSNumber(double: (appDelegate?.coordinate?.latitude)!)
             let longitude: NSNumber = NSNumber(double: (appDelegate?.coordinate?.longitude)!)
             
-             outgoingMessage = OutgoingMessage(message: "Location", latitude: latitude, longitude:longitude, senderId: currentUser.objectId, senderName: currentUser.name, date: date, status: "Delivered", type: location)
+             outgoingMessage = OutgoingMessage(message: "Location", latitude: latitude, longitude:longitude, senderId: backendless.userService.currentUser.objectId, senderName: backendless.userService.currentUser.name, date: date, status: "Delivered", type: location)
         }
         
         //play message sent sound 
@@ -332,7 +332,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     }
     
     func incoming(item: NSDictionary) -> Bool {
-        if self.senderId == item["senderId"] as! String {
+        if backendless.userService.currentUser.objectId == item["senderId"] as! String {
             return false
         } else {
             return true
@@ -340,7 +340,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     }
     
     func outgoing(item: NSDictionary) ->Bool {
-        if self.senderId == item["senderId"] as! String{
+        if backendless.userService.currentUser.objectId == item["senderId"] as! String{
             return true
         }else {
             return false
@@ -366,7 +366,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
             collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30, 30)
             
             //download avatars 
-            avatarImageFromBackendlessUser(currentUser)
+            avatarImageFromBackendlessUser(backendless.userService.currentUser)
             avatarImageFromBackendlessUser(withUser!)
             
             //create avatars
@@ -403,7 +403,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
          var withUserAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(named: "avatarPlaceholder"), diameter: 70)
         
         if let images = avatars {
-            if let currentUserAvatarImage = images.objectForKey(currentUser.objectId){
+            if let currentUserAvatarImage = images.objectForKey(backendless.userService.currentUser.objectId){
                 
                 currentUserAvatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(data: (currentUserAvatarImage as? NSData)!), diameter: 70)
                 
@@ -418,7 +418,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
             }
         }
         
-        avatarDictionary = [currentUser.objectId : currentUserAvatar , (withUser?.objectId)! : withUserAvatar]
+        avatarDictionary = [backendless.userService.currentUser.objectId : currentUserAvatar , (withUser?.objectId)! : withUserAvatar]
     }
     
     
