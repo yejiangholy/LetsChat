@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseDatabase
 
 //--------Constants---------\\ 
 public let KAVATARSTATE = "avatarState"
@@ -14,8 +16,10 @@ public let KFIRSTRUN = "firstRun"
 
 //-----------------------\\
 
-let firebase  =  Firebase(url: "https://letschart.firebaseio.com/")
+//let firebase  =  Firebase(url: "https://letschart.firebaseio.com/")
+
 let backendless = Backendless.sharedInstance()
+let firebase = FIRDatabase.database().reference()
 //MARK: Create Chatroom 
 
 func startChatId(user1:BackendlessUser , user2:BackendlessUser) -> String {
@@ -44,12 +48,12 @@ func startChatId(user1:BackendlessUser , user2:BackendlessUser) -> String {
 func CreateRecent(userId: String, ChatRoomId: String, members:[String] , withUsername: String, withUseruserId: String)
 {
     
-    firebase.childByAppendingPath("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(ChatRoomId).observeSingleEventOfType(.Value, withBlock: { snapshot in
+    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(ChatRoomId).observeSingleEventOfType(.Value, withBlock: { snapshot in
         var createRecent = true
         
         //check if we have a result
         if snapshot.exists(){
-            for recent in snapshot.value.allValues{
+            for recent in snapshot.value!.allValues{
                 if recent["userId"] as! String == userId {
                     createRecent = false
                 }
@@ -64,7 +68,7 @@ func CreateRecent(userId: String, ChatRoomId: String, members:[String] , withUse
 
 func CreateRecentItem(userId:String , chatRoomID: String, members: [String], withUserName:String, withUserId:String)
 {
-    let ref = firebase.childByAppendingPath("Recent").childByAutoId()
+    let ref = firebase.child("Recent").childByAutoId()
     
     let recentId = ref.key
     
@@ -85,10 +89,10 @@ func CreateRecentItem(userId:String , chatRoomID: String, members: [String], wit
 func UpdateRecents(chatRoomID: String, lastMessage: String)
 {
     //first query firebase get back two recents that need to be updated 
-    firebase.childByAppendingPath("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value, withBlock: { snapshot in
+    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value, withBlock: { snapshot in
         
         if snapshot.exists(){
-            for recent in snapshot.value.allValues{
+            for recent in snapshot.value!.allValues{
                 UpdateRecentItem(recent as! NSDictionary, lastMessage: lastMessage)
             }
         }
@@ -107,7 +111,7 @@ func UpdateRecentItem(recent: NSDictionary, lastMessage: String )
     }
     let values = ["lastMessage": lastMessage , "counter": counter , "date":date]
     
-    firebase.childByAppendingPath("Recent").childByAppendingPath(recent["recentId"] as? String).updateChildValues(values as [NSObject : AnyObject], withCompletionBlock: {(error, ref)->Void in
+    firebase.child("Recent").child((recent["recentId"] as? String)!).updateChildValues(values as [NSObject : AnyObject], withCompletionBlock: {(error, ref)->Void in
         if error != nil{
             print("Error could't update recent item")
         }
@@ -130,36 +134,40 @@ func RestartRecentChat(recent:NSDictionary)
 
 func DeleteRecentItem(recent : NSDictionary)
 {
-    firebase.childByAppendingPath("Recent").childByAppendingPath(recent["recentId"] as? String).removeValueWithCompletionBlock { (error, ref) -> Void in
+    firebase.child("Recent").child((recent["recentId"] as? String)!).removeValueWithCompletionBlock { (error, ref) -> Void in
         if error != nil {
             print("Error deleting recent item: \(error)")
         }
     }
 }
 
-//MARK: Clear recent counter function 
+//MARK: Clear recent counter function
 
 func ClearRecentCounter(chatRoomID: String)
 {
-    firebase.childByAppendingPath("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value) { (snapshot: FDataSnapshot!) in
+    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value, withBlock: { snapshot in
         
-        if snapshot.exists(){
-            for recent in snapshot.value.allValues{
+        if snapshot.exists() {
+            for recent in snapshot.value!.allValues{
                 if recent.objectForKey("userId") as? String == backendless.userService.currentUser.objectId {
-                    
-                    ClearRecentCounter((recent as? NSDictionary)!)
+                    ClearRecentCounter(recent as! NSDictionary)
                 }
             }
+            
         }
-        
-    }
+    })
 }
 
+    
+
+
+    
+    
 func ClearRecentCounter(recent: NSDictionary)
 {
-    firebase.childByAppendingPath("Recent").childByAppendingPath(recent["recentId"] as? String).updateChildValues(["counter" : 0]) { (error, ref) in
+    firebase.child("Recent").child((recent["recentId"] as? String)!).updateChildValues(["counter" : 0]) { (error, ref) in
         if error != nil {
-            print("Error could't update rencents counter: \(error.localizedDescription)")
+            print("Error could't update rencents counter: \(error!.localizedDescription)")
         }
     }
 }

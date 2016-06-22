@@ -11,7 +11,7 @@ import Foundation
 class OutgoingMessage {
     
     
-    private let firebase = Firebase(url: "https://letschart.firebaseio.com/Message")
+     let ref = firebase.child("Message")
     
     let messageDictionary : NSMutableDictionary
 
@@ -36,7 +36,7 @@ class OutgoingMessage {
     
     func sendMessage(chatRoomID: String, item: NSMutableDictionary)
     {
-        let reference = firebase.childByAppendingPath(chatRoomID).childByAutoId()
+        let reference = ref.child(chatRoomID).childByAutoId()
         
         // add a key value pair to our item dictionary
         item["messageId"] = reference.key

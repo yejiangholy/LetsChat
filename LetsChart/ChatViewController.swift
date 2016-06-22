@@ -14,7 +14,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     
     let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
     
-    let ref = Firebase(url: "https://letschart.firebaseio.com/Message")
+    let ref = firebase.child("Message")
 
     var messages: [JSQMessage] = []
     var objects: [NSDictionary] = []
@@ -265,7 +265,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     
     func loadmessage()
     {
-        ref.childByAppendingPath(chatRoomId).observeEventType(.ChildAdded, withBlock: {
+        ref.child(chatRoomId).observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
             if snapshot.exists(){
@@ -286,19 +286,19 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
             }
         })
         
-        ref.childByAppendingPath(chatRoomId).observeEventType(.ChildChanged, withBlock: {
+        ref.child(chatRoomId).observeEventType(.ChildChanged, withBlock: {
             snapshot in
             
             //update messages
         })
         
-        ref.childByAppendingPath(chatRoomId).observeEventType(.ChildRemoved, withBlock: {
+        ref.child(chatRoomId).observeEventType(.ChildRemoved, withBlock: {
             snapshot in
             
             //delete messages
         })
         
-        ref.childByAppendingPath(chatRoomId).observeSingleEventOfType(.Value, withBlock: {
+        ref.child(chatRoomId).observeSingleEventOfType(.Value, withBlock: {
             snapshot in
             //get dictionay
             // create JSQ mesages

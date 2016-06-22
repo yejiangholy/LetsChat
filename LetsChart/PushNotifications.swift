@@ -11,15 +11,16 @@ import Foundation
 
 public func SendPushNotification(chatRoomID: String, message: String) {
     
-    firebase.childByAppendingPath("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value) { (snapshot: FDataSnapshot!) in
+    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value ,withBlock :{ snapshot in
         
         if snapshot.exists(){
-            let recents = snapshot.value.allValues
+            let recents = snapshot.value!.allValues
             let recent = recents[0]
-                SendPushHelper((recent["members"] as? [String])!, message: message)
+            SendPushHelper((recent["members"] as? [String])!, message: message)
         }
-    }
+    })
 }
+
 
 func SendPushHelper(members: [String], message: String)
 {

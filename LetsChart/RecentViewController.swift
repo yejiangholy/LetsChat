@@ -117,15 +117,15 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
     }
     
-    //MARK: Load Recents from firebase 
+    //MARK: Load Recents from firebase
     
     func loadRecents(){
-        firebase.childByAppendingPath("Recent").queryOrderedByChild("userId").queryEqualToValue(backendless.userService.currentUser.objectId).observeEventType(.Value, withBlock: { snapshot in
+        firebase.child("Recent").queryOrderedByChild("userId").queryEqualToValue(backendless.userService.currentUser.objectId).observeEventType(.Value, withBlock: { snapshot in
             self.recents.removeAll()
             
             if snapshot.exists(){
                 
-                let sorted = (snapshot.value.allValues as NSArray).sortedArrayUsingDescriptors([NSSortDescriptor(key:"data",ascending: false)])
+                let sorted = (snapshot.value!.allValues as NSArray).sortedArrayUsingDescriptors([NSSortDescriptor(key:"data",ascending: false)])
                 
                 for recent in sorted {
                     
@@ -133,7 +133,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     
                     //add function to have offline access as well
                     
-                    firebase.childByAppendingPath("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(recent["chatRoomId"]).observeEventType(.Value, withBlock: {
+                    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(recent["chatRoomId"]).observeEventType(.Value, withBlock: {
                         snapshot in
                         
                     })

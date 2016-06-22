@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 import FBSDKCoreKit
+import Firebase
+import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -26,10 +28,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        FIRApp.configure()
        
         backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
        
-        Firebase.defaultConfig().persistenceEnabled = true
+       // Firebase.defaultConfig().persistenceEnabled = true
+        FIRDatabase.database().persistenceEnabled = true
         
         //facebook 
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

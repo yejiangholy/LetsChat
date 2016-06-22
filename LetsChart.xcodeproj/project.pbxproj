@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		231AF5C21D0FCD8700273C92 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AF5C01D0FCC9400273C92 /* Firebase.framework */; };
-		231AF5C31D0FCD8700273C92 /* Firebase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 231AF5C01D0FCC9400273C92 /* Firebase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		231AF5C61D0FD18C00273C92 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AF5C51D0FD18C00273C92 /* libicucore.tbd */; };
 		231AF5C81D0FD1A700273C92 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AF5C71D0FD1A700273C92 /* libc++.tbd */; };
 		2388EE171D0E770D00E0E9AF /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388EE161D0E770D00E0E9AF /* Recent.swift */; };
@@ -31,6 +29,7 @@
 		239657471D18AE96009B0DD4 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239657371D18AE96009B0DD4 /* libspeex.a */; };
 		239657481D18AE96009B0DD4 /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2396573D1D18AE96009B0DD4 /* libx264.a */; };
 		2396574A1D19B9D0009B0DD4 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239657491D19B9D0009B0DD4 /* PushNotifications.swift */; };
+		2396574E1D1A17CE009B0DD4 /* GoogleService-Info1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2396574D1D1A17CE009B0DD4 /* GoogleService-Info1.plist */; };
 		239C1AED1D10B925008D79EE /* ChooseUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */; };
 		239C1AEF1D10EACE008D79EE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEE1D10EACE008D79EE /* ChatViewController.swift */; };
 		23A605241D14FABB00DA3C31 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A605231D14FABB00DA3C31 /* Camera.swift */; };
@@ -78,7 +77,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				231AF5C31D0FCD8700273C92 /* Firebase.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,7 +84,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		231AF5C01D0FCC9400273C92 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		231AF5C51D0FD18C00273C92 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		231AF5C71D0FD1A700273C92 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		2388EE161D0E770D00E0E9AF /* Recent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
@@ -281,6 +278,7 @@
 		2396573B1D18AE96009B0DD4 /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		2396573D1D18AE96009B0DD4 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
 		239657491D19B9D0009B0DD4 /* PushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
+		2396574D1D1A17CE009B0DD4 /* GoogleService-Info1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1.plist"; sourceTree = "<group>"; };
 		239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserViewController.swift; sourceTree = "<group>"; };
 		239C1AEE1D10EACE008D79EE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		23A605231D14FABB00DA3C31 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				2396573E1D18AE96009B0DD4 /* backendless.a in Frameworks */,
 				23C89A911D0BF5C30000858B /* libsqlite3.tbd in Frameworks */,
 				23C89A8F1D0BF59A0000858B /* SystemConfiguration.framework in Frameworks */,
-				231AF5C21D0FCD8700273C92 /* Firebase.framework in Frameworks */,
 				A42FAA66A871829FF48D2F14 /* libPods-LetsChart.a in Frameworks */,
 				239657451D18AE96009B0DD4 /* libswscale.a in Frameworks */,
 				239657471D18AE96009B0DD4 /* libspeex.a in Frameworks */,
@@ -364,6 +361,7 @@
 				23C89A671D0BCB350000858B /* Assets.xcassets */,
 				23C89A691D0BCB350000858B /* LaunchScreen.storyboard */,
 				23C89A6C1D0BCB350000858B /* Info.plist */,
+				2396574D1D1A17CE009B0DD4 /* GoogleService-Info1.plist */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -849,7 +847,6 @@
 			children = (
 				231AF5C71D0FD1A700273C92 /* libc++.tbd */,
 				231AF5C51D0FD18C00273C92 /* libicucore.tbd */,
-				231AF5C01D0FCC9400273C92 /* Firebase.framework */,
 				23C89A921D0BF5F90000858B /* libz.tbd */,
 				23C89A901D0BF5C30000858B /* libsqlite3.tbd */,
 				23C89A8E1D0BF59A0000858B /* SystemConfiguration.framework */,
@@ -983,6 +980,7 @@
 			files = (
 				2395E41F1D0CB56D005D64A6 /* ProgressHUD.bundle in Resources */,
 				23C89A6B1D0BCB350000858B /* LaunchScreen.storyboard in Resources */,
+				2396574E1D1A17CE009B0DD4 /* GoogleService-Info1.plist in Resources */,
 				23C89A681D0BCB350000858B /* Assets.xcassets in Resources */,
 				23C89A661D0BCB350000858B /* Main.storyboard in Resources */,
 			);
