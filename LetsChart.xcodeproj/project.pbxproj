@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		231AF5C61D0FD18C00273C92 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AF5C51D0FD18C00273C92 /* libicucore.tbd */; };
-		231AF5C81D0FD1A700273C92 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 231AF5C71D0FD1A700273C92 /* libc++.tbd */; };
+		237927871D1AE98400BF329B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 237927861D1AE98400BF329B /* GoogleService-Info.plist */; };
 		2388EE171D0E770D00E0E9AF /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388EE161D0E770D00E0E9AF /* Recent.swift */; };
 		2395E41F1D0CB56D005D64A6 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2395E41C1D0CB56D005D64A6 /* ProgressHUD.bundle */; };
 		2395E4201D0CB56D005D64A6 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2395E41E1D0CB56D005D64A6 /* ProgressHUD.m */; };
@@ -29,7 +28,6 @@
 		239657471D18AE96009B0DD4 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 239657371D18AE96009B0DD4 /* libspeex.a */; };
 		239657481D18AE96009B0DD4 /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2396573D1D18AE96009B0DD4 /* libx264.a */; };
 		2396574A1D19B9D0009B0DD4 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239657491D19B9D0009B0DD4 /* PushNotifications.swift */; };
-		2396574E1D1A17CE009B0DD4 /* GoogleService-Info1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2396574D1D1A17CE009B0DD4 /* GoogleService-Info1.plist */; };
 		239C1AED1D10B925008D79EE /* ChooseUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */; };
 		239C1AEF1D10EACE008D79EE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEE1D10EACE008D79EE /* ChatViewController.swift */; };
 		23A605241D14FABB00DA3C31 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A605231D14FABB00DA3C31 /* Camera.swift */; };
@@ -40,9 +38,6 @@
 		23C89A6B1D0BCB350000858B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C89A691D0BCB350000858B /* LaunchScreen.storyboard */; };
 		23C89A761D0BCB350000858B /* LetsChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C89A751D0BCB350000858B /* LetsChartTests.swift */; };
 		23C89A811D0BCB350000858B /* LetsChartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C89A801D0BCB350000858B /* LetsChartUITests.swift */; };
-		23C89A8F1D0BF59A0000858B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C89A8E1D0BF59A0000858B /* SystemConfiguration.framework */; };
-		23C89A911D0BF5C30000858B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C89A901D0BF5C30000858B /* libsqlite3.tbd */; };
-		23C89A931D0BF5F90000858B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C89A921D0BF5F90000858B /* libz.tbd */; };
 		23C89C451D0C52AE0000858B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C89C441D0C52AE0000858B /* WelcomeViewController.swift */; };
 		23C89C471D0C545D0000858B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C89C461D0C545D0000858B /* LoginViewController.swift */; };
 		23C89C491D0C547A0000858B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C89C481D0C547A0000858B /* RegisterViewController.swift */; };
@@ -50,7 +45,7 @@
 		23DAF9161D1654E600BBB13D /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DAF9151D1654E600BBB13D /* Avatar.swift */; };
 		23EB6E8C1D1327E50065749B /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB6E8B1D1327E50065749B /* OutgoingMessage.swift */; };
 		23EB6E8E1D136A1E0065749B /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB6E8D1D136A1E0065749B /* IncomingMessage.swift */; };
-		A42FAA66A871829FF48D2F14 /* libPods-LetsChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E361340796316AAB3CF871 /* libPods-LetsChart.a */; };
+		5D2CD8125442545337310DBE /* libPods-LetsChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD61994FFD512663208CBD11 /* libPods-LetsChart.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		231AF5C51D0FD18C00273C92 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
-		231AF5C71D0FD1A700273C92 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		237927861D1AE98400BF329B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2388EE161D0E770D00E0E9AF /* Recent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		2395E41C1D0CB56D005D64A6 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		2395E41D1D0CB56D005D64A6 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
@@ -278,7 +272,6 @@
 		2396573B1D18AE96009B0DD4 /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		2396573D1D18AE96009B0DD4 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
 		239657491D19B9D0009B0DD4 /* PushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
-		2396574D1D1A17CE009B0DD4 /* GoogleService-Info1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1.plist"; sourceTree = "<group>"; };
 		239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserViewController.swift; sourceTree = "<group>"; };
 		239C1AEE1D10EACE008D79EE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		23A605231D14FABB00DA3C31 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -295,9 +288,6 @@
 		23C89A7C1D0BCB350000858B /* LetsChartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetsChartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C89A801D0BCB350000858B /* LetsChartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsChartUITests.swift; sourceTree = "<group>"; };
 		23C89A821D0BCB350000858B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23C89A8E1D0BF59A0000858B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		23C89A901D0BF5C30000858B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		23C89A921D0BF5F90000858B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		23C89C441D0C52AE0000858B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		23C89C461D0C545D0000858B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		23C89C481D0C547A0000858B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -306,8 +296,8 @@
 		23EB6E8B1D1327E50065749B /* OutgoingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		23EB6E8D1D136A1E0065749B /* IncomingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
 		5FEB3DA99AF2F1A7E25E7548 /* Pods-LetsChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsChart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsChart/Pods-LetsChart.debug.xcconfig"; sourceTree = "<group>"; };
-		83E361340796316AAB3CF871 /* libPods-LetsChart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LetsChart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B939F7F39DF7C0BD41EA2299 /* Pods-LetsChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsChart.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsChart/Pods-LetsChart.release.xcconfig"; sourceTree = "<group>"; };
+		BD61994FFD512663208CBD11 /* libPods-LetsChart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LetsChart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,25 +305,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				231AF5C81D0FD1A700273C92 /* libc++.tbd in Frameworks */,
-				231AF5C61D0FD18C00273C92 /* libicucore.tbd in Frameworks */,
 				2396566C1D1865A2009B0DD4 /* FBSDKLoginKit.framework in Frameworks */,
 				239657431D18AE96009B0DD4 /* libavformat.a in Frameworks */,
-				23C89A931D0BF5F90000858B /* libz.tbd in Frameworks */,
 				2396566A1D18651A009B0DD4 /* FBSDKCoreKit.framework in Frameworks */,
 				239657461D18AE96009B0DD4 /* MediaLibiOS.a in Frameworks */,
 				239657481D18AE96009B0DD4 /* libx264.a in Frameworks */,
 				239657441D18AE96009B0DD4 /* libavutil.a in Frameworks */,
 				2396573E1D18AE96009B0DD4 /* backendless.a in Frameworks */,
-				23C89A911D0BF5C30000858B /* libsqlite3.tbd in Frameworks */,
-				23C89A8F1D0BF59A0000858B /* SystemConfiguration.framework in Frameworks */,
-				A42FAA66A871829FF48D2F14 /* libPods-LetsChart.a in Frameworks */,
 				239657451D18AE96009B0DD4 /* libswscale.a in Frameworks */,
 				239657471D18AE96009B0DD4 /* libspeex.a in Frameworks */,
 				239657421D18AE96009B0DD4 /* libavfilter.a in Frameworks */,
 				2396573F1D18AE96009B0DD4 /* CommLibiOS.a in Frameworks */,
 				239657411D18AE96009B0DD4 /* libavdevice.a in Frameworks */,
 				239657401D18AE96009B0DD4 /* libavcodec.a in Frameworks */,
+				5D2CD8125442545337310DBE /* libPods-LetsChart.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,8 +345,8 @@
 				23C89A601D0BCB350000858B /* AppDelegate.swift */,
 				23C89A671D0BCB350000858B /* Assets.xcassets */,
 				23C89A691D0BCB350000858B /* LaunchScreen.storyboard */,
+				237927861D1AE98400BF329B /* GoogleService-Info.plist */,
 				23C89A6C1D0BCB350000858B /* Info.plist */,
-				2396574D1D1A17CE009B0DD4 /* GoogleService-Info1.plist */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -797,7 +782,7 @@
 				23C89A7F1D0BCB350000858B /* LetsChartUITests */,
 				23C89A5E1D0BCB350000858B /* Products */,
 				C8D2A16E968E1BABAF9DBFA1 /* Pods */,
-				A5A1010F848621DA86EB73B6 /* Frameworks */,
+				23FC16C171505A4AC5F1754F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -842,15 +827,10 @@
 			path = LetsChartUITests;
 			sourceTree = "<group>";
 		};
-		A5A1010F848621DA86EB73B6 /* Frameworks */ = {
+		23FC16C171505A4AC5F1754F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				231AF5C71D0FD1A700273C92 /* libc++.tbd */,
-				231AF5C51D0FD18C00273C92 /* libicucore.tbd */,
-				23C89A921D0BF5F90000858B /* libz.tbd */,
-				23C89A901D0BF5C30000858B /* libsqlite3.tbd */,
-				23C89A8E1D0BF59A0000858B /* SystemConfiguration.framework */,
-				83E361340796316AAB3CF871 /* libPods-LetsChart.a */,
+				BD61994FFD512663208CBD11 /* libPods-LetsChart.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -980,7 +960,7 @@
 			files = (
 				2395E41F1D0CB56D005D64A6 /* ProgressHUD.bundle in Resources */,
 				23C89A6B1D0BCB350000858B /* LaunchScreen.storyboard in Resources */,
-				2396574E1D1A17CE009B0DD4 /* GoogleService-Info1.plist in Resources */,
+				237927871D1AE98400BF329B /* GoogleService-Info.plist in Resources */,
 				23C89A681D0BCB350000858B /* Assets.xcassets in Resources */,
 				23C89A661D0BCB350000858B /* Main.storyboard in Resources */,
 			);
