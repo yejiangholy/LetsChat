@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AE834749C3E7EC0B93E1168 /* libPods-LetsChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E70481CCE66C331826A3F499 /* libPods-LetsChart.a */; };
 		237927891D1B1C0E00BF329B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 237927881D1B1C0E00BF329B /* GoogleService-Info.plist */; };
+		237ABEF21D1B9EE300493562 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237ABEF11D1B9EE300493562 /* AboutUsViewController.swift */; };
 		2388EE171D0E770D00E0E9AF /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388EE161D0E770D00E0E9AF /* Recent.swift */; };
 		2395E41F1D0CB56D005D64A6 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2395E41C1D0CB56D005D64A6 /* ProgressHUD.bundle */; };
 		2395E4201D0CB56D005D64A6 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2395E41E1D0CB56D005D64A6 /* ProgressHUD.m */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		237927881D1B1C0E00BF329B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		237ABEF11D1B9EE300493562 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		2388EE161D0E770D00E0E9AF /* Recent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		2395E41C1D0CB56D005D64A6 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		2395E41D1D0CB56D005D64A6 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				239C1AEE1D10EACE008D79EE /* ChatViewController.swift */,
 				23A605251D158CCC00DA3C31 /* MapViewController.swift */,
 				23DAF9131D15ED9700BBB13D /* SettingsTableViewController.swift */,
+				237ABEF11D1B9EE300493562 /* AboutUsViewController.swift */,
 			);
 			name = RecentViewControlers;
 			sourceTree = "<group>";
@@ -1039,6 +1042,7 @@
 				239C1AED1D10B925008D79EE /* ChooseUserViewController.swift in Sources */,
 				2396574A1D19B9D0009B0DD4 /* PushNotifications.swift in Sources */,
 				2396566E1D186F75009B0DD4 /* RegisterFBUser.swift in Sources */,
+				237ABEF21D1B9EE300493562 /* AboutUsViewController.swift in Sources */,
 				23C89C471D0C545D0000858B /* LoginViewController.swift in Sources */,
 				2395E4241D0CF8BE005D64A6 /* RecentViewController.swift in Sources */,
 				23EB6E8C1D1327E50065749B /* OutgoingMessage.swift in Sources */,

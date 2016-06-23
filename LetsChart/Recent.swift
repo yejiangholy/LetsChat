@@ -16,8 +16,6 @@ public let KFIRSTRUN = "firstRun"
 
 //-----------------------\\
 
-//let firebase  =  Firebase(url: "https://letschart.firebaseio.com/")
-
 let backendless = Backendless.sharedInstance()
 let firebase = FIRDatabase.database().reference()
 //MARK: Create Chatroom 

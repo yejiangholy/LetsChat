@@ -66,6 +66,9 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
         
     }
     
+    
+    
+    
 
     // MARK: - Table view data source
 
@@ -134,6 +137,11 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
             
             showLogoutView()
             
+        }
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            
+            showPirvacyPolicy()
         }
     }
     
@@ -207,6 +215,26 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
     
     //MARK: Display views 
     
+    func showPirvacyPolicy(){
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) in
+            print("canceled")
+        }
+        
+        let aboutUsAction = UIAlertAction(title: "About us", style: .Default) { (alert: UIAlertAction) in
+            
+            self.showAboutUsView()
+            
+            }
+        optionMenu.addAction(aboutUsAction)
+        optionMenu.addAction(cancelAction)
+    
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+
+    
     func showLogoutView() {
         
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -216,12 +244,21 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
             self.logOutUser()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) in
-            print("canceled")
-        }
+            
+            
+    }
         optionMenu.addAction(logoutAction)
         optionMenu.addAction(cancelAction)
         
         self.presentViewController(optionMenu, animated:true , completion: nil)
+    }
+    
+   func  showAboutUsView()
+    {
+        let aboutUsView = storyboard!.instantiateViewControllerWithIdentifier("aboutUsView")
+        
+        self.presentViewController(aboutUsView, animated: true, completion: nil)
+        
     }
     
     func logOutUser()
