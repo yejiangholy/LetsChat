@@ -382,7 +382,8 @@
 				2395E41D1D0CB56D005D64A6 /* ProgressHUD.h */,
 				2395E41E1D0CB56D005D64A6 /* ProgressHUD.m */,
 			);
-			path = ProgressHUD;
+			name = ProgressHUD;
+			path = ../ProgressHUD;
 			sourceTree = "<group>";
 		};
 		2395E4251D0CFAF7005D64A6 /* RecentViewControlers */ = {
@@ -789,7 +790,6 @@
 				239656711D18AE95009B0DD4 /* lib */,
 				2396566B1D1865A2009B0DD4 /* FBSDKLoginKit.framework */,
 				239656691D18651A009B0DD4 /* FBSDKCoreKit.framework */,
-				2395E41B1D0CB56D005D64A6 /* ProgressHUD */,
 				23C89A5F1D0BCB350000858B /* LetsChart */,
 				23C89A741D0BCB350000858B /* LetsChartTests */,
 				23C89A7F1D0BCB350000858B /* LetsChartUITests */,
@@ -812,6 +812,7 @@
 		23C89A5F1D0BCB350000858B /* LetsChart */ = {
 			isa = PBXGroup;
 			children = (
+				2395E41B1D0CB56D005D64A6 /* ProgressHUD */,
 				239656701D18700C009B0DD4 /* Messages */,
 				2396566F1D186FB0009B0DD4 /* Assist Items */,
 				2395E4251D0CFAF7005D64A6 /* RecentViewControlers */,

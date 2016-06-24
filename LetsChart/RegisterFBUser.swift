@@ -22,6 +22,7 @@ public func registerUserDeviceId() {
     
 }
 
+
 public func updateBackendlessUser(facebookId: String, avatarUrl: String){
     
     let properties : [String : String]!
@@ -44,7 +45,7 @@ public func updateBackendlessUser(facebookId: String, avatarUrl: String){
     }) { (fault : Fault!) in
         print("Error could't update the devices id: \(fault)")
     }
-    
+ 
     
     
     /*let whereClause = "facebookId = '\(facebookId)'"

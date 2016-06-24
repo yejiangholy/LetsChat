@@ -148,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                     let avatarUrl = "https://graph.facebook.com/\(facebookId)/picture?type=normal"
                     
                      //update backendless user with avatar link
-                    updateBackendlessUser(facebookId, avatarUrl: avatarUrl)
+                   updateBackendlessUser(facebookId, avatarUrl: avatarUrl)
                     
                 } else {
                     print("Facebook request error \(error)")

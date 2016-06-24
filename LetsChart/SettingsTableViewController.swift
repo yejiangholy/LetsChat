@@ -198,7 +198,7 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
             backendless.userService.currentUser!.updateProperties(properties)
             
             backendless.userService.update(backendless.userService.currentUser, response: { (updateUser: BackendlessUser!) in
-                print("Updated current user \(updateUser)")
+                print("Updated current user image") 
                 
                 }, error: { (fault: Fault!) in
                     print("error: \(fault)")

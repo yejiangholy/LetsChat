@@ -52,24 +52,34 @@
                                     <constraint firstAttribute="height" constant="50" id="eZa-it-dxm"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-X2-iCo">
+                                <rect key="frame" x="20" y="72" width="560" height="319"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5SB-21-MMB"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7WZ-Oo-rgK"/>
+                            <constraint firstItem="q8h-X2-iCo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7fc-Th-MoJ"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8BJ-O9-za6"/>
+                            <constraint firstItem="q8h-X2-iCo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="8wn-Hm-o7T"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="top" secondItem="HRt-vU-cka" secondAttribute="bottom" constant="14" id="ERw-Zw-dwq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kUt-9Z-v6P" secondAttribute="bottom" constant="20" id="EYO-Yi-bKB"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="q8h-X2-iCo" secondAttribute="leading" id="EgM-U8-bnL"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="G54-xy-Upd"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="GOw-GD-kOo"/>
                             <constraint firstItem="HRt-vU-cka" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HTp-IN-Swi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q8h-X2-iCo" secondAttribute="trailing" id="Ihz-JI-rFh"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="top" secondItem="3AU-0u-sAc" secondAttribute="bottom" constant="15" id="SKw-6H-Ydp"/>
+                            <constraint firstItem="3AU-0u-sAc" firstAttribute="top" secondItem="q8h-X2-iCo" secondAttribute="bottom" constant="72" id="XDA-D7-Oqc"/>
                             <constraint firstItem="HRt-vU-cka" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bBq-bx-psy"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="top" secondItem="3AU-0u-sAc" secondAttribute="bottom" constant="17" id="ify-1J-lCH"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jbe-vg-DZN"/>
+                            <constraint firstItem="HRt-vU-cka" firstAttribute="top" secondItem="q8h-X2-iCo" secondAttribute="bottom" constant="8" symbolic="YES" id="wlg-8X-VQK"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="XDA-D7-Oqc"/>
                                 <exclude reference="SKw-6H-Ydp"/>
                             </mask>
                         </variation>
@@ -81,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060" y="191"/>
+            <point key="canvasLocation" x="1058" y="311"/>
         </scene>
         <!--Register-->
         <scene sceneID="KSC-cw-fgG">
