@@ -48,7 +48,7 @@ class OutgoingMessage {
         }
         // send push notification
         
-        SendPushNotification(chatRoomID, message: (item["message"] as? String)!)
+       // SendPushNotification(chatRoomID, message: (item["message"] as? String)!)
         
         // update recents here
        UpdateRecents(chatRoomID, lastMessage: (item["message"] as? String)!)

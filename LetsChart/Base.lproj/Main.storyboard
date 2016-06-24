@@ -407,6 +407,50 @@
             </objects>
             <point key="canvasLocation" x="3424" y="718"/>
         </scene>
+        <!--Terms Of Service View Controller-->
+        <scene sceneID="6Xd-Zm-Lfa">
+            <objects>
+                <viewController storyboardIdentifier="TermsOfServiceView" id="ic2-WW-OD5" customClass="TermsOfServiceViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1SE-Sx-glW"/>
+                        <viewControllerLayoutGuide type="bottom" id="JSd-mO-sar"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="go8-TK-6Nr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpZ-3Z-oy2">
+                                <rect key="frame" x="475" y="20" width="105" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="5MU-9f-87c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="BackButtonPressed:" destination="ic2-WW-OD5" eventType="touchUpInside" id="mgK-Iu-XBT"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="family" translatesAutoresizingMaskIntoConstraints="NO" id="Ttz-K3-aAA">
+                                <rect key="frame" x="20" y="61" width="560" height="478"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UpZ-3Z-oy2" firstAttribute="top" secondItem="1SE-Sx-glW" secondAttribute="bottom" id="Ag5-cf-crb"/>
+                            <constraint firstItem="Ttz-K3-aAA" firstAttribute="top" secondItem="1SE-Sx-glW" secondAttribute="bottom" constant="41" id="EPN-mY-6gW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ttz-K3-aAA" secondAttribute="trailing" id="Iaw-w3-ynv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UpZ-3Z-oy2" secondAttribute="trailing" id="gTe-x7-sQV"/>
+                            <constraint firstItem="Ttz-K3-aAA" firstAttribute="centerY" secondItem="go8-TK-6Nr" secondAttribute="centerY" id="lbH-Wo-Eiz"/>
+                            <constraint firstItem="Ttz-K3-aAA" firstAttribute="centerX" secondItem="go8-TK-6Nr" secondAttribute="centerX" id="pjw-qf-vAt"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjS-Bu-jfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4197" y="928"/>
+        </scene>
         <!--About Us View Controller-->
         <scene sceneID="ovK-Fz-NeD">
             <objects>
@@ -490,7 +534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgN-nc-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4328" y="901"/>
+            <point key="canvasLocation" x="4939" y="1244"/>
         </scene>
         <!--Chats-->
         <scene sceneID="LIc-7x-R64">
@@ -848,6 +892,7 @@
     <resources>
         <image name="Logo" width="303" height="238"/>
         <image name="avatarPlaceholder" width="250" height="250"/>
+        <image name="family" width="960" height="720"/>
         <image name="settings" width="22" height="23"/>
     </resources>
 </document>

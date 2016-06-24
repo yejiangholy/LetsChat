@@ -143,6 +143,17 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
             
             showPirvacyPolicy()
         }
+        
+        if indexPath.section == 0 && indexPath.row == 1 {
+            
+            
+            let TermsView = storyboard!.instantiateViewControllerWithIdentifier("TermsOfServiceView")
+            
+            self.presentViewController(TermsView, animated: true, completion: nil)
+            
+
+            
+        }
     }
     
     //MARK: Change photo 
