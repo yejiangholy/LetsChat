@@ -21,7 +21,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadUsers()
+        loadFriends()
 
         // Do any additional setup after loading the view.
     }
@@ -70,26 +70,78 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
         
     }
     
-    //MARK: Load Backendless Users
-    func loadUsers(){
-        let whereClause = "objectId != '\(backendless.userService.currentUser.objectId)'"
+    //MARK: Load currentUser's friends
+    func loadFriends(){
+        
+        // 1. get current user's friends list
+        let whereClause = "objectId = '\(backendless.userService.currentUser.objectId)'"
         let dataQuery = BackendlessDataQuery()
         dataQuery.whereClause = whereClause
         
         let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
-        dataStore.find(dataQuery, response: {(users:BackendlessCollection!)-> Void in
-            //because it is a call back function and not happend in the main thread, so we need self here 
+        
+        dataStore.find(dataQuery, response: { (users: BackendlessCollection!) in
+            let currentUser = users.data.first as! BackendlessUser
             
-            self.users = users.data as! [BackendlessUser]
+        let friendsList = currentUser.getProperty("FriendsList")
+            if let friendIdList = friendsList as? String{
             
-            self.tableView.reloadData()//update table 
+                let friendsIdArray = friendIdList.componentsSeparatedByString(" ")
+                              
+                var whereClause = "objectId = '\(friendsIdArray.first!)'"
+                
+                if friendsIdArray.count > 1 {
+                    
+                    for i in 1..<friendsIdArray.count {
+                        
+                        whereClause = "\(whereClause) or objectId = '\(friendsIdArray[i])'"
+                    }
+                    
+                    let dataQuery = BackendlessDataQuery()
+                    dataQuery.whereClause = whereClause
+                    let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+                    
+                    dataStore.find(dataQuery, response: { (users : BackendlessCollection!) in
+                        
+                        
+                        self.users = users.data as! [BackendlessUser]
+                        
+                        self.tableView.reloadData()//update table
+                        
+                        }, error: { (fault : Fault!) in
+                            
+                            print("Error, couldn't retrive user's friends : \(fault)")
+                    })
+                    
+                }else {
+                    
+                    let dataQuery = BackendlessDataQuery()
+                    dataQuery.whereClause = whereClause
+                    let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+                    
+                    dataStore.find(dataQuery, response: { (users : BackendlessCollection!) in
+                        
+                        
+                        self.users = users.data as! [BackendlessUser]
+                        
+                        self.tableView.reloadData()//update table
+                        
+                        }, error: { (fault : Fault!) in
+                            
+                            print("Error, couldn't retrive user's friends : \(fault)")
+                    })
+
+                }
+            }else {
+                // do not have any friends in current user's friends list
+                ProgressHUD.showError("go add friends to chat !")
+            }
             
-        }){(fault:Fault!)-> Void in
-            
-            print("Error, couldn't retrive users: \(fault)")
+        }){ (fault : Fault!) in
+            print("Server error \(fault)")
         }
+        
     }
     
-    
-
 }
+

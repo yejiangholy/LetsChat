@@ -124,21 +124,24 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
         
         let YesAction = UIAlertAction(title: "YES ! ", style: .Default) { (alert :UIAlertAction!) in
             
-            if userIsNotFriends(user) {
-                
-                if addUserToFriendsList(user){
+                self.userIsNotFriends(user, result: { (result) in
+                if result == true {
+                   
+                    self.addUserToFriendsList(user, result: { (result) in
+                        
+                        if result == true {
+                            
+                            ProgressHUD.showSuccess("Your just add'\(userName)' as your friend !")
+                        } else {
+                            ProgressHUD.showError("Could't add'\(userName)' as your friends")
+                            
+                        }
+                    })
                     
-                    ProgressHUD.showSuccess("'\(userName)' is your friends now !")
-                } else {
-                    
-                    ProgressHUD.showError("Could't add'\(userName)' as your friends")
+                }else {
+                    ProgressHUD.showSuccess("'\(userName)' is already in your friend!")
                 }
-                
-            }else {
-                
-                ProgressHUD.showSuccess("'\(userName)' is already your friends!")
-
-            }
+            })
         }
         
       let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) in
@@ -150,11 +153,70 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
         self.presentViewController(optionMenu, animated:true , completion: nil)
         
         // in the positvie allert action call back function we add this user's objectId into current user's friends list and if it is the first time he add this user && add success we show message to tell them add successful and ow you could chat with this user , otherwise we show error message .
-        
-        
     }
     
+    // MARK: Check weather the user is in current user's friends list 
+    func userIsNotFriends(otherUser: BackendlessUser, result: (result: Bool)-> Void) {
+        
+        let whereClause = "objectId = '\(backendless.userService.currentUser.objectId)'"
+        let dataQuery = BackendlessDataQuery()
+        dataQuery.whereClause = whereClause
+        
+        let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+            
+            dataStore.find(dataQuery, response: { (users:BackendlessCollection!) in
+                let currentUser = users.data.first as! BackendlessUser
+                
+               
+                if  let friendsList = currentUser.getProperty("FriendsList") as? String {
+                    
+                    if friendsList.containsString(otherUser.objectId as String)
+                    {
+                        result(result: false)
+                    }else{
+                        result(result:true)
+                    }
+                }else {
+                     result(result:true)
+                }
+                
+            }) { (fault : Fault!) in
+                result(result:false)
+                ProgressHUD.showError("Error when get current user")
+            }
+    }
     
+    func addUserToFriendsList(friend: BackendlessUser, result: (result: Bool)-> Void)
+    {
+        let whereClause = "objectId = '\(backendless.userService.currentUser.objectId)'"
+        let dataQuery = BackendlessDataQuery()
+        dataQuery.whereClause = whereClause
+        
+        let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+
+        dataStore.find(dataQuery, response: { (users: BackendlessCollection!) in
+            let currentUser = users.data.first as! BackendlessUser
+            let currentFriendsList = currentUser.getProperty("FriendsList")
+            var updatedFriendsList : String
+            
+            if  let currentFriends = currentFriendsList as? String{
+            let friendsId = (friend.objectId as String).stringByAppendingString(" ")
+            updatedFriendsList = currentFriends.stringByAppendingString(friendsId)
+            } else{
+                updatedFriendsList = friend.objectId as String
+            }
+            let property = ["FriendsList" : updatedFriendsList]
+            currentUser.updateProperties(property)
+            backendless.userService.update(currentUser)
+            print("updated users friendsList here ") 
+            result(result: true)
+            
+        }) { (fault : Fault!) in
+            result(result: false)
+            print("Server error when adding friend:\(fault)")
+        }
+        
+    }
     
     
     
