@@ -121,6 +121,7 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
             })
         }
         
+        newUser!.setProperty("FriendsList", object: "")
         newUser!.email  = email
         newUser!.name = username
         newUser!.password = password

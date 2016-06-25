@@ -496,8 +496,8 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2016 Copyright Ye Jiang. All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbh-Ie-ekQ">
-                                <rect key="frame" x="14" y="535" width="560" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2016 Ye Jiang. All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbh-Ie-ekQ">
+                                <rect key="frame" x="14" y="535" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -545,6 +545,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgN-nc-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4939" y="1244"/>
+        </scene>
+        <!--Search Users Table View Controller-->
+        <scene sceneID="yAa-77-7BH">
+            <objects>
+                <tableViewController id="t9h-CN-ctq" customClass="SearchUsersTableViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vXs-SW-bGi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="g0x-2q-xLB" style="IBUITableViewCellStyleDefault" id="eBs-tg-Weh">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eBs-tg-Weh" id="dcm-CY-rXY">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g0x-2q-xLB">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="t9h-CN-ctq" id="AMT-dU-Nyl"/>
+                            <outlet property="delegate" destination="t9h-CN-ctq" id="uHL-jF-IPl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="P2k-UO-lzr">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="6jc-3G-pUs">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="RPg-gv-2tE">
+                                <rect key="frame" x="447" y="7" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Cancel">
+                                            <attributes>
+                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="t9h-CN-ctq" eventType="touchUpInside" id="qME-zj-aNL"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rdl-y4-FQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5534" y="-675"/>
         </scene>
         <!--Chats-->
         <scene sceneID="LIc-7x-R64">
@@ -662,6 +720,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="SXT-LW-wYj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="uxB-M5-8ZC">
+                            <connections>
+                                <action selector="addSearchUserButtonPressed:" destination="ppZ-yv-TsH" id="xJS-Qv-FhP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="7G3-9N-egF">
                             <connections>
                                 <action selector="startNewChatBarButtonPressed:" destination="ppZ-yv-TsH" id="bRx-Mh-WTz"/>
@@ -672,11 +735,12 @@
                         <outlet property="tableView" destination="jqx-f2-Lqh" id="x6d-9y-RHW"/>
                         <segue destination="I8O-fs-Px4" kind="presentation" identifier="recentToChooseUserVC" id="f5y-Et-2xd"/>
                         <segue destination="Caz-t2-fBX" kind="show" identifier="recentToChatSeg" id="pTY-n3-7hd"/>
+                        <segue destination="dhC-a8-Qgc" kind="presentation" identifier="RecentToSearchSeg" id="TLl-2d-Q67"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsD-eV-KCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4377" y="132"/>
+            <point key="canvasLocation" x="4223" y="-15"/>
         </scene>
         <!--Choose User View Controller-->
         <scene sceneID="kON-py-n4V">
@@ -897,6 +961,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKJ-E8-pCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3234" y="-15"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lgY-cJ-zlK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dhC-a8-Qgc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cFk-sG-YrJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t9h-CN-ctq" kind="relationship" relationship="rootViewController" id="bEa-TX-gB3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rah-4k-rIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4722" y="-675"/>
         </scene>
     </scenes>
     <resources>

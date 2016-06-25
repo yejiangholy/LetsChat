@@ -78,6 +78,14 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         performSegueWithIdentifier("recentToChooseUserVC", sender: self)
         
     }
+    
+    @IBAction func addSearchUserButtonPressed(sender: AnyObject) {
+        
+        performSegueWithIdentifier("RecentToSearchSeg", sender: self)
+        
+    }
+    
+    
     //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "recentToChooseUserVC"{
@@ -99,6 +107,9 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
         }
     }
+    
+    
+    
     
     //MARK: ChooseUserDelegate 
     func createChatroom(withUser: BackendlessUser) {
