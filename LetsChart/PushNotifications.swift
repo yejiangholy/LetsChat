@@ -8,7 +8,7 @@
 
 import Foundation
 
-/*
+
 public func SendPushNotification(chatRoomID: String, message: String) {
     
     firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value ,withBlock :{ snapshot in
@@ -20,7 +20,7 @@ public func SendPushNotification(chatRoomID: String, message: String) {
         }
     })
 }
- */
+ 
 
 
 func SendPushHelper(members: [String], message: String)

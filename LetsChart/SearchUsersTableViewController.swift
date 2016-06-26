@@ -203,7 +203,7 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
             let friendsId = (friend.objectId as String).stringByAppendingString(" ")
             updatedFriendsList = currentFriends.stringByAppendingString(friendsId)
             } else{
-                updatedFriendsList = friend.objectId as String
+                updatedFriendsList = (friend.objectId as String).stringByAppendingString(" ")
             }
             let property = ["FriendsList" : updatedFriendsList]
             currentUser.updateProperties(property)

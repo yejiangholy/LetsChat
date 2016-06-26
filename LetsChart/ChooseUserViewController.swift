@@ -88,15 +88,15 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
             
                 let friendsIdArray = friendIdList.componentsSeparatedByString(" ")
                               
-                var whereClause = "objectId = '\(friendsIdArray.first!)'"
+                var whereClause = "objectId = '\(friendsIdArray[0])'"
                 
                 if friendsIdArray.count > 1 {
                     
                     for i in 1..<friendsIdArray.count {
                         
-                        whereClause = "\(whereClause) or objectId = '\(friendsIdArray[i])'"
+                    whereClause += " or objectId = '\(friendsIdArray[i])'"
                     }
-                    
+                   
                     let dataQuery = BackendlessDataQuery()
                     dataQuery.whereClause = whereClause
                     let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
