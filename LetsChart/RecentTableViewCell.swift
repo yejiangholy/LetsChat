@@ -60,7 +60,7 @@ class RecentTableViewCell: UITableViewCell {
         }) {(fault:Fault!)-> Void in
             print("error, cound't get user image: \(fault)")
         }
-        nameLable.text = recent["withUsaerUsername"]as? String
+        nameLable.text = recent["withUserUsername"]as? String
         lastMessageLable.text = recent["lastMessage"] as? String
         counterLabel.text = ""
         

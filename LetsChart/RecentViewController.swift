@@ -124,7 +124,20 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         chatVC.withUser = withUser
         chatVC.chatRoomId = startChatId(backendless.userService.currentUser, user2: withUser)
         
+    }
+    
+    func createGroupChatRoom(users: [BackendlessUser], title: String?)
+    {
+        let groupChatVC = GroupChatViewController()
+        groupChatVC.hidesBottomBarWhenPushed = true
         
+        navigationController?.pushViewController(groupChatVC, animated: true)
+        
+        groupChatVC.withUser = users.filter{ $0.objectId! != backendless.userService.currentUser.objectId }
+        
+        groupChatVC.chatRoomId = startGroupChatId(users)
+        
+        groupChatVC.title = title 
         
     }
     

@@ -75,6 +75,8 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

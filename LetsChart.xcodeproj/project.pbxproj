@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AE834749C3E7EC0B93E1168 /* libPods-LetsChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E70481CCE66C331826A3F499 /* libPods-LetsChart.a */; };
 		230588841D1CC4FA004CFDFD /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230588831D1CC4FA004CFDFD /* TermsOfServiceViewController.swift */; };
+		23506D3C1D2077BC00308A17 /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */; };
 		237927891D1B1C0E00BF329B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 237927881D1B1C0E00BF329B /* GoogleService-Info.plist */; };
 		237ABEF21D1B9EE300493562 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237ABEF11D1B9EE300493562 /* AboutUsViewController.swift */; };
 		2388EE171D0E770D00E0E9AF /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2388EE161D0E770D00E0E9AF /* Recent.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		230588831D1CC4FA004CFDFD /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
 		237927881D1B1C0E00BF329B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		237ABEF11D1B9EE300493562 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		2388EE161D0E770D00E0E9AF /* Recent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
@@ -391,11 +393,12 @@
 		2395E4251D0CFAF7005D64A6 /* RecentViewControlers */ = {
 			isa = PBXGroup;
 			children = (
-				2395E4211D0CF5BC005D64A6 /* RecentTableViewCell.swift */,
 				23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */,
+				2395E4211D0CF5BC005D64A6 /* RecentTableViewCell.swift */,
 				2395E4231D0CF8BE005D64A6 /* RecentViewController.swift */,
 				239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */,
 				239C1AEE1D10EACE008D79EE /* ChatViewController.swift */,
+				23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */,
 				23A605251D158CCC00DA3C31 /* MapViewController.swift */,
 			);
 			name = RecentViewControlers;
@@ -1063,6 +1066,7 @@
 				2395E4241D0CF8BE005D64A6 /* RecentViewController.swift in Sources */,
 				23EB6E8C1D1327E50065749B /* OutgoingMessage.swift in Sources */,
 				23C89A611D0BCB350000858B /* AppDelegate.swift in Sources */,
+				23506D3C1D2077BC00308A17 /* GroupChatViewController.swift in Sources */,
 				230588841D1CC4FA004CFDFD /* TermsOfServiceViewController.swift in Sources */,
 				23DAF9161D1654E600BBB13D /* Avatar.swift in Sources */,
 				2395E4201D0CB56D005D64A6 /* ProgressHUD.m in Sources */,
