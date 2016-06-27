@@ -74,18 +74,234 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     //MARK: JSQMessage dataSrouce functions 
     
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
+        
+        let data = messages[indexPath.row]
+        
+        if data.senderId == backendless.userService.currentUser.objectId{
+            cell.textView?.textColor = UIColor.whiteColor()
+        } else {
+            cell.textView?.textColor = UIColor.blackColor()
+        }
+        
+        return cell
+    }
     
     
+    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+        
+        
+        let data = messages[indexPath.row]
+        
+        return data
+    }
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return messages.count
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+        
+        let data = messages[indexPath.row]
+        
+        if data.senderId == backendless.userService.currentUser.objectId{
+            return outgoingBubble
+        } else {
+            return incomingBubble
+        }
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+        
+        
+        if indexPath.item % 3 == 0 {
+            let message = messages[indexPath.item]
+            
+            return JSQMessagesTimestampFormatter.sharedFormatter().attributedTimestampForDate(message.date)
+            
+        }else {
+            
+            return nil
+        }
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+        
+        let message = objects[indexPath.row]
+        let status = message["status"] as! String
+        
+        if indexPath.row == (message.count - 1 ){
+            return NSAttributedString(string: status)
+        } else {
+            return NSAttributedString(string: "")
+        }
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        
+        
+        if indexPath.item % 3 == 0 {
+            return kJSQMessagesCollectionViewCellLabelHeightDefault
+        } else {
+            return 0.0
+        }
+    }
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
+        
+        let message = messages[indexPath.row]
+        
+        let avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
+        
+        return avatar
+    }
     
     
+    // MARK: JSQMessage Delegate functions 
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+        
+        
+        if text != "" {
+            
+            sendMessage(text, date: date, picture: nil, Location: nil)
+        }
+    }
     
     
-    
-    
+    override func didPressAccessoryButton(sender: UIButton!) {
+        
+        
+        let camera = Camera(delegate_: self)
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let takePhoto = UIAlertAction(title: "Take Photo" ,style: .Default) {(alert: UIAlertAction)->Void in
+            
+            camera.PresentPhoteCamera(self, canEdit: true)
+        }
+        
+        let sharePhoto = UIAlertAction(title: "Share Photo" ,style: .Default) {(alert: UIAlertAction)->Void in
+            
+            camera.PresentPhotoLibrary(self, canEdit: true)
+        }
+        
+        let shareLocation = UIAlertAction(title: "Share Location" ,style: .Default) {(alert: UIAlertAction)->Void in
+            
+            if self.haveAccessToLocation(){
+                self.sendMessage(nil, date: NSDate(), picture: nil, Location: "location")
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel" ,style: .Cancel) {(alert: UIAlertAction)->Void in
+            print("Cancle")
+        }
+        
+        optionMenu.addAction(takePhoto)
+        optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(shareLocation)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true , completion: nil)
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func haveAccessToLocation() -> Bool{
+        if (appDelegate?.coordinate?.latitude) != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    //MARK: Send three different Messages 
+    func sendMessage(text:String? , date: NSDate , picture: UIImage?, Location: String?){
+        
+        var outgoingMessage = OutgoingMessage?()
+        
+        if let textMessage = text {
+            
+            outgoingMessage = OutgoingMessage(message: textMessage, senderId: backendless.userService.currentUser.objectId, senderName: backendless.userService.currentUser.name, date: date , status: "Delivered", type: "text")
+            
+        }
+        // if have picture message
+        if let pic = picture {
+            
+            let imageData = UIImageJPEGRepresentation(pic, 1.0)
+            outgoingMessage = OutgoingMessage(message: "Picture", pictureData: imageData!, senderId: backendless.userService.currentUser.objectId, senderName: backendless.userService.currentUser.name , date: date, status: "Delievered", type: "picture")
+            
+        }
+        // if have location message
+        if let location = Location{
+            
+            let latitude: NSNumber = NSNumber(double: (appDelegate?.coordinate?.latitude)!)
+            let longitude: NSNumber = NSNumber(double: (appDelegate?.coordinate?.longitude)!)
+            
+            outgoingMessage = OutgoingMessage(message: "Location", latitude: latitude, longitude:longitude, senderId: backendless.userService.currentUser.objectId, senderName: backendless.userService.currentUser.name, date: date, status: "Delivered", type: location)
+        }
+        
+        //paly message sent sound 
+       JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        self.finishSendingMessage()
+        
+        outgoingMessage!.sendMessage(chatRoomId, item: outgoingMessage!.messageDictionary)
+        
+    }
+    
+    //MARK: JSQDelegate functions 
+    //this function will be called when user tap our message 
+    override func collectionView(collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAtIndexPath indexPath: NSIndexPath!) {
+        
+        let object = objects[indexPath.row]
+        
+        if object["type"] as? String == "picture" {
+            let message = messages[indexPath.row]
+            let mediaItem = message.media as! JSQPhotoMediaItem
+            let photos = IDMPhoto.photosWithImages([mediaItem.image])
+            
+            let browser = IDMPhotoBrowser(photos: photos)
+            
+            self.presentViewController(browser, animated: true, completion: nil)
+        }
+        if object["type"] as? String == "location" {
+            self.performSegueWithIdentifier("chatToMapSeg", sender: indexPath)
+        }
+    }
+    
+    //MARK: UIIMagePickerController functions,(send image message here)
+    //send image message
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        let picture = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        self.sendMessage(nil, date: NSDate(), picture: picture, Location: nil)
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+
+    }
+    
+    // MARK: prepareForSegue 
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "chatToMapSeg" {
+            let indexPath = sender as! NSIndexPath
+            let message = messages[indexPath.row]
+            let mediaItem = message.media as? JSQLocationMediaItem
+            
+            let mapView = segue.destinationViewController as! MapViewController
+            
+            mapView.location = mediaItem?.location
+        }
     }
     
 // MARK: loadUserDefaults
