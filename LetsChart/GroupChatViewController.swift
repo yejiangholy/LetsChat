@@ -57,7 +57,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         
         if withUser?.count == 0 {
-        
+            
             getWithUsersFromRecent(recent!, result: { (withUsers) in
                 self.withUser = withUsers
                 self.getAvatar()
@@ -66,10 +66,14 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             self.getAvatar()
         }
         
-        loadmessage()
+        loadMessage()
+        
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
-           }
+    }
+    
+    //MARK: JSQMessage dataSrouce functions 
+    
     
     
     
@@ -188,5 +192,74 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     }
     
     
+    func loadMessage()
+    {
+        
+        firebaseRef.child(chatRoomId).observeEventType(.ChildAdded, withBlock:  { snapshot in
+            
+            if snapshot.exists(){
+                let item = (snapshot.value as? NSDictionary)!
+                if self.initialLoadComplete {
+                    
+                    let incoming = self.insertSingleMessage(item)
+                    
+                    if incoming {
+                        JSQSystemSoundPlayer.jsq_playMessageReceivedSound()
+                    }
+                    self.finishReceivingMessageAnimated(true)
+                }else {
+                    self.loaded.append(item)
+                }
+            }
+            
+        })
+        
+        firebaseRef.child(chatRoomId).observeEventType(.ChildChanged, withBlock: {
+            snapshot in
+            
+            //position for future need update messages
+        })
+        
+        firebaseRef.child(chatRoomId).observeEventType(.ChildRemoved, withBlock: {
+            snapshot in
+            
+            // postion for future need delete messages
+        })
+
+        firebaseRef.child(chatRoomId).observeEventType(.Value, withBlock: {
+            snapshot in
+            
+            self.insertMessages()
+            self.finishReceivingMessageAnimated(true)
+            self.initialLoadComplete = true
+        })
+    }
+    
+    func insertMessages(){
+        
+        for messsage in loaded {
+            //create message
+            insertSingleMessage(messsage)
+        }
+    }
+    
+    func insertSingleMessage(item : NSDictionary) -> Bool {
+        
+        let incomingMessage = IncomingMessage(collectionView_: self.collectionView!)
+        let message = incomingMessage.createMessage(item)
+        
+        objects.append(item)
+        messages.append(message!)
+        
+        return incoming(item)
+    }
+    
+    func incoming(item: NSDictionary)-> Bool {
+        if backendless.userService.currentUser.objectId == item["senderId"] as! String {
+            return false
+        } else {
+            return true
+        }
+    }
     
 }

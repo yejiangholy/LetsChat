@@ -20,7 +20,7 @@ let backendless = Backendless.sharedInstance()
 let firebase = FIRDatabase.database().reference()
 //MARK: Create Chatroom 
 
-func startChatId(user1:BackendlessUser , user2:BackendlessUser) -> String {
+ func startChatId(user1:BackendlessUser , user2:BackendlessUser) -> String {
     //user 1 is current user 
     let userID1 = user1.objectId
     let userID2 = user2.objectId
