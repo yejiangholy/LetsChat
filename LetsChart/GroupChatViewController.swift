@@ -60,9 +60,14 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         
             getWithUsersFromRecent(recent!, result: { (withUsers) in
                 self.withUser = withUsers
-                self.getAvatar() 
+                self.getAvatar()
             })
+        } else {
+            self.getAvatar()
         }
+        
+        loadmessage()
+        self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
            }
     
@@ -119,4 +124,69 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             print("Server report an error :\(fault)")
         }
     }
+    
+    
+    
+    func getAvatar()
+    {
+        if showAvatars {
+            collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30, 30)
+            collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30, 30)
+            
+              avatarImageFromBackendlessUser(backendless.userService.currentUser)
+            for i in 0..<withUser!.count {
+                avatarImageFromBackendlessUser(withUser![i])
+            }
+            
+            createAvatars(avatarImageDictionary)
+        }
+    }
+    
+    
+    func avatarImageFromBackendlessUser(user: BackendlessUser) {
+        
+        if let imageLink = user.getProperty("Avatar"){
+            
+            getImageFromURL(imageLink as! String, result: { (image) in
+                
+                let imageData = UIImageJPEGRepresentation(image!, 1.0)
+                
+                if self.avatarImageDictionary != nil {
+                    self.avatarImageDictionary!.removeObjectForKey(user.objectId)
+                    self.avatarImageDictionary!.setObject(imageData!, forKey: user.objectId!)
+                } else{
+                    self.avatarImageDictionary = [user.objectId!: imageData!]
+                }
+                self.createAvatars(self.avatarImageDictionary)
+            })
+        }
+        
+    }
+    
+    func createAvatars(avatars: NSMutableDictionary?)
+    {
+        
+        var users : [BackendlessUser] = []
+        for i in 0..<withUser!.count{
+            users.append(withUser![i])
+        }
+        users.append(backendless.userService.currentUser)
+        
+        
+        for i in 0..<users.count{
+            var userImage = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(named: "avatarPlaceholder"), diameter: 70)
+            if let images = avatars {
+                if let withUserAvatarImage = images.objectForKey((users[i].objectId!)){
+                    userImage = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(data: (withUserAvatarImage as? NSData)!), diameter: 70)
+                    
+                    self.collectionView?.reloadData()
+                }
+            }
+            let imageDitionary = [users[i].objectId : userImage]
+            avatarDictionary?.addEntriesFromDictionary(imageDitionary)
+        }
+    }
+    
+    
+    
 }
