@@ -284,7 +284,7 @@
 		23A605231D14FABB00DA3C31 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		23A605251D158CCC00DA3C31 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersTableViewController.swift; sourceTree = "<group>"; };
-		23C89A5D1D0BCB350000858B /* LetsChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23C89A5D1D0BCB350000858B /* LetsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C89A601D0BCB350000858B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23C89A651D0BCB350000858B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23C89A671D0BCB350000858B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -808,7 +808,7 @@
 		23C89A5E1D0BCB350000858B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23C89A5D1D0BCB350000858B /* LetsChart.app */,
+				23C89A5D1D0BCB350000858B /* LetsChat.app */,
 				23C89A711D0BCB350000858B /* LetsChartTests.xctest */,
 				23C89A7C1D0BCB350000858B /* LetsChartUITests.xctest */,
 			);
@@ -868,9 +868,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		23C89A5C1D0BCB350000858B /* LetsChart */ = {
+		23C89A5C1D0BCB350000858B /* LetsChat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23C89A851D0BCB350000858B /* Build configuration list for PBXNativeTarget "LetsChart" */;
+			buildConfigurationList = 23C89A851D0BCB350000858B /* Build configuration list for PBXNativeTarget "LetsChat" */;
 			buildPhases = (
 				B67EEE24A57A639DAF10845A /* [CP] Check Pods Manifest.lock */,
 				23C89A591D0BCB350000858B /* Sources */,
@@ -884,9 +884,9 @@
 			);
 			dependencies = (
 			);
-			name = LetsChart;
+			name = LetsChat;
 			productName = LetsChart;
-			productReference = 23C89A5D1D0BCB350000858B /* LetsChart.app */;
+			productReference = 23C89A5D1D0BCB350000858B /* LetsChat.app */;
 			productType = "com.apple.product-type.application";
 		};
 		23C89A701D0BCB350000858B /* LetsChartTests */ = {
@@ -967,7 +967,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23C89A5C1D0BCB350000858B /* LetsChart */,
+				23C89A5C1D0BCB350000858B /* LetsChat */,
 				23C89A701D0BCB350000858B /* LetsChartTests */,
 				23C89A7B1D0BCB350000858B /* LetsChartUITests */,
 			);
@@ -1102,12 +1102,12 @@
 /* Begin PBXTargetDependency section */
 		23C89A731D0BCB350000858B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 23C89A5C1D0BCB350000858B /* LetsChart */;
+			target = 23C89A5C1D0BCB350000858B /* LetsChat */;
 			targetProxy = 23C89A721D0BCB350000858B /* PBXContainerItemProxy */;
 		};
 		23C89A7E1D0BCB350000858B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 23C89A5C1D0BCB350000858B /* LetsChart */;
+			target = 23C89A5C1D0BCB350000858B /* LetsChat */;
 			targetProxy = 23C89A7D1D0BCB350000858B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1335,7 +1335,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23C89A851D0BCB350000858B /* Build configuration list for PBXNativeTarget "LetsChart" */ = {
+		23C89A851D0BCB350000858B /* Build configuration list for PBXNativeTarget "LetsChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23C89A861D0BCB350000858B /* Debug */,
