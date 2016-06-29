@@ -39,7 +39,6 @@ let firebase = FIRDatabase.database().reference()
     CreateRecent(userID2, ChatRoomId: chatRoomId, members: members, withUsername: user1.name!, withUseruserId: userID1)
     
     
-    print("2 people chatRoom id length = '\(chatRoomId.characters.count))'")
     return chatRoomId
 }
 
@@ -63,11 +62,9 @@ func startGroupChatId (users:[BackendlessUser]) -> String {
         allNames.append(users[i].name!)
     }
 
-    print("users.count = '\(users.count)'")
     for i in 0..<users.count{
         createGroupRecent(users[i].objectId, chatRoomId: chatRoomId, members: allMembers, withUsersname: allNames.filter{$0 != users[i].name! }, withUsersuserId: allMembers.filter{$0 != users[i].objectId!})
         }
-    print("3 people chatRoom id length = = '\(chatRoomId.characters.count))'")
 
     return chatRoomId
 }
@@ -117,7 +114,6 @@ func createGroupRecent(userId: String, chatRoomId: String, members:[String], wit
 
 func createGroupRecentItem(userId:String , chatRoomID: String, members: [String], withUserName: [String], withUserId: [String])
 {
-    print("create group recent item being called ")
     let ref = firebase.child("Recent").childByAutoId()
     let recentId = ref.key
     let date = dataFormatter().stringFromDate(NSDate())

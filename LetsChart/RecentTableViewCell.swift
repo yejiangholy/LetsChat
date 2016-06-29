@@ -39,7 +39,7 @@ class RecentTableViewCell: UITableViewCell {
             let withUsersId = recent.objectForKey("withUserUserId") as! [String]
             
             var images:[UIImage] = []
-            
+            print("withUserId count = '\(withUsersId.count)'")
             //1. put all withUser's image into images array && name into names
             for i in 0..<withUsersId.count {
                 
@@ -57,10 +57,19 @@ class RecentTableViewCell: UITableViewCell {
                     
                     if let avatarURL = withUser.getProperty("Avatar") {
                         getImageFromURL(avatarURL as! String, result: { (image) in
+                            print("append one image")
                             images.append(image!)
                         })
                     }else {
+                        print("append place holder")
                          images.append(UIImage(named: "avatarPlaceholder")!)
+                    }
+                    
+                    if (i == withUsersId.count - 1 )
+                    {
+                        print("i = '\(i)'")
+                        print("when call method images counter = '\(images.count)'")
+                         self.avatarImageView.image = self.imageFromImages(images)
                     }
                     
                 }) {(fault:Fault!)-> Void in
@@ -70,8 +79,6 @@ class RecentTableViewCell: UITableViewCell {
         
             let names = recent.objectForKey("withUserUserName") as! [String]
          
-            self.avatarImageView.image = imageFromImages(images)
-            
             nameLable.text = nameFromNames(names)
             
             lastMessageLable.text = recent["lastMessage"] as? String
@@ -164,26 +171,49 @@ class RecentTableViewCell: UITableViewCell {
          imageView.image = finalImage;
          [self.view addSubview:imageView];
         }*/
-    
-    
-    
-    
         
     func imageFromImages(images: [UIImage] )-> UIImage
     {
-        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width/2
-        avatarImageView.layer.masksToBounds = true
-
-        let totalWidth =
-        let size = CGSizeMake(<#T##width: CGFloat##CGFloat#>, <#T##height: CGFloat##CGFloat#>)
+        
+        var totalWidth:CGFloat = 0.0
+        for i in 0..<images.count {
+            print("add one = '\(images[i].size.width)'")
+            totalWidth += images[i].size.width
+        }
+        
+        let num : CGFloat = CGFloat(images.count)
+        
+        let widthOffSet = totalWidth/num
+        
+        print("images number = '\(images.count)'")
+        print("total width = '\(totalWidth)'")
+        print("first height = '\(images[0].size.height)'")
+        let size = CGSizeMake(totalWidth, images[0].size.height)
+        
+       UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        
+        for i in 0..<images.count{
+            
+            images[i].drawInRect(CGRectMake(CGFloat(i) * widthOffSet, 0 , widthOffSet, size.height))
+        }
+        
+         let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+          UIGraphicsEndImageContext()
+        
+        return finalImage
     }
 
     
     func nameFromNames(names: [String]) -> String
     {
         
+        var name : String = ""
         
+        for i in 0..<names.count{
+            name = name.stringByAppendingString(names[i])
+        }
         
+        return name
     }
     
     func TimeElipsed(seconds: NSTimeInterval) -> String {

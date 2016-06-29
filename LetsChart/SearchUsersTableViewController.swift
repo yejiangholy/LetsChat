@@ -211,7 +211,6 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
             let property = ["FriendsList" : updatedFriendsList]
             currentUser.updateProperties(property)
             backendless.userService.update(currentUser)
-            print("updated users friendsList here ") 
             result(result: true)
             
         }) { (fault : Fault!) in
