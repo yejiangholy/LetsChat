@@ -479,7 +479,7 @@
                                     <constraint firstAttribute="width" constant="111" id="olD-as-p5X"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="269" y="28" width="111" height="52"/>
@@ -499,7 +499,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2016 Ye Jiang. All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbh-Ie-ekQ">
                                 <rect key="frame" x="14" y="535" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhi-0w-yxJ">
@@ -566,7 +566,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -590,6 +590,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdl-y4-FQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5840" y="-183"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Grp-eH-vrM">
+            <objects>
+                <viewController id="atS-A7-u49" customClass="MapViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iw8-YX-w4Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tp1-mu-KJV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2JW-k8-MDC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bO3-xE-hcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3382" y="-664"/>
+        </scene>
+        <!--Group Chat View Controller-->
+        <scene sceneID="45R-44-5K3">
+            <objects>
+                <viewController id="nYz-Ro-NFT" customClass="GroupChatViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="knx-mA-iaL"/>
+                        <viewControllerLayoutGuide type="bottom" id="dG5-zE-idm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nzH-nx-ctF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="14f-kH-ie2"/>
+                    <connections>
+                        <segue destination="atS-A7-u49" kind="presentation" identifier="GroupChatToMapSeg" id="y9P-gp-wbd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nzg-vQ-mHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4272" y="-1400"/>
         </scene>
         <!--Chats-->
         <scene sceneID="LIc-7x-R64">
@@ -724,6 +764,7 @@
                         <segue destination="Caz-t2-fBX" kind="show" identifier="recentToChatSeg" id="pTY-n3-7hd"/>
                         <segue destination="dhC-a8-Qgc" kind="presentation" identifier="RecentToSearchSeg" id="TLl-2d-Q67"/>
                         <segue destination="dv8-vb-9XF" kind="presentation" identifier="recentToGroupSettingSeg" id="WiR-Bn-Vbk"/>
+                        <segue destination="nYz-Ro-NFT" kind="show" identifier="recentToGroupChatSeg" id="pwB-qV-Sdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsD-eV-KCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -970,7 +1011,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

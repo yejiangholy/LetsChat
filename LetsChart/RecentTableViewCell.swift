@@ -38,45 +38,20 @@ class RecentTableViewCell: UITableViewCell {
             
             let withUsersId = recent.objectForKey("withUserUserId") as! [String]
             
-            var images:[UIImage] = []
-            print("withUserId count = '\(withUsersId.count)'")
             //1. put all withUser's image into images array && name into names
-            for i in 0..<withUsersId.count {
+            self.getImagesFromId(withUsersId, images: { (images) in
                 
-                let withUserId = withUsersId[i]
-                
-                let whereClause = "objectId = '\(withUserId)'"
-                let dataQuery = BackendlessDataQuery()
-                dataQuery.whereClause = whereClause
-                
-                let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
-                
-                dataStore.find(dataQuery, response: { (users : BackendlessCollection!) ->Void in
+                if images.count != 0 {
                     
-                    let withUser = users.data[0] as! BackendlessUser
+                    self.avatarImageView.image = self.imageFromImages(images)
                     
-                    if let avatarURL = withUser.getProperty("Avatar") {
-                        getImageFromURL(avatarURL as! String, result: { (image) in
-                            print("append one image")
-                            images.append(image!)
-                        })
-                    }else {
-                        print("append place holder")
-                         images.append(UIImage(named: "avatarPlaceholder")!)
-                    }
+                } else {
                     
-                    if (i == withUsersId.count - 1 )
-                    {
-                        print("i = '\(i)'")
-                        print("when call method images counter = '\(images.count)'")
-                         self.avatarImageView.image = self.imageFromImages(images)
-                    }
+                    self.avatarImageView.image = UIImage(named: "avatarPlaceholder")
                     
-                }) {(fault:Fault!)-> Void in
-                    print("error, cound't get user image: \(fault)")
                 }
-            }
-        
+            })
+            
             let names = recent.objectForKey("withUserUserName") as! [String]
          
             nameLable.text = nameFromNames(names)
@@ -92,8 +67,8 @@ class RecentTableViewCell: UITableViewCell {
             let seconds = NSDate().timeIntervalSinceDate(date!)
             dateLabel.text = TimeElipsed(seconds)
 
-            
         }
+            
         else {
        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width/2
         avatarImageView.layer.masksToBounds = true
@@ -140,6 +115,54 @@ class RecentTableViewCell: UITableViewCell {
         
     }
     
+    func getImagesFromId(usersId: [String], images: (images: [UIImage]) -> Void )
+    {
+        
+         var UIimages:[UIImage] = []
+        
+        var whereClause = "objectId = '\(usersId[0])'"
+        if usersId.count > 1 {
+            
+            for i in 0..<usersId.count {
+                
+                whereClause += " or objectId = '\(usersId[i])'"
+        }
+            let dataQuery = BackendlessDataQuery()
+            dataQuery.whereClause = whereClause
+            
+            let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+            
+            dataStore.find(dataQuery, response: { (users : BackendlessCollection!) ->Void in
+                
+                let withUsers = users.data as! [BackendlessUser]
+                
+                for user in withUsers {
+                   var willAppend = false
+                    if let avatarURL = user.getProperty("Avatar"){
+                        willAppend = true
+                        getImageFromURL(avatarURL as! String, result: { (image) in
+                            UIimages.append(image!)
+                            if(UIimages.count == withUsers.count)
+                            {
+                                images(images: UIimages)
+                            }
+                        })
+                    }
+                    if !(willAppend){
+                        UIimages.append(UIImage(named: "avatarPlaceholder")!)
+                        if(UIimages.count == withUsers.count)
+                        {
+                            images(images: UIimages)
+                        }
+                    }
+                }
+            }) {(fault:Fault!)-> Void in
+                print("error, cound't get user image: \(fault)")
+            }
+            
+        }
+    }
+    
     func getMixedImg(image1: UIImage, image2: UIImage) -> UIImage {
         
         let size = CGSizeMake(image1.size.width, image1.size.height + image2.size.height)
@@ -177,17 +200,15 @@ class RecentTableViewCell: UITableViewCell {
         
         var totalWidth:CGFloat = 0.0
         for i in 0..<images.count {
-            print("add one = '\(images[i].size.width)'")
+            
             totalWidth += images[i].size.width
+            
         }
         
         let num : CGFloat = CGFloat(images.count)
         
         let widthOffSet = totalWidth/num
-        
-        print("images number = '\(images.count)'")
-        print("total width = '\(totalWidth)'")
-        print("first height = '\(images[0].size.height)'")
+    
         let size = CGSizeMake(totalWidth, images[0].size.height)
         
        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
@@ -207,9 +228,10 @@ class RecentTableViewCell: UITableViewCell {
     func nameFromNames(names: [String]) -> String
     {
         
-        var name : String = ""
+        var name : String = names[0]
         
-        for i in 0..<names.count{
+        for i in 1..<names.count{
+            name = name.stringByAppendingString(" , ")
             name = name.stringByAppendingString(names[i])
         }
         

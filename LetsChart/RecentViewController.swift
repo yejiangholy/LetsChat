@@ -53,8 +53,16 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         let recent = recents[indexPath.row]
         RestartRecentChat(recent)
         
+        let members = recent.objectForKey("members") as! [String]
         
+        if members.count == 2 {
+            
         performSegueWithIdentifier("recentToChatSeg", sender: indexPath)
+            
+        } else {
+            
+            performSegueWithIdentifier("recentToGroupChatSeg", sender: indexPath)
+        }
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -125,6 +133,19 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
             chatVC.chatRoomId = recent["chatRoomID"] as? String
             
         }
+        
+        if segue.identifier == "recentToGroupChatSeg" {
+            let indexpath = sender as! NSIndexPath
+            let groupChatVC = segue.destinationViewController as! GroupChatViewController
+            
+            groupChatVC.hidesBottomBarWhenPushed = true
+            
+            let recent = recents[indexpath.row]
+            
+            groupChatVC.recent = recent
+            groupChatVC.chatRoomId = recent["chatRoomID"] as? String
+        }
+        
         
         if segue.identifier == "recentToGroupSettingSeg"{
             let navigation = segue.destinationViewController as! UINavigationController

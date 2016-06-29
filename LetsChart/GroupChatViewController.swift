@@ -33,7 +33,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     var initialLoadComplete: Bool = false
     
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
-    let incomingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+    let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
 
     override func viewWillAppear(animated: Bool) {
         
@@ -273,7 +273,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             self.presentViewController(browser, animated: true, completion: nil)
         }
         if object["type"] as? String == "location" {
-            self.performSegueWithIdentifier("chatToMapSeg", sender: indexPath)
+            self.performSegueWithIdentifier("GroupChatToMapSeg", sender: indexPath)
         }
     }
     
@@ -293,7 +293,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "chatToMapSeg" {
+        if segue.identifier == "GroupChatToMapSeg" {
             let indexPath = sender as! NSIndexPath
             let message = messages[indexPath.row]
             let mediaItem = message.media as? JSQLocationMediaItem
