@@ -133,12 +133,51 @@ class RecentTableViewCell: UITableViewCell {
         
     }
     
+    func getMixedImg(image1: UIImage, image2: UIImage) -> UIImage {
+        
+        let size = CGSizeMake(image1.size.width, image1.size.height + image2.size.height)
+        
+        UIGraphicsBeginImageContext(size)
+        
+        image1.drawInRect(CGRectMake(0,0,size.width, image1.size.height))
+        image2.drawInRect(CGRectMake(0,image1.size.height,size.width, image2.size.height))
+        
+        let finalImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return finalImage
+    }/*
+         CGSize size = CGSizeMake(image1.size.width, image1.size.height + image2.size.height);
+         
+         UIGraphicsBeginImageContextWithOptions(size, false, 0.0) // Use this call
+         
+         [image1 drawInRect:CGRectMake(0,0,size.width, image1.size.height)];
+     
+         [image2 drawInRect:CGRectMake(0,image1.size.height,size.width, image2.size.height)];
+         
+         UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+         
+         UIGraphicsEndImageContext();
+         
+         //Add image to view
+         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, finalImage.size.width, finalImage.size.height)];
+         imageView.image = finalImage;
+         [self.view addSubview:imageView];
+        }*/
+    
+    
+    
+    
+        
     func imageFromImages(images: [UIImage] )-> UIImage
     {
-        
-        
-        
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width/2
+        avatarImageView.layer.masksToBounds = true
+
+        let totalWidth =
+        let size = CGSizeMake(<#T##width: CGFloat##CGFloat#>, <#T##height: CGFloat##CGFloat#>)
     }
+
     
     func nameFromNames(names: [String]) -> String
     {
