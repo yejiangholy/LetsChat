@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, ChooseUserDelegate{
+class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, ChooseUserDelegate, ChooseGroupUserDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var recents: [NSDictionary] = []
@@ -81,7 +81,26 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     @IBAction func addSearchUserButtonPressed(sender: AnyObject) {
         
-        performSegueWithIdentifier("RecentToSearchSeg", sender: self)
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let searchUsers = UIAlertAction(title: "Search Users", style: .Default) { (alert: UIAlertAction!) -> Void in
+            
+            self.performSegueWithIdentifier("RecentToSearchSeg", sender: self)
+            
+        }
+        let formGroupChat = UIAlertAction(title: "Form a group chat", style: .Default) { (alert :UIAlertAction!) -> Void in
+            
+             self.performSegueWithIdentifier("recentToGroupSettingSeg", sender: self)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) ->Void in
+            
+            print("Cancel")
+        }
+        optionMenu.addAction(searchUsers)
+        optionMenu.addAction(formGroupChat)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
         
     }
     
@@ -106,9 +125,16 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
             chatVC.chatRoomId = recent["chatRoomID"] as? String
             
         }
+        
+        if segue.identifier == "recentToGroupSettingSeg"{
+            let navigation = segue.destinationViewController as! UINavigationController
+            
+            let groupSettingView = navigation.topViewController as! SettingGroupChatTableViewController
+            
+            groupSettingView.delegate = self
+        }
+
     }
-    
-    
     
     
     //MARK: ChooseUserDelegate 
@@ -126,6 +152,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
     }
     
+    //MARK : ChooseGroupUserDelegate
     func createGroupChatRoom(users: [BackendlessUser], title: String?)
     {
         let groupChatVC = GroupChatViewController()
@@ -137,7 +164,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         groupChatVC.chatRoomId = startGroupChatId(users)
         
-        groupChatVC.title = title 
+        groupChatVC.title = title
         
     }
     
@@ -157,7 +184,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
                     
                     //add function to have offline access as well
                     
-                    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(recent["chatRoomId"]).observeEventType(.Value, withBlock: {
+                    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(recent["chatRoomID"]).observeEventType(.Value, withBlock: {
                         snapshot in
                         
                     })

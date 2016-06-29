@@ -1,73 +1,93 @@
 //
-//  ChooseUserViewController.swift
+//  SettingGroupChatTableViewController.swift
 //  LetsChart
 //
-//  Created by JiangYe on 6/14/16.
+//  Created by JiangYe on 6/28/16.
 //  Copyright © 2016 JiangYe. All rights reserved.
 //
 
 import UIKit
-protocol ChooseUserDelegate {
-    func createChatroom(withUser: BackendlessUser)
+
+protocol ChooseGroupUserDelegate{
+    
+    func createGroupChatRoom(users: [BackendlessUser], title: String?)
+    
 }
-
-class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
+class SettingGroupChatTableViewController: UITableViewController {
     
-    var delegate: ChooseUserDelegate!
-    var users:[BackendlessUser] = []
-
-    @IBOutlet weak var tableView: UITableView!
+    var friends: [BackendlessUser] = []
+    var otherMembers : [BackendlessUser] = []
+    var delegate: ChooseGroupUserDelegate!
     
+    
+    //MARK: UITableView dataSrouce 
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friends.count
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let selectedRow = tableView.cellForRowAtIndexPath(indexPath)!
+         let user = friends[indexPath.row]
+        
+        if selectedRow.accessoryType == UITableViewCellAccessoryType.None {
+            selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
+            selectedRow.tintColor = UIColor.greenColor()
+            self.otherMembers.append(user)
+            
+        } else {
+            selectedRow.accessoryType = UITableViewCellAccessoryType.None
+            let index = otherMembers.indexOf(user)
+            self.otherMembers.removeAtIndex(index!)
+        }
+        
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+         return 1
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        let user = friends[indexPath.row]
+        cell.textLabel?.text = user.name
+        
+        return cell
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         loadFriends()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // MARK: - Table view data source
+
     
-    //MARK: UITableviewDataSource
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let user = users[indexPath.row]
-        cell.textLabel?.text = user.name
+    @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
         
-        return cell
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
     
-    //MARK: IBactions
-    @IBAction func cancelButtonPressed(sender: UIButton) {
+    
+    @IBAction func fromButtonPressed(sender: UIBarButtonItem) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
-    }
-    
-    //MARK: UITableviewDelegate 
-    //this func being called everytime user touch our table view cell
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // 1. we deselect it
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        // 2. create chat room and a recent object to this selected user 
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.otherMembers.append(backendless.userService.currentUser)
         
-        let user = users[indexPath.row]
-        
-        delegate.createChatroom(user)
+        delegate.createGroupChatRoom(otherMembers, title: "Group Chat")
         
     }
     
@@ -84,20 +104,20 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
         dataStore.find(dataQuery, response: { (users: BackendlessCollection!) in
             let currentUser = users.data.first as! BackendlessUser
             
-        let friendsList = currentUser.getProperty("FriendsList")
+            let friendsList = currentUser.getProperty("FriendsList")
             if let friendIdList = friendsList as? String{
-            
+                
                 let friendsIdArray = friendIdList.componentsSeparatedByString(" ")
-                              
+                
                 var whereClause = "objectId = '\(friendsIdArray[0])'"
                 
                 if friendsIdArray.count > 1 {
                     
                     for i in 1..<friendsIdArray.count {
                         
-                    whereClause += " or objectId = '\(friendsIdArray[i])'"
+                        whereClause += " or objectId = '\(friendsIdArray[i])'"
                     }
-                   
+                    
                     let dataQuery = BackendlessDataQuery()
                     dataQuery.whereClause = whereClause
                     let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
@@ -105,7 +125,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
                     dataStore.find(dataQuery, response: { (users : BackendlessCollection!) in
                         
                         
-                        self.users = users.data as! [BackendlessUser]
+                        self.friends = users.data as! [BackendlessUser]
                         
                         ProgressHUD.dismiss()
                         self.tableView.reloadData()//update table
@@ -124,7 +144,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
                     dataStore.find(dataQuery, response: { (users : BackendlessCollection!) in
                         
                         
-                        self.users = users.data as! [BackendlessUser]
+                        self.friends = users.data as! [BackendlessUser]
                         
                         self.tableView.reloadData()//update table
                         
@@ -132,7 +152,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
                             
                             ProgressHUD.showError("Error, couldn't retrive user's friends")
                     })
-
+                    
                 }
             }else {
                 // do not have any friends in current user's friends list
@@ -144,6 +164,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
         }
         
     }
-    
-}
 
+    
+  
+}

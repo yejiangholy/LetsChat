@@ -92,6 +92,7 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
     //MARK: Load Backendless Users
     func loadUsers(){
         
+        ProgressHUD.show("Loading")
         let whereClause = "objectId != '\(backendless.userService.currentUser.objectId)'"
         let dataQuery = BackendlessDataQuery()
         dataQuery.whereClause = whereClause
@@ -101,6 +102,8 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
             
             self.AllUsers = users.data as! [BackendlessUser]
             
+            
+            ProgressHUD.dismiss()
             self.tableView.reloadData()
             
         }) { (fault: Fault!) in

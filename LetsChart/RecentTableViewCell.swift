@@ -30,6 +30,64 @@ class RecentTableViewCell: UITableViewCell {
 
     
     func bindData(recent:NSDictionary){
+        
+        let chatRoomIdLength = (recent.objectForKey("chatRoomID")as! String).characters.count
+        if chatRoomIdLength > 100 {
+            avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width/2
+            avatarImageView.layer.masksToBounds = true
+            
+            let withUsersId = recent.objectForKey("withUserUserId") as! [String]
+            
+            var images:[UIImage] = []
+            
+            //1. put all withUser's image into images array && name into names
+            for i in 0..<withUsersId.count {
+                
+                let withUserId = withUsersId[i]
+                
+                let whereClause = "objectId = '\(withUserId)'"
+                let dataQuery = BackendlessDataQuery()
+                dataQuery.whereClause = whereClause
+                
+                let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+                
+                dataStore.find(dataQuery, response: { (users : BackendlessCollection!) ->Void in
+                    
+                    let withUser = users.data[0] as! BackendlessUser
+                    
+                    if let avatarURL = withUser.getProperty("Avatar") {
+                        getImageFromURL(avatarURL as! String, result: { (image) in
+                            images.append(image!)
+                        })
+                    }else {
+                         images.append(UIImage(named: "avatarPlaceholder")!)
+                    }
+                    
+                }) {(fault:Fault!)-> Void in
+                    print("error, cound't get user image: \(fault)")
+                }
+            }
+        
+            let names = recent.objectForKey("withUserUserName") as! [String]
+         
+            self.avatarImageView.image = imageFromImages(images)
+            
+            nameLable.text = nameFromNames(names)
+            
+            lastMessageLable.text = recent["lastMessage"] as? String
+            counterLabel.text = ""
+            
+            if(recent["counter"] as? Int)! != 0 {
+                counterLabel.text = "\(recent["counter"]!) New"
+            }
+            
+            let date = dataFormatter().dateFromString((recent["date"] as? String)!)
+            let seconds = NSDate().timeIntervalSinceDate(date!)
+            dateLabel.text = TimeElipsed(seconds)
+
+            
+        }
+        else {
        avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width/2
         avatarImageView.layer.masksToBounds = true
         
@@ -71,6 +129,21 @@ class RecentTableViewCell: UITableViewCell {
         let date = dataFormatter().dateFromString((recent["date"] as? String)!)
         let seconds = NSDate().timeIntervalSinceDate(date!)
         dateLabel.text = TimeElipsed(seconds)
+        }
+        
+    }
+    
+    func imageFromImages(images: [UIImage] )-> UIImage
+    {
+        
+        
+        
+    }
+    
+    func nameFromNames(names: [String]) -> String
+    {
+        
+        
         
     }
     

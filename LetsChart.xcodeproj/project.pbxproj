@@ -50,6 +50,7 @@
 		23DAF9161D1654E600BBB13D /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DAF9151D1654E600BBB13D /* Avatar.swift */; };
 		23EB6E8C1D1327E50065749B /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB6E8B1D1327E50065749B /* OutgoingMessage.swift */; };
 		23EB6E8E1D136A1E0065749B /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB6E8D1D136A1E0065749B /* IncomingMessage.swift */; };
+		23F616621D22C198000ECC3C /* SettingGroupChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F616611D22C198000ECC3C /* SettingGroupChatTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,6 +304,7 @@
 		23DAF9151D1654E600BBB13D /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		23EB6E8B1D1327E50065749B /* OutgoingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		23EB6E8D1D136A1E0065749B /* IncomingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
+		23F616611D22C198000ECC3C /* SettingGroupChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingGroupChatTableViewController.swift; sourceTree = "<group>"; };
 		5FEB3DA99AF2F1A7E25E7548 /* Pods-LetsChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsChart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsChart/Pods-LetsChart.debug.xcconfig"; sourceTree = "<group>"; };
 		B939F7F39DF7C0BD41EA2299 /* Pods-LetsChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsChart.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsChart/Pods-LetsChart.release.xcconfig"; sourceTree = "<group>"; };
 		E70481CCE66C331826A3F499 /* libPods-LetsChart.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LetsChart.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -399,6 +401,7 @@
 				239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */,
 				239C1AEE1D10EACE008D79EE /* ChatViewController.swift */,
 				23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */,
+				23F616611D22C198000ECC3C /* SettingGroupChatTableViewController.swift */,
 				23A605251D158CCC00DA3C31 /* MapViewController.swift */,
 			);
 			name = RecentViewControlers;
@@ -1077,6 +1080,7 @@
 				23DAF9141D15ED9700BBB13D /* SettingsTableViewController.swift in Sources */,
 				239C1AEF1D10EACE008D79EE /* ChatViewController.swift in Sources */,
 				23C89C491D0C547A0000858B /* RegisterViewController.swift in Sources */,
+				23F616621D22C198000ECC3C /* SettingGroupChatTableViewController.swift in Sources */,
 				23A605261D158CCC00DA3C31 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

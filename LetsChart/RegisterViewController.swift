@@ -146,7 +146,7 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
     {
         backendless.userService.login(email, password: password, response: { (user : BackendlessUser!) -> Void in
             
-               registerUserDeviceId()
+             //  registerUserDeviceId()
             
               //segue to recents view controller
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatVC") as! UITabBarController

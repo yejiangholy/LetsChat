@@ -10,7 +10,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -96,7 +96,7 @@
         <!--Register-->
         <scene sceneID="KSC-cw-fgG">
             <objects>
-                <viewController id="fNT-SD-Q13" customClass="RegisterViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fNT-SD-Q13" customClass="RegisterViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="czp-Zr-jiF"/>
                         <viewControllerLayoutGuide type="bottom" id="bBb-mu-jGS"/>
@@ -177,7 +177,7 @@
         <!--Log in-->
         <scene sceneID="JZz-L3-axt">
             <objects>
-                <viewController id="Svo-4e-FM3" customClass="LoginViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Svo-4e-FM3" customClass="LoginViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8hn-ps-FGX"/>
                         <viewControllerLayoutGuide type="bottom" id="WwN-N4-tCM"/>
@@ -246,7 +246,7 @@
         <!--Settings-->
         <scene sceneID="5vv-4P-cqC">
             <objects>
-                <tableViewController id="gVC-Pa-1QQ" customClass="SettingsTableViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gVC-Pa-1QQ" customClass="SettingsTableViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="REB-eV-uvb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -420,7 +420,7 @@
         <!--Terms Of Service View Controller-->
         <scene sceneID="6Xd-Zm-Lfa">
             <objects>
-                <viewController storyboardIdentifier="TermsOfServiceView" id="ic2-WW-OD5" customClass="TermsOfServiceViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsOfServiceView" id="ic2-WW-OD5" customClass="TermsOfServiceViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1SE-Sx-glW"/>
                         <viewControllerLayoutGuide type="bottom" id="JSd-mO-sar"/>
@@ -464,7 +464,7 @@
         <!--About Us View Controller-->
         <scene sceneID="ovK-Fz-NeD">
             <objects>
-                <viewController storyboardIdentifier="aboutUsView" id="4cd-Z0-aiW" customClass="AboutUsViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aboutUsView" id="4cd-Z0-aiW" customClass="AboutUsViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XJ4-W5-XV0"/>
                         <viewControllerLayoutGuide type="bottom" id="Per-WS-qtK"/>
@@ -544,12 +544,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgN-nc-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4939" y="1244"/>
+            <point key="canvasLocation" x="5046" y="1781"/>
         </scene>
         <!--Search Users Table View Controller-->
         <scene sceneID="yAa-77-7BH">
             <objects>
-                <tableViewController id="t9h-CN-ctq" customClass="SearchUsersTableViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="t9h-CN-ctq" customClass="SearchUsersTableViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vXs-SW-bGi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -579,35 +579,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="P2k-UO-lzr">
-                        <barButtonItem key="rightBarButtonItem" style="done" id="6jc-3G-pUs">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="RPg-gv-2tE">
-                                <rect key="frame" x="447" y="7" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Cancel">
-                                            <attributes>
-                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="t9h-CN-ctq" eventType="touchUpInside" id="qME-zj-aNL"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="naJ-8x-3uY">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="t9h-CN-ctq" id="qpU-Je-EGU"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdl-y4-FQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5534" y="-675"/>
+            <point key="canvasLocation" x="5840" y="-183"/>
         </scene>
         <!--Chats-->
         <scene sceneID="LIc-7x-R64">
             <objects>
-                <viewController id="ppZ-yv-TsH" customClass="RecentViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ppZ-yv-TsH" customClass="RecentViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nhw-dp-Knb"/>
                         <viewControllerLayoutGuide type="bottom" id="44D-HP-33Z"/>
@@ -621,7 +608,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="cDZ-Vv-UKo" customClass="RecentTableViewCell" customModule="LetsChart" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="cDZ-Vv-UKo" customClass="RecentTableViewCell" customModule="LetsChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDZ-Vv-UKo" id="hGl-1w-wOi">
@@ -736,6 +723,7 @@
                         <segue destination="I8O-fs-Px4" kind="presentation" identifier="recentToChooseUserVC" id="f5y-Et-2xd"/>
                         <segue destination="Caz-t2-fBX" kind="show" identifier="recentToChatSeg" id="pTY-n3-7hd"/>
                         <segue destination="dhC-a8-Qgc" kind="presentation" identifier="RecentToSearchSeg" id="TLl-2d-Q67"/>
+                        <segue destination="dv8-vb-9XF" kind="presentation" identifier="recentToGroupSettingSeg" id="WiR-Bn-Vbk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsD-eV-KCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -745,7 +733,7 @@
         <!--Choose User View Controller-->
         <scene sceneID="kON-py-n4V">
             <objects>
-                <viewController id="I8O-fs-Px4" customClass="ChooseUserViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I8O-fs-Px4" customClass="ChooseUserViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D43-Md-oNB"/>
                         <viewControllerLayoutGuide type="bottom" id="vyv-5g-pgN"/>
@@ -837,12 +825,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPw-aI-CGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5089" y="-1"/>
+            <point key="canvasLocation" x="5085" y="467"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="X4r-pc-DOC">
             <objects>
-                <viewController id="Caz-t2-fBX" customClass="ChatViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Caz-t2-fBX" customClass="ChatViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MJP-ef-DB4"/>
                         <viewControllerLayoutGuide type="bottom" id="vjh-3i-D7N"/>
@@ -859,12 +847,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmP-co-riX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5098" y="695"/>
+            <point key="canvasLocation" x="4950" y="1189"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="LMf-Se-ZCW">
             <objects>
-                <viewController id="kFO-Si-REX" customClass="MapViewController" customModule="LetsChart" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kFO-Si-REX" customClass="MapViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nSc-Ye-onD"/>
                         <viewControllerLayoutGuide type="bottom" id="8Gb-GD-vei"/>
@@ -962,6 +950,57 @@
             </objects>
             <point key="canvasLocation" x="3234" y="-15"/>
         </scene>
+        <!--Group Selection-->
+        <scene sceneID="ZDX-lr-7ar">
+            <objects>
+                <tableViewController id="07w-Vj-4ra" customClass="SettingGroupChatTableViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="v0g-2T-tCk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" textLabel="iC8-lR-fwJ" style="IBUITableViewCellStyleDefault" id="87v-al-KMw">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="87v-al-KMw" id="p9E-Ik-cBw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iC8-lR-fwJ">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="07w-Vj-4ra" id="MWf-BL-fWi"/>
+                            <outlet property="delegate" destination="07w-Vj-4ra" id="rv3-8k-ZuG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Group Selection" id="azy-rf-UXH">
+                        <barButtonItem key="leftBarButtonItem" title="Form" style="done" id="bQb-dI-G4c">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="fromButtonPressed:" destination="07w-Vj-4ra" id="SgS-cs-t4j"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="sRL-5y-h83">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="07w-Vj-4ra" id="PEN-Cw-8VN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tdg-JL-GeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5754" y="-891"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="lgY-cJ-zlK">
             <objects>
@@ -978,7 +1017,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rah-4k-rIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4722" y="-675"/>
+            <point key="canvasLocation" x="5014" y="-201"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nXr-14-pWl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dv8-vb-9XF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Ua-TN-N9K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="07w-Vj-4ra" kind="relationship" relationship="rootViewController" id="HOK-1m-Vo0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mJk-GR-H9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5000" y="-880"/>
         </scene>
     </scenes>
     <resources>
