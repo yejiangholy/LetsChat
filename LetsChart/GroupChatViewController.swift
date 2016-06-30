@@ -66,8 +66,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         collectionV.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         }
         
-        loadMessage()
-        
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
     }
@@ -179,13 +177,10 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         
         var avatar : JSQMessageAvatarImageDataSource
-        if messages.count > 0 {
+        
+        print("before die ... message count = '\(messages.count)'")
         let message : JSQMessage = messages[(indexPath?.row)!]
          avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
-        } else
-        {
-            avatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(named: "avatarPlaceholder"), diameter: 70)
-        }
         return avatar
     }
     
