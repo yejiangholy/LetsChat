@@ -178,6 +178,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func createGroupChatRoom(users: [BackendlessUser], title: String?)
     {
         let groupChatVC = GroupChatViewController()
+        
         groupChatVC.hidesBottomBarWhenPushed = true
         
         navigationController?.pushViewController(groupChatVC, animated: true)

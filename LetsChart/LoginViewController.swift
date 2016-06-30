@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
             self.emailTextField.text = ""
             self.passwordTextField.text = ""
             
-            //  registerUserDeviceId()
+             // registerUserDeviceId()
             
             //segue to recents view 
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatVC") as! UITabBarController

@@ -37,14 +37,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     override func viewWillAppear(animated: Bool) {
         
-        loadMessage()
         loadUserDefaults()
-        getWithUsersFromRecent(recent!, result: { (withUsers) in
-            self.withUser = withUsers
-            self.title = self.groupName
-            self.getAvatar()
-        })
-        
         
     }
     
@@ -61,10 +54,22 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         self.senderId = backendless.userService.currentUser.objectId
         self.senderDisplayName = backendless.userService.currentUser.name
         
-        if let collectionV = self.collectionView {
-        collectionV.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        collectionV.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
+        
+        if withUser == nil {
+            getWithUsersFromRecent(recent!, result: { (withUser) in
+                self.withUser = withUser
+               self.title = self.groupName
+                self.getAvatar()
+            })
+        } else {
+            self.title = self.groupName
+            self.getAvatar()
         }
+        
+        
+        loadMessage()
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
@@ -174,13 +179,17 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     }
 
     
+    func getMessageAtIndex(messageArray:[JSQMessage], index: Int) -> JSQMessage
+    {
+        return messageArray[index]
+    }
+    
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         
-        var avatar : JSQMessageAvatarImageDataSource
+        let message = getMessageAtIndex(messages, index: indexPath.row)
         
-        print("before die ... message count = '\(messages.count)'")
-        let message : JSQMessage = messages[(indexPath?.row)!]
-         avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
+         let avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
+        
         return avatar
     }
     
@@ -378,13 +387,12 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     func getAvatar()
     {
-        print("when being called show Avatar = '\(showAvatars)'")
         if showAvatars {
-            print("showAvatar is ture ")
             
-             if let collectionV = self.collectionView {
+            if let collectionV = self.collectionView {
             collectionV.collectionViewLayout?.incomingAvatarViewSize = CGSizeMake(30, 30)
             collectionV.collectionViewLayout?.outgoingAvatarViewSize = CGSizeMake(30, 30)
+                
             }
             
               avatarImageFromBackendlessUser(backendless.userService.currentUser)
@@ -484,7 +492,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             // postion for future need delete messages
         })
 
-        ref.child(chatRoomId).observeEventType(.Value, withBlock: {
+        ref.child(chatRoomId).observeSingleEventOfType(.Value, withBlock: {
             snapshot in
             
             self.insertMessages()

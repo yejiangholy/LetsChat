@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LetsChart/GroupChatViewController.swift"
-            timestampString = "488948031.488285"
+            timestampString = "488996787.733869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
             landmarkName = "getAvatar()"
             landmarkType = "5">
          </BreakpointContent>
@@ -38,16 +38,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "1"
             continueAfterRunningActions = "No"
             filePath = "LetsChart/GroupChatViewController.swift"
-            timestampString = "488948031.488285"
+            timestampString = "488996787.733869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "collectionView(_:avatarImageDataForItemAtIndexPath:)"
+            startingLineNumber = "506"
+            endingLineNumber = "506"
+            landmarkName = "insertMessages()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

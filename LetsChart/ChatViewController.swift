@@ -268,6 +268,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     
     func loadmessage()
     {
+           print("load message being called")
         ref.child(chatRoomId).observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
@@ -315,6 +316,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     }
     
     func  insertMessages() {
+        print("insertMessages being called")
         for item in loaded {
             // create message
             insertSingleMessage(item)
@@ -330,6 +332,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
         objects.append(item)
         messages.append(message!)
+          print("finally added one")
         
         return incoming(item)
     }
