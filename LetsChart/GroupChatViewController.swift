@@ -14,7 +14,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
     
-    let firebaseRef = firebase.child("Message")
+    let ref = firebase.child("Message")
     
     var messages:[JSQMessage] = []
     var objects: [NSDictionary] = []
@@ -22,7 +22,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     var avatarImageDictionary: NSMutableDictionary?
     var avatarDictionary: NSMutableDictionary?
-    var showAvatars:Bool = false
+    var showAvatars:Bool = true
     var firstLoad: Bool?
     
     var withUser: [BackendlessUser]?
@@ -34,17 +34,25 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
-
+    
     override func viewWillAppear(animated: Bool) {
         
+        loadMessage()
         loadUserDefaults()
+        getWithUsersFromRecent(recent!, result: { (withUsers) in
+            self.withUser = withUsers
+            self.title = self.groupName
+            self.getAvatar()
+        })
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         
         ClearRecentCounter(chatRoomId)
         
-        firebaseRef.removeAllObservers()
+        ref.removeAllObservers()
     }
     
     override func viewDidLoad() {
@@ -53,17 +61,9 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         self.senderId = backendless.userService.currentUser.objectId
         self.senderDisplayName = backendless.userService.currentUser.name
         
-        collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
-        collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
-        
-        if withUser?.count == 0 {
-            
-            getWithUsersFromRecent(recent!, result: { (withUsers) in
-                self.withUser = withUsers
-                self.getAvatar()
-            })
-        } else {
-            self.getAvatar()
+        if let collectionV = self.collectionView {
+        collectionV.collectionViewLayout.incomingAvatarViewSize = CGSizeZero
+        collectionV.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero
         }
         
         loadMessage()
@@ -150,12 +150,42 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         }
     }
     
+    
+    override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        
+        if outgoing(objects[indexPath.row]){
+            
+            return kJSQMessagesCollectionViewCellLabelHeightDefault
+            
+        }else {
+            
+            return 0.0
+        }
+        
+        
+    }
+
+    
+    func outgoing(item: NSDictionary) ->Bool {
+        if backendless.userService.currentUser.objectId == item["senderId"] as! String{
+            return true
+        }else {
+            return false
+        }
+        
+    }
+
+    
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         
-        let message = messages[indexPath.row]
-        
-        let avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
-        
+        var avatar : JSQMessageAvatarImageDataSource
+        if messages.count > 0 {
+        let message : JSQMessage = messages[(indexPath?.row)!]
+         avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
+        } else
+        {
+            avatar = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(named: "avatarPlaceholder"), diameter: 70)
+        }
         return avatar
     }
     
@@ -167,6 +197,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         if text != "" {
             
             sendMessage(text, date: date, picture: nil, Location: nil)
+            
         }
     }
     
@@ -228,6 +259,8 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         var outgoingMessage = OutgoingMessage?()
         
         if let textMessage = text {
+            
+            print("crate text message here")
             
             outgoingMessage = OutgoingMessage(message: textMessage, senderId: backendless.userService.currentUser.objectId, senderName: backendless.userService.currentUser.name, date: date , status: "Delivered", type: "text")
             
@@ -305,9 +338,8 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     }
     
 // MARK: loadUserDefaults
-    
-    func loadUserDefaults()
-    {
+    func loadUserDefaults() {
+        
         firstLoad = userDefaults.boolForKey(KFIRSTRUN)
         
         if !(firstLoad!) {
@@ -317,6 +349,8 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         }
         
         showAvatars = userDefaults.boolForKey(KAVATARSTATE)
+        print("showAvatars = '\(showAvatars)'")
+        
     }
     
   
@@ -349,17 +383,30 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     func getAvatar()
     {
+        print("when being called show Avatar = '\(showAvatars)'")
         if showAvatars {
-            collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30, 30)
-            collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30, 30)
+            print("showAvatar is ture ")
             
-              avatarImageFromBackendlessUser(backendless.userService.currentUser)
-            for i in 0..<withUser!.count {
-                avatarImageFromBackendlessUser(withUser![i])
+             if let collectionV = self.collectionView {
+            collectionV.collectionViewLayout?.incomingAvatarViewSize = CGSizeMake(30, 30)
+            collectionV.collectionViewLayout?.outgoingAvatarViewSize = CGSizeMake(30, 30)
             }
             
-            createAvatars(avatarImageDictionary)
-        }
+              avatarImageFromBackendlessUser(backendless.userService.currentUser)
+            
+            
+            getWithUsersFromRecent(recent!, result: { (withUsers) in
+                self.withUser = withUsers
+                self.title = self.groupName
+                
+                for i in 0..<self.withUser!.count {
+                    self.avatarImageFromBackendlessUser(self.withUser![i])
+                }
+                
+                self.createAvatars(self.avatarImageDictionary)
+
+            })
+         }
     }
     
     
@@ -410,8 +457,8 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     func loadMessage()
     {
-        
-        firebaseRef.child(chatRoomId).observeEventType(.ChildAdded, withBlock:  { snapshot in
+        print("load message being called")
+        ref.child(chatRoomId).observeEventType(.ChildAdded, withBlock:  { snapshot in
             
             if snapshot.exists(){
                 let item = (snapshot.value as? NSDictionary)!
@@ -430,19 +477,19 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             
         })
         
-        firebaseRef.child(chatRoomId).observeEventType(.ChildChanged, withBlock: {
+        ref.child(chatRoomId).observeEventType(.ChildChanged, withBlock: {
             snapshot in
             
             //position for future need update messages
         })
         
-        firebaseRef.child(chatRoomId).observeEventType(.ChildRemoved, withBlock: {
+        ref.child(chatRoomId).observeEventType(.ChildRemoved, withBlock: {
             snapshot in
             
             // postion for future need delete messages
         })
 
-        firebaseRef.child(chatRoomId).observeEventType(.Value, withBlock: {
+        ref.child(chatRoomId).observeEventType(.Value, withBlock: {
             snapshot in
             
             self.insertMessages()
@@ -453,9 +500,10 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     func insertMessages(){
         
-        for messsage in loaded {
+        print("insertMessages being called")
+        for item in loaded {
             //create message
-            insertSingleMessage(messsage)
+            insertSingleMessage(item)
         }
     }
     
@@ -463,9 +511,9 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         
         let incomingMessage = IncomingMessage(collectionView_: self.collectionView!)
         let message = incomingMessage.createMessage(item)
-        
-        objects.append(item)
-        messages.append(message!)
+        self.objects.append(item)
+        self.messages.append(message!)
+         print("finally added one")
         
         return incoming(item)
     }

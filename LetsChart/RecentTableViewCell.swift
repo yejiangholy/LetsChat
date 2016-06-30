@@ -51,10 +51,8 @@ class RecentTableViewCell: UITableViewCell {
                     
                 }
             })
-            
-            let names = recent.objectForKey("withUserUserName") as! [String]
          
-            nameLable.text = nameFromNames(names)
+            nameLable.text = recent.objectForKey("name") as? String
             
             lastMessageLable.text = recent["lastMessage"] as? String
             counterLabel.text = ""

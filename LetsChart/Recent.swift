@@ -42,7 +42,7 @@ let firebase = FIRDatabase.database().reference()
     return chatRoomId
 }
 
-func startGroupChatId (users:[BackendlessUser]) -> String {
+func startGroupChatId (users:[BackendlessUser], name: String) -> String {
     
     
     let sortedUsers =  users.sort({ $0.objectId! > $1.objectId!})
@@ -63,7 +63,7 @@ func startGroupChatId (users:[BackendlessUser]) -> String {
     }
 
     for i in 0..<users.count{
-        createGroupRecent(users[i].objectId, chatRoomId: chatRoomId, members: allMembers, withUsersname: allNames.filter{$0 != users[i].name! }, withUsersuserId: allMembers.filter{$0 != users[i].objectId!})
+        createGroupRecent(users[i].objectId, chatRoomId: chatRoomId, members: allMembers, withUsersname: allNames.filter{$0 != users[i].name! }, withUsersuserId: allMembers.filter{$0 != users[i].objectId!}, name: name)
         }
 
     return chatRoomId
@@ -92,7 +92,7 @@ func CreateRecent(userId: String, ChatRoomId: String, members:[String] , withUse
     })
 }
 
-func createGroupRecent(userId: String, chatRoomId: String, members:[String], withUsersname:[String], withUsersuserId: [String])
+func createGroupRecent(userId: String, chatRoomId: String, members:[String], withUsersname:[String], withUsersuserId: [String], name : String)
 {
    
     firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomId).observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot!) in
@@ -107,17 +107,17 @@ func createGroupRecent(userId: String, chatRoomId: String, members:[String], wit
         }
         if createRecent {
             
-            createGroupRecentItem(userId, chatRoomID: chatRoomId, members: members, withUserName: withUsersname, withUserId: withUsersuserId)
+            createGroupRecentItem(userId, chatRoomID: chatRoomId, members: members, withUserName: withUsersname, withUserId: withUsersuserId, name: name)
         }
     }
 }
 
-func createGroupRecentItem(userId:String , chatRoomID: String, members: [String], withUserName: [String], withUserId: [String])
+func createGroupRecentItem(userId:String , chatRoomID: String, members: [String], withUserName: [String], withUserId: [String], name: String)
 {
     let ref = firebase.child("Recent").childByAutoId()
     let recentId = ref.key
     let date = dataFormatter().stringFromDate(NSDate())
-    let recent = ["recentId": recentId, "userId" : userId, "chatRoomID" : chatRoomID , "members":members , "withUserUserName" : withUserName, "lastMessage": "" , "counter":0, "date": date, "withUserUserId": withUserId]
+    let recent = ["recentId": recentId, "userId" : userId, "chatRoomID" : chatRoomID , "members":members , "withUserUserName" : withUserName, "lastMessage": "" , "counter":0, "date": date, "withUserUserId": withUserId, "name": name]
     
     //save to firebase
     ref.setValue(recent) { (error, ref) -> Void in

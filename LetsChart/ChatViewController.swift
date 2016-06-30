@@ -32,7 +32,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     var initialloadComplete:Bool = false
     
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
-    let incomingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
+    let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     
     
     override func viewWillAppear(animated: Bool) {
@@ -186,6 +186,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         
         if text != ""{
+            
            sendMessage(text, date: date, picture: nil, Location: nil)
         }
             

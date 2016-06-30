@@ -144,6 +144,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
             groupChatVC.recent = recent
             groupChatVC.chatRoomId = recent["chatRoomID"] as? String
+            groupChatVC.groupName = recent.objectForKey("name") as? String
         }
         
         
@@ -183,7 +184,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         groupChatVC.withUser = users.filter{ $0.objectId! != backendless.userService.currentUser.objectId }
         
-        groupChatVC.chatRoomId = startGroupChatId(users)
+        groupChatVC.chatRoomId = startGroupChatId(users, name: title!)
         
         groupChatVC.title = title
         
