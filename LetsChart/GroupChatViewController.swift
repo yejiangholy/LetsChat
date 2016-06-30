@@ -186,11 +186,12 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
         
-        let message = getMessageAtIndex(messages, index: indexPath.row)
+        let message = messages[indexPath.row]
         
-         let avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
+        let avatar = avatarDictionary!.objectForKey(message.senderId) as! JSQMessageAvatarImageDataSource
         
         return avatar
+
     }
     
     
@@ -263,8 +264,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         var outgoingMessage = OutgoingMessage?()
         
         if let textMessage = text {
-            
-            print("crate text message here")
             
             outgoingMessage = OutgoingMessage(message: textMessage, senderId: backendless.userService.currentUser.objectId, senderName: backendless.userService.currentUser.name, date: date , status: "Delivered", type: "text")
             
@@ -353,7 +352,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         }
         
         showAvatars = userDefaults.boolForKey(KAVATARSTATE)
-        print("showAvatars = '\(showAvatars)'")
         
     }
     
@@ -389,26 +387,20 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     {
         if showAvatars {
             
-            if let collectionV = self.collectionView {
-            collectionV.collectionViewLayout?.incomingAvatarViewSize = CGSizeMake(30, 30)
-            collectionV.collectionViewLayout?.outgoingAvatarViewSize = CGSizeMake(30, 30)
-                
-            }
-            
+            collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSizeMake(30, 30)
+            collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSizeMake(30, 30)
+
               avatarImageFromBackendlessUser(backendless.userService.currentUser)
             
             
-            getWithUsersFromRecent(recent!, result: { (withUsers) in
-                self.withUser = withUsers
-                self.title = self.groupName
+            for i in 0..<withUser!.count {
                 
-                for i in 0..<self.withUser!.count {
-                    self.avatarImageFromBackendlessUser(self.withUser![i])
-                }
+                avatarImageFromBackendlessUser(withUser![i])
                 
-                self.createAvatars(self.avatarImageDictionary)
-
-            })
+            }
+            
+               createAvatars(avatarImageDictionary)
+         
          }
     }
     
@@ -452,15 +444,20 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
                     self.collectionView?.reloadData()
                 }
             }
+            
             let imageDitionary = [users[i].objectId : userImage]
-            avatarDictionary?.addEntriesFromDictionary(imageDitionary)
+            if avatarDictionary == nil {
+                avatarDictionary = [users[i].objectId : userImage]
+            } else {
+            avatarDictionary!.addEntriesFromDictionary(imageDitionary)
+            }
+           
         }
     }
     
     
     func loadMessage()
     {
-        print("load message being called")
         ref.child(chatRoomId).observeEventType(.ChildAdded, withBlock:  { snapshot in
             
             if snapshot.exists(){
@@ -503,7 +500,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     func insertMessages(){
         
-        print("insertMessages being called")
         for item in loaded {
             //create message
             insertSingleMessage(item)
@@ -516,7 +512,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         let message = incomingMessage.createMessage(item)
         self.objects.append(item)
         self.messages.append(message!)
-         print("finally added one")
         
         return incoming(item)
     }
