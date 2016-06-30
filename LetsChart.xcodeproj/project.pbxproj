@@ -400,8 +400,6 @@
 				2395E4231D0CF8BE005D64A6 /* RecentViewController.swift */,
 				239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */,
 				239C1AEE1D10EACE008D79EE /* ChatViewController.swift */,
-				23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */,
-				23F616611D22C198000ECC3C /* SettingGroupChatTableViewController.swift */,
 				23A605251D158CCC00DA3C31 /* MapViewController.swift */,
 			);
 			name = RecentViewControlers;
@@ -793,6 +791,15 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		239EAC271D25C25F0043E702 /* Group Chat */ = {
+			isa = PBXGroup;
+			children = (
+				23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */,
+				23F616611D22C198000ECC3C /* SettingGroupChatTableViewController.swift */,
+			);
+			name = "Group Chat";
+			sourceTree = "<group>";
+		};
 		23C89A541D0BCB350000858B = {
 			isa = PBXGroup;
 			children = (
@@ -821,10 +828,11 @@
 		23C89A5F1D0BCB350000858B /* LetsChart */ = {
 			isa = PBXGroup;
 			children = (
+				2395E4251D0CFAF7005D64A6 /* RecentViewControlers */,
+				239EAC271D25C25F0043E702 /* Group Chat */,
 				2395E41B1D0CB56D005D64A6 /* ProgressHUD */,
 				239656701D18700C009B0DD4 /* Messages */,
 				2396566F1D186FB0009B0DD4 /* Assist Items */,
-				2395E4251D0CFAF7005D64A6 /* RecentViewControlers */,
 				2395E41A1D0C7822005D64A6 /* LoginViewControlers */,
 				23C89A641D0BCB350000858B /* Main.storyboard */,
 				230588851D1CC5A7004CFDFD /* SettingsViewControllers */,

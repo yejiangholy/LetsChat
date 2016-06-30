@@ -20,6 +20,10 @@ class SettingGroupChatTableViewController: UITableViewController {
     var delegate: ChooseGroupUserDelegate!
     
     
+   
+    @IBOutlet weak var groupNameTextField: UITextField!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
     //MARK: UITableView dataSrouce 
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,16 +84,33 @@ class SettingGroupChatTableViewController: UITableViewController {
     }
     
     
-    
-    @IBAction func fromButtonPressed(sender: UIBarButtonItem) {
+   
+    @IBAction func CreateButtonPressed(sender: UIButton) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
         
-        self.otherMembers.append(backendless.userService.currentUser)
+        if groupNameTextField!.text == "" {
+            //show alert
+            
+            let nameAlert = UIAlertController(title: "Name your group ~", message: "Name of your group could be changed latter", preferredStyle: .Alert)
+            
         
-        delegate.createGroupChatRoom(otherMembers, title: "Group Chat")
-        
+            let cancel = UIAlertAction(title: "Sure", style: .Cancel, handler: nil)
+            
+            nameAlert.addAction(cancel)
+            
+            self.presentViewController(nameAlert, animated: true, completion: nil)
+            
+        } else {
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+            self.otherMembers.append(backendless.userService.currentUser)
+            
+            delegate.createGroupChatRoom(otherMembers, title: groupNameTextField.text!)
+        }
     }
+    
+    
     
     //MARK: Load currentUser's friends
     func loadFriends(){
