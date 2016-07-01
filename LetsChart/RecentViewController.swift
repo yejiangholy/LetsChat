@@ -175,7 +175,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     //MARK : ChooseGroupUserDelegate
-    func createGroupChatRoom(users: [BackendlessUser], title: String?)
+    func createGroupChatRoom(users: [BackendlessUser], title: String?, image: UIImage?)
     {
         let groupChatVC = GroupChatViewController()
         
@@ -185,7 +185,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         groupChatVC.withUser = users.filter{ $0.objectId! != backendless.userService.currentUser.objectId }
         
-        groupChatVC.chatRoomId = startGroupChatId(users, name: title!)
+        groupChatVC.chatRoomId = startGroupChatId(users, name: title!, Image: image)
         
         groupChatVC.title = title
         

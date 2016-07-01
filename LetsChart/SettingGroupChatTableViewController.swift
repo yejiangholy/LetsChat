@@ -10,15 +10,15 @@ import UIKit
 
 protocol ChooseGroupUserDelegate{
     
-    func createGroupChatRoom(users: [BackendlessUser], title: String?)
+    func createGroupChatRoom(users: [BackendlessUser], title: String?, image: UIImage?)
     
 }
-class SettingGroupChatTableViewController: UITableViewController {
+class SettingGroupChatTableViewController: UITableViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
     var friends: [BackendlessUser] = []
     var otherMembers : [BackendlessUser] = []
     var delegate: ChooseGroupUserDelegate!
-    
+    var groupImage: UIImage?
     
    
     @IBOutlet weak var groupNameTextField: UITextField!
@@ -84,6 +84,15 @@ class SettingGroupChatTableViewController: UITableViewController {
     }
     
     
+    
+    
+    @IBAction func cameraButtonPressed(sender: UIBarButtonItem) {
+        
+            setGroupChatImage()
+    }
+    
+    
+    
    
     @IBAction func CreateButtonPressed(sender: UIButton) {
         
@@ -106,10 +115,50 @@ class SettingGroupChatTableViewController: UITableViewController {
             
             self.otherMembers.append(backendless.userService.currentUser)
             
-            delegate.createGroupChatRoom(otherMembers, title: groupNameTextField.text!)
+            delegate.createGroupChatRoom(otherMembers, title: groupNameTextField.text!,image: groupImage)
         }
     }
     
+    
+    
+    func setGroupChatImage()
+    {
+        let camera = Camera(delegate_: self)
+        
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .Default) { (alert: UIAlertAction!) -> Void in
+            
+            camera.PresentPhoteCamera(self, canEdit: true)
+        }
+        let sharePhoto = UIAlertAction(title: "Photo Library", style: .Default) { (alert :UIAlertAction!) -> Void in
+            
+            camera.PresentPhotoLibrary(self, canEdit: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) ->Void in
+            
+            print("Cancel")
+        }
+        optionMenu.addAction(takePhoto)
+        optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+    }
+    
+    //MARK: UIImagePickerControllerDelegate functions 
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        
+        let image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        groupImage = image
+        
+        picker.dismissViewControllerAnimated(true, completion: nil)
+
+        
+    }
     
     
     //MARK: Load currentUser's friends

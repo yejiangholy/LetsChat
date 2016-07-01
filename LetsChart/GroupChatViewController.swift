@@ -28,6 +28,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     var withUser: [BackendlessUser]?
     var recent: NSDictionary?
     var groupName: String?
+    var groupImage: UIImage?
     var chatRoomId: String!
     
     var initialLoadComplete: Bool = false

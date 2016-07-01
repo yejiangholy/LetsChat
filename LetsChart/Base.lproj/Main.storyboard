@@ -416,7 +416,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sb7-zL-CL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3424" y="718"/>
+            <point key="canvasLocation" x="3438" y="668"/>
         </scene>
         <!--Terms Of Service View Controller-->
         <scene sceneID="6Xd-Zm-Lfa">
@@ -1028,6 +1028,9 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="eAA-aX-Umu">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="07w-Vj-4ra" id="4ME-fk-kKB"/>
+                            </connections>
                         </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" id="O9t-tQ-qch">
                             <rect key="frame" x="80" y="7" width="300" height="30"/>
@@ -1067,7 +1070,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdg-JL-GeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5966" y="-954"/>
+            <point key="canvasLocation" x="6218" y="-1016"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lgY-cJ-zlK">

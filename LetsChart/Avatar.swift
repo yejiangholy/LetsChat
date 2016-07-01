@@ -9,6 +9,7 @@
 import Foundation
 
 func uploadAvatar(image: UIImage, result: (imageLink: String?)->Void)
+    
 {
    let imageData = UIImageJPEGRepresentation(image, 1.0)
     

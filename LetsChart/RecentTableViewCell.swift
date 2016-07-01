@@ -39,6 +39,10 @@ class RecentTableViewCell: UITableViewCell {
             let withUsersId = recent.objectForKey("withUserUserId") as! [String]
             
             //1. put all withUser's image into images array && name into names
+            
+            let imageLink = recent.objectForKey("image") as! String
+            
+            if imageLink == "" {
             self.getImagesFromId(withUsersId, images: { (images) in
                 
                 if images.count != 0 {
@@ -51,6 +55,14 @@ class RecentTableViewCell: UITableViewCell {
                     
                 }
             })
+            }else {
+                
+                getImageFromURL(imageLink, result: { (image) in
+                    
+                    self.avatarImageView.image = image
+                })
+                
+            }
          
             nameLable.text = recent.objectForKey("name") as? String
             
