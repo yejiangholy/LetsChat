@@ -31,8 +31,8 @@ class RecentTableViewCell: UITableViewCell {
     
     func bindData(recent:NSDictionary){
         
-        let chatRoomIdLength = (recent.objectForKey("chatRoomID")as! String).characters.count
-        if chatRoomIdLength > 100 {
+          if (recent.objectForKey("withUserUserId") as? [String]) != nil
+          {
             avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width/2
             avatarImageView.layer.masksToBounds = true
             

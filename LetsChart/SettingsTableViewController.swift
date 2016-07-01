@@ -124,7 +124,7 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
-        HeaderView.backgroundColor = UIColor.clearColor()
+        headerView.backgroundColor = UIColor.clearColor()
         
         return headerView
         

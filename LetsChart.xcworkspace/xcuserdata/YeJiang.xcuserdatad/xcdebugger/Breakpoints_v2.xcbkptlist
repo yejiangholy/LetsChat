@@ -26,11 +26,11 @@
             ignoreCount = "1"
             continueAfterRunningActions = "No"
             filePath = "LetsChart/GroupChatViewController.swift"
-            timestampString = "489019494.520258"
+            timestampString = "489084449.801459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "505"
-            endingLineNumber = "505"
+            startingLineNumber = "514"
+            endingLineNumber = "514"
             landmarkName = "insertMessages()"
             landmarkType = "5">
          </BreakpointContent>

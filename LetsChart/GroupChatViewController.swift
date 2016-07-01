@@ -325,6 +325,15 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
 
     }
     
+    
+    
+    
+    @IBAction func groupChatEditButtonPressed(sender: UIBarButtonItem) {
+        
+        
+    }
+    
+    
     // MARK: prepareForSegue 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
