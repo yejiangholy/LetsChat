@@ -26,11 +26,11 @@
             ignoreCount = "1"
             continueAfterRunningActions = "No"
             filePath = "LetsChart/GroupChatViewController.swift"
-            timestampString = "489084449.801459"
+            timestampString = "489104854.277647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "514"
-            endingLineNumber = "514"
+            startingLineNumber = "523"
+            endingLineNumber = "523"
             landmarkName = "insertMessages()"
             landmarkType = "5">
          </BreakpointContent>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
-            landmarkName = "createGroupRecentItem(_:chatRoomID:members:withUserName:withUserId:name:Image:)"
+            landmarkName = "createGroupRecentItem(_:chatRoomID:members:withUserName:withUserId:name:image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "createGroupRecentItem(_:chatRoomID:members:withUserName:withUserId:name:Image:)"
+            landmarkName = "createGroupRecentItem(_:chatRoomID:members:withUserName:withUserId:name:image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

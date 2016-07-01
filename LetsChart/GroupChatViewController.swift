@@ -331,6 +331,8 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     @IBAction func groupChatEditButtonPressed(sender: UIBarButtonItem) {
         
         
+      self.performSegueWithIdentifier("ChatToGroupSetingSeg", sender: self)
+        
     }
     
     
@@ -346,6 +348,13 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             let mapView = segue.destinationViewController as! MapViewController
             
             mapView.location = mediaItem?.location
+        }
+        
+        if segue.identifier == "ChatToGroupSetingSeg" {
+            
+            let groupSetingVC = segue.destinationViewController as! GroupEditingTableViewController
+            
+            groupSetingVC.groupChatViewController = sender as! GroupChatViewController
         }
     }
     

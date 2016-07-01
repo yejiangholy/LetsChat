@@ -22,13 +22,28 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.tableHeaderView = headerView
-        
-        groupImage.layer.cornerRadius = groupImage.frame.size.width / 2
-        groupImage.layer.masksToBounds = true
-        
-         updateUI()
+        if self.groupChatViewController.groupImage == nil{
+            
+            var otherUsersId : [String] = []
+            for i in 0..<groupChatViewController.withUser!.count{
+                otherUsersId.append(groupChatViewController.withUser![i].objectId!)
+            }
+            getImagesFromId(otherUsersId, images: { (images) in
+                self.groupChatViewController.groupImage = imageFromImages(images)
+                self.tableView.tableHeaderView = self.headerView
+                self.groupImage.layer.cornerRadius = self.groupImage.frame.size.width / 2
+                self.groupImage.layer.masksToBounds = true
+                self.updateUI()
+            })
+        } else {
+            
+            self.tableView.tableHeaderView = headerView
+            
+            groupImage.layer.cornerRadius = groupImage.frame.size.width / 2
+            groupImage.layer.masksToBounds = true
+            
+            updateUI()
+        }
     }
     
     func updateUI() {
@@ -44,7 +59,15 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
         changePhoto()
     }
     
+    
+    
+    @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -119,7 +142,7 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
         
         if indexPath.section == 0 && indexPath.row == 0 {
             
-            //changeGroupNamePressed()
+            changeGroupNamePressed()
         }
         
         if indexPath.section == 0 && indexPath.row == 1 {
@@ -144,21 +167,44 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
         
         groupChatViewController.groupImage = image
         
+        updateUI()
+        
         uploadAvatar(image!) { (imageLink) in
-            let properties = ["Avatar" : imageLink!]
             
-            backendless.userService.currentUser!.updateProperties(properties)
+           UpdateRecentsWithImage(self.groupChatViewController.chatRoomId, imageLink: imageLink!)
             
-            backendless.userService.update(backendless.userService.currentUser, response: { (updateUser: BackendlessUser!) in
-                print("Updated current user image")
-                
-                }, error: { (fault: Fault!) in
-                    print("error: \(fault)")
-            })
         }
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    
+    func changeGroupNamePressed(){
+    
+        var inputTextField: UITextField?
+        let passwordPrompt = UIAlertController(title: "Enter group name", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        passwordPrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        passwordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            // Now do whatever you want with inputTextField (remember to unwrap the optional)
+            if inputTextField!.text != ""
+            {
+                self.groupChatViewController.groupName = inputTextField?.text
+                self.updateUI()
+                
+               UpdateRecentsWitName(self.groupChatViewController.chatRoomId, name: (inputTextField?.text)!)
+                
+            }
+            
+        }))
+        passwordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = "group name"
+            textField.secureTextEntry = false
+            inputTextField = textField
+        })
+        
+        presentViewController(passwordPrompt, animated: true, completion: nil)
+        
+        
+    }
     
     
     // MARK : change photo

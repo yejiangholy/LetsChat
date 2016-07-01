@@ -161,21 +161,37 @@ func CreateRecentItem(userId:String , chatRoomID: String, members: [String], wit
 
 //MARK: Update Recent 
 
-func UpdateRecents(chatRoomID: String, lastMessage: String)
+func UpdateRecentsWithMessage(chatRoomID: String, lastMessage: String)
 {
     //first query firebase get back two recents that need to be updated 
     firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value, withBlock: { snapshot in
         
         if snapshot.exists(){
             for recent in snapshot.value!.allValues{
-                UpdateRecentItem(recent as! NSDictionary, lastMessage: lastMessage)
+                UpdateRecentItemWithMessage(recent as! NSDictionary, lastMessage: lastMessage)
             }
         }
     })
     
 }
 
-func UpdateRecentItem(recent: NSDictionary, lastMessage: String )
+func UpdateRecentsWithImage(chatRoomID : String, imageLink: String)
+{
+    
+    
+    
+    
+}
+
+func UpdateRecentsWitName(chatRoomID: String , name: String)
+{
+    
+    
+    
+    
+}
+
+func UpdateRecentItemWithMessage(recent: NSDictionary, lastMessage: String )
 {
     let date = dataFormatter().stringFromDate(NSDate())
     
