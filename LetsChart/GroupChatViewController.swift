@@ -69,7 +69,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             self.getAvatar()
         }
         
-        
         loadMessage()
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
