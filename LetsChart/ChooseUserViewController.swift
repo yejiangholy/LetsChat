@@ -22,6 +22,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
         super.viewDidLoad()
         
         loadFriends()
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
     }

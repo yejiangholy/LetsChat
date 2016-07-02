@@ -67,6 +67,8 @@ class SettingGroupChatTableViewController: UITableViewController,UINavigationCon
         super.viewDidLoad()
 
         loadFriends()
+        
+        self.hideKeyboardWhenTappedAround()
 
     }
 

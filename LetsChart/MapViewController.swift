@@ -31,6 +31,7 @@ class MapViewController: UIViewController {
         mapView.addAnnotation(annotation)
         annotation.coordinate = location.coordinate
         
+        self.hideKeyboardWhenTappedAround()
 
     }
 

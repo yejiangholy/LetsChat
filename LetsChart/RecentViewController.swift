@@ -17,6 +17,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         super.viewDidLoad()
         
         loadRecents()
+        self.hideKeyboardWhenTappedAround() 
     }
 
     override func didReceiveMemoryWarning() {

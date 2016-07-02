@@ -73,6 +73,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
+        self.hideKeyboardWhenTappedAround()
     }
     
     //MARK: JSQMessage dataSrouce functions 

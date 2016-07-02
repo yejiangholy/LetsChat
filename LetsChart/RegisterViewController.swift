@@ -27,6 +27,8 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
         super.viewDidLoad()
         
         newUser = BackendlessUser()
+        
+        self.hideKeyboardWhenTappedAround() 
 
             }
 

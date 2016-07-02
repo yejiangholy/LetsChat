@@ -74,6 +74,8 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         loadmessage()
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     

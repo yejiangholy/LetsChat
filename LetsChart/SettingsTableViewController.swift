@@ -38,7 +38,8 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
         
         loadUserDefaults()
         updateUI()
-
+        
+        self.hideKeyboardWhenTappedAround()
     }
 
     override func didReceiveMemoryWarning() {

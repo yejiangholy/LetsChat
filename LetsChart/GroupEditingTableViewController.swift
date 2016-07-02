@@ -22,6 +22,7 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         if self.groupChatViewController.groupImage == nil{
             
             var otherUsersId : [String] = []

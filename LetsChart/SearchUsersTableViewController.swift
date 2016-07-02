@@ -28,6 +28,8 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
         self.tableView.tableHeaderView = self.resultSearchController.searchBar
         
         self.tableView.reloadData()
+        
+        self.hideKeyboardWhenTappedAround() 
     }
 
     override func didReceiveMemoryWarning() {
