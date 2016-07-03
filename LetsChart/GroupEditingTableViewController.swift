@@ -22,38 +22,24 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        if self.groupChatViewController.groupImage == nil{
+        
+        
+        getImageFromURL(groupChatViewController.recent!["image"] as! String) { (image) in
             
-            var otherUsersId : [String] = []
-            for i in 0..<groupChatViewController.withUser!.count{
-                otherUsersId.append(groupChatViewController.withUser![i].objectId!)
-            }
-            getImagesFromId(otherUsersId, images: { (images) in
-                self.groupChatViewController.groupImage = imageFromImages(images)
-                self.tableView.tableHeaderView = self.headerView
-                self.groupImage.layer.cornerRadius = self.groupImage.frame.size.width / 2
-                self.groupImage.layer.masksToBounds = true
-                self.updateUI()
-            })
-        } else {
+            self.groupImage.image = image
             
+            self.groupChatViewController.groupImage = image
+            
+        }
             self.tableView.tableHeaderView = headerView
             
             groupImage.layer.cornerRadius = groupImage.frame.size.width / 2
             groupImage.layer.masksToBounds = true
             
-            updateUI()
-        }
-    }
-    
-    func updateUI() {
-        
-    groupNameLable.text = groupChatViewController.groupName
-    
-    groupImage.image = groupChatViewController.groupImage
+            groupNameLable.text = groupChatViewController.groupName
         
     }
+    
     
     @IBAction func didClickGroupImage(sender: UIButton) {
         
@@ -137,7 +123,7 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
         
         if indexPath.section == 1 && indexPath.row == 0 {
             
-            //leaveGroupCellPressed()
+            leaveGroupCellPressed()
             
         }
         
@@ -166,43 +152,76 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
         
         let image = info[UIImagePickerControllerEditedImage] as? UIImage
         
-        groupChatViewController.groupImage = image
-        
-        updateUI()
+        self.groupChatViewController.groupImage = image
         
         uploadAvatar(image!) { (imageLink) in
             
            UpdateRecentsWithImage(self.groupChatViewController.chatRoomId, imageLink: imageLink!)
             
         }
+        
+         self.groupImage.image = image
+        
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
 
     
+    
+    
+    func leaveGroupCellPressed()
+    {
+        //3. segue to recent view controller
+        //2. remove current user from all the this groups recnts member 
+        //1. (do this in prepare for segue)delete current user's this recent, then let recentViewController reloadData()
+        
+        DeleteUserFromGroupRecents(self.groupChatViewController.chatRoomId, user: backendless.userService.currentUser)
+        
+        self.performSegueWithIdentifier("LeaveGroupToRecentSeg", sender: groupChatViewController.recent)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "LeaveGroupToRecentSeg" {
+            
+            let recentVC = segue.destinationViewController as! RecentViewController
+            
+            let recent = sender as! NSDictionary
+            
+            recentVC.recents.removeAtIndex(recentVC.recents.indexOf(recent)!)
+            DeleteRecentItem(recent)
+            
+            recentVC.tableView.reloadData()
+            
+        }
+        
+    }
+    
+    
     func changeGroupNamePressed(){
     
         var inputTextField: UITextField?
-        let passwordPrompt = UIAlertController(title: "Enter group name", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-        passwordPrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-        passwordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+        let groupNamePrompt = UIAlertController(title: "Enter group name", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        groupNamePrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        groupNamePrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             // Now do whatever you want with inputTextField (remember to unwrap the optional)
             if inputTextField!.text != ""
             {
                 self.groupChatViewController.groupName = inputTextField?.text
-                self.updateUI()
+                self.groupNameLable.text = inputTextField?.text
                 
                UpdateRecentsWitName(self.groupChatViewController.chatRoomId, name: (inputTextField?.text)!)
                 
             }
             
         }))
-        passwordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+        groupNamePrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "group name"
             textField.secureTextEntry = false
             inputTextField = textField
         })
         
-        presentViewController(passwordPrompt, animated: true, completion: nil)
+        presentViewController(groupNamePrompt, animated: true, completion: nil)
         
         
     }

@@ -778,7 +778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsD-eV-KCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4223" y="-15"/>
+            <point key="canvasLocation" x="4077" y="-233"/>
         </scene>
         <!--Choose User View Controller-->
         <scene sceneID="kON-py-n4V">
@@ -1010,7 +1010,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" textLabel="iC8-lR-fwJ" style="IBUITableViewCellStyleDefault" id="87v-al-KMw">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="87v-al-KMw" id="p9E-Ik-cBw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1254,11 +1254,12 @@
                         <outlet property="groupNameLable" destination="5j5-fl-2r1" id="VbU-OP-LVM"/>
                         <outlet property="headerView" destination="KXW-MJ-Pxe" id="ibb-eG-MMk"/>
                         <outlet property="leaveGroupCell" destination="O8e-lp-4oK" id="bD2-eZ-lSQ"/>
+                        <segue destination="ppZ-yv-TsH" kind="showDetail" identifier="LeaveGroupToRecentSeg" action="showViewController:sender:" id="MNi-pf-ple"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4F-hg-7Vi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5138" y="-1496"/>
+            <point key="canvasLocation" x="5238" y="-1888"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nXr-14-pWl">
@@ -1285,4 +1286,7 @@
         <image name="family" width="960" height="720"/>
         <image name="settings" width="22" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MNi-pf-ple"/>
+    </inferredMetricsTieBreakers>
 </document>

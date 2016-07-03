@@ -37,7 +37,6 @@ class WelcomeViewController: UIViewController {
 
         fbLoginButton.readPermissions = ["public_profile" , "email"]
         
-        self.hideKeyboardWhenTappedAround()
     }
 
     override func didReceiveMemoryWarning() {

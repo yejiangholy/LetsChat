@@ -67,8 +67,6 @@ class SettingGroupChatTableViewController: UITableViewController,UINavigationCon
         super.viewDidLoad()
 
         loadFriends()
-        
-        self.hideKeyboardWhenTappedAround()
 
     }
 
@@ -102,10 +100,10 @@ class SettingGroupChatTableViewController: UITableViewController,UINavigationCon
         if groupNameTextField!.text == "" {
             //show alert
             
-            let nameAlert = UIAlertController(title: "Name your group ~", message: "Name of your group could be changed latter", preferredStyle: .Alert)
+            let nameAlert = UIAlertController(title: "Name This Group", message: "Anyone in the group can change the name later ~", preferredStyle: .Alert)
             
         
-            let cancel = UIAlertAction(title: "Sure", style: .Cancel, handler: nil)
+            let cancel = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
             
             nameAlert.addAction(cancel)
             

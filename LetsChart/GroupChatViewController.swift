@@ -73,7 +73,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
-        self.hideKeyboardWhenTappedAround()
     }
     
     //MARK: JSQMessage dataSrouce functions 
@@ -331,7 +330,11 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     @IBAction func groupChatEditButtonPressed(sender: UIBarButtonItem) {
         
-        
+        getImageFromURL(self.recent!["image"] as! String, result: { (image) in
+            
+            self.groupImage = image
+        })
+
       self.performSegueWithIdentifier("ChatToGroupSetingSeg", sender: self)
         
     }

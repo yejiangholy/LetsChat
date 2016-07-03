@@ -175,19 +175,95 @@ func UpdateRecentsWithMessage(chatRoomID: String, lastMessage: String)
     
 }
 
+func DeleteUserFromGroupRecents(chatRoomID: String, user: BackendlessUser)
+{
+    
+      firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        
+        if snapshot.exists(){
+            for recent in snapshot.value!.allValues{
+                DeleteUserFromRecentItem(recent as! NSDictionary, user: user)
+            }
+        }
+    })
+    
+}
+
+func DeleteUserFromRecentItem(recent: NSDictionary , user:BackendlessUser)
+{
+    
+    let members = recent["members"] as! [String]
+    let withUserUserId = recent["withUserUserId"] as! [String]
+    let withUserUserName = recent["withUserUserName"] as! [String]
+    
+    let updatedMembers = members.filter{$0 != user.objectId}
+    let updatedUserId = withUserUserId.filter{ $0 != user.objectId}
+    let updatedUserName = withUserUserName.filter{ $0 != user.name }
+    
+     let values = ["members": updatedMembers , "withUserUserId": updatedUserId , "withUserUserName":updatedUserName]
+    
+    firebase.child("Recent").child((recent["recentId"] as? String)!).updateChildValues(values as [NSObject : AnyObject], withCompletionBlock: {(error, ref)->Void in
+        if error != nil{
+            print("Error could't update recent item when deleting current user")
+        }
+    })
+    
+    }
+    
+    
+
+
 func UpdateRecentsWithImage(chatRoomID : String, imageLink: String)
 {
     
-    
-    
+    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        
+        if snapshot.exists(){
+            for recent in snapshot.value!.allValues{
+                UpdateRecentItemWithImage(recent as! NSDictionary, imageLink: imageLink)
+            }
+        }
+    })
     
 }
 
 func UpdateRecentsWitName(chatRoomID: String , name: String)
 {
     
+    //first query firebase get back two recents that need to be updated
+    firebase.child("Recent").queryOrderedByChild("chatRoomID").queryEqualToValue(chatRoomID).observeSingleEventOfType(.Value, withBlock: { snapshot in
+        
+        if snapshot.exists(){
+            for recent in snapshot.value!.allValues{
+                UpdateRecentItemWithName(recent as! NSDictionary,name: name)
+            }
+        }
+    })
     
+}
+
+func UpdateRecentItemWithName(recent: NSDictionary, name: String)
+{
     
+    let values = ["name": name]
+    
+    firebase.child("Recent").child((recent["recentId"] as? String)!).updateChildValues(values as [NSObject : AnyObject], withCompletionBlock: {(error, ref)->Void in
+        if error != nil{
+            print("Error could't update recent item with name")
+        }
+    })
+    
+}
+
+func UpdateRecentItemWithImage(recent: NSDictionary , imageLink: String)
+{
+       let values = ["image": imageLink]
+    
+    firebase.child("Recent").child((recent["recentId"] as? String)!).updateChildValues(values as [NSObject : AnyObject], withCompletionBlock: {(error, ref)->Void in
+        if error != nil{
+            print("Error could't update recent item with imageLink")
+        }
+    })
     
 }
 
@@ -204,7 +280,7 @@ func UpdateRecentItemWithMessage(recent: NSDictionary, lastMessage: String )
     
     firebase.child("Recent").child((recent["recentId"] as? String)!).updateChildValues(values as [NSObject : AnyObject], withCompletionBlock: {(error, ref)->Void in
         if error != nil{
-            print("Error could't update recent item")
+            print("Error could't update recent item with message")
         }
     })
     
