@@ -162,13 +162,23 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
     
     func leaveGroupCellPressed()
     {
-        //3. segue to recent view controller
-        //2. remove current user from all the this groups recnts member 
-        //1. (do this in prepare for segue)delete current user's this recent, then let recentViewController reloadData()
+       
+        let LeaveAlert = UIAlertController(title: "Leave Group ?", message: "This conversation will be archived and you won't get any new messages.", preferredStyle: .Alert)
         
-        DeleteUserFromGroupRecents(self.groupChatViewController.chatRoomId, user: backendless.userService.currentUser)
         
-        self.performSegueWithIdentifier("LeaveGroupToRecentSeg", sender: groupChatViewController.recent)
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        LeaveAlert.addAction(UIAlertAction(title: "Leave", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            // Now do whatever you want with inputTextField (remember to unwrap the optional)
+            DeleteUserFromGroupRecents(self.groupChatViewController.chatRoomId, user: backendless.userService.currentUser)
+            
+            self.performSegueWithIdentifier("LeaveGroupToRecentSeg", sender: self.groupChatViewController.recent)
+
+        }))
+        
+        LeaveAlert.addAction(cancel)
+        
+        self.presentViewController(LeaveAlert, animated: true, completion: nil)
         
     }
     
