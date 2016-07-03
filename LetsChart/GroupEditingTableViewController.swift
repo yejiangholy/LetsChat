@@ -187,8 +187,11 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
             let recentVC = segue.destinationViewController as! RecentViewController
             
             let recent = sender as! NSDictionary
+
             
-            recentVC.recents.removeAtIndex(recentVC.recents.indexOf(recent)!)
+            print(recentVC.recents)
+            
+            //recentVC.recents.removeAtIndex(recentVC.recents.indexOf(recent)!)
             DeleteRecentItem(recent)
             
             recentVC.tableView.reloadData()
