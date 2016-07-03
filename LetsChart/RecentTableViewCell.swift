@@ -48,9 +48,21 @@ class RecentTableViewCell: UITableViewCell {
                 
                 if images.count != 0 {
                     
-                    self.avatarImageView.image = imageFromImages(images)
+                    let combinedImage = imageFromImages(images)
+                    
+                    uploadAvatar(combinedImage, result: { (imageLink) in
+                        
+                        recent.setValue(imageLink, forKey: "image")
+                    })
+                    
+                    self.avatarImageView.image = combinedImage
                     
                 } else {
+                    
+                    uploadAvatar(UIImage(named: "avatarPlaceholder")!, result: { (imageLink) in
+                        
+                        recent.setValue(imageLink, forKey: "image")
+                    })
                     
                     self.avatarImageView.image = UIImage(named: "avatarPlaceholder")
                     

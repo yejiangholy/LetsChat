@@ -12,7 +12,6 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
 
     @IBOutlet weak var changeNameCell: UITableViewCell!
     @IBOutlet weak var changePictureCell: UITableViewCell!
-    @IBOutlet weak var addFriendsCell: UITableViewCell!
     @IBOutlet weak var leaveGroupCell: UITableViewCell!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var groupImage: UIImageView!
@@ -23,6 +22,7 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        groupImage.image = UIImage(named: "avatarPlaceholder")
         
         getImageFromURL(groupChatViewController.recent!["image"] as! String) { (image) in
             
@@ -69,7 +69,7 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 3
+            return 2
         } else if section == 1 {
             return 1
         } else {
@@ -87,9 +87,6 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
         if (indexPath.section == 0) && (indexPath.row == 1) {
             return changePictureCell
         }
-        if (indexPath.section == 0) && (indexPath.row == 2) {
-            return addFriendsCell
-        }
         if (indexPath.section == 1) && (indexPath.row == 0) {
             return leaveGroupCell
         } else
@@ -104,7 +101,7 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
         if section == 0 {
             return 10
         } else {
-            return 25
+            return 35
         }
     }
     
@@ -137,11 +134,6 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
             changePhoto()
             
         }
-        if indexPath.section == 0 && indexPath.row == 2 {
-            
-            //addFriendsCellPressed()
-        }
-        
     }
     
     
