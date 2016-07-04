@@ -11,6 +11,7 @@
 		230588841D1CC4FA004CFDFD /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230588831D1CC4FA004CFDFD /* TermsOfServiceViewController.swift */; };
 		23375FCB1D26F63F000A3E1E /* GroupEditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23375FCA1D26F63F000A3E1E /* GroupEditingTableViewController.swift */; };
 		23375FCD1D274D00000A3E1E /* OtherUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23375FCC1D274D00000A3E1E /* OtherUtilities.swift */; };
+		23461D961D29C157005EDE80 /* GroupBackgroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23461D951D29C157005EDE80 /* GroupBackgroundTableViewController.swift */; };
 		23506D3C1D2077BC00308A17 /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */; };
 		237927891D1B1C0E00BF329B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 237927881D1B1C0E00BF329B /* GoogleService-Info.plist */; };
 		237ABEF21D1B9EE300493562 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237ABEF11D1B9EE300493562 /* AboutUsViewController.swift */; };
@@ -89,6 +90,7 @@
 		230588831D1CC4FA004CFDFD /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 		23375FCA1D26F63F000A3E1E /* GroupEditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditingTableViewController.swift; sourceTree = "<group>"; };
 		23375FCC1D274D00000A3E1E /* OtherUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUtilities.swift; sourceTree = "<group>"; };
+		23461D951D29C157005EDE80 /* GroupBackgroundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupBackgroundTableViewController.swift; sourceTree = "<group>"; };
 		23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
 		237927881D1B1C0E00BF329B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		237ABEF11D1B9EE300493562 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
@@ -363,9 +365,20 @@
 			name = SettingsViewControllers;
 			sourceTree = "<group>";
 		};
+		23461D941D29ABD7005EDE80 /* Single Chat */ = {
+			isa = PBXGroup;
+			children = (
+				239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */,
+				239C1AEE1D10EACE008D79EE /* ChatViewController.swift */,
+				23A605251D158CCC00DA3C31 /* MapViewController.swift */,
+			);
+			name = "Single Chat";
+			sourceTree = "<group>";
+		};
 		2395E4191D0C7806005D64A6 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				2395E41B1D0CB56D005D64A6 /* ProgressHUD */,
 				23C89A601D0BCB350000858B /* AppDelegate.swift */,
 				23C89A671D0BCB350000858B /* Assets.xcassets */,
 				23C89A691D0BCB350000858B /* LaunchScreen.storyboard */,
@@ -402,9 +415,6 @@
 				23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */,
 				2395E4211D0CF5BC005D64A6 /* RecentTableViewCell.swift */,
 				2395E4231D0CF8BE005D64A6 /* RecentViewController.swift */,
-				239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */,
-				239C1AEE1D10EACE008D79EE /* ChatViewController.swift */,
-				23A605251D158CCC00DA3C31 /* MapViewController.swift */,
 			);
 			name = RecentViewControlers;
 			sourceTree = "<group>";
@@ -802,6 +812,7 @@
 				23506D3B1D2077BC00308A17 /* GroupChatViewController.swift */,
 				23F616611D22C198000ECC3C /* SettingGroupChatTableViewController.swift */,
 				23375FCA1D26F63F000A3E1E /* GroupEditingTableViewController.swift */,
+				23461D951D29C157005EDE80 /* GroupBackgroundTableViewController.swift */,
 			);
 			name = "Group Chat";
 			sourceTree = "<group>";
@@ -834,9 +845,9 @@
 		23C89A5F1D0BCB350000858B /* LetsChart */ = {
 			isa = PBXGroup;
 			children = (
-				2395E4251D0CFAF7005D64A6 /* RecentViewControlers */,
 				239EAC271D25C25F0043E702 /* Group Chat */,
-				2395E41B1D0CB56D005D64A6 /* ProgressHUD */,
+				23461D941D29ABD7005EDE80 /* Single Chat */,
+				2395E4251D0CFAF7005D64A6 /* RecentViewControlers */,
 				239656701D18700C009B0DD4 /* Messages */,
 				2396566F1D186FB0009B0DD4 /* Utilities */,
 				2395E41A1D0C7822005D64A6 /* LoginViewControlers */,
@@ -1080,6 +1091,7 @@
 				2396574A1D19B9D0009B0DD4 /* PushNotifications.swift in Sources */,
 				23B18FCD1D1DE8470016EDFA /* SearchUsersTableViewController.swift in Sources */,
 				2396566E1D186F75009B0DD4 /* RegisterFBUser.swift in Sources */,
+				23461D961D29C157005EDE80 /* GroupBackgroundTableViewController.swift in Sources */,
 				237ABEF21D1B9EE300493562 /* AboutUsViewController.swift in Sources */,
 				23C89C471D0C545D0000858B /* LoginViewController.swift in Sources */,
 				2395E4241D0CF8BE005D64A6 /* RecentViewController.swift in Sources */,

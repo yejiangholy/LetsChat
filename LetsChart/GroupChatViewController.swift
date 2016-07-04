@@ -24,6 +24,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     var avatarDictionary: NSMutableDictionary?
     var showAvatars:Bool = true
     var firstLoad: Bool?
+    var backGround: UIImage?
     
     var withUser: [BackendlessUser]?
     var recent: NSDictionary?
@@ -52,6 +53,9 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let image = backGround {
+        self.collectionView.backgroundColor = UIColor(patternImage: image)
+        }
         self.senderId = backendless.userService.currentUser.objectId
         self.senderDisplayName = backendless.userService.currentUser.name
         
@@ -359,6 +363,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             let groupSetingVC = segue.destinationViewController as! GroupEditingTableViewController
             
             groupSetingVC.groupChatViewController = sender as! GroupChatViewController
+            groupSetingVC.recent = self.recent 
         }
     }
     
@@ -370,9 +375,15 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         if !(firstLoad!) {
             userDefaults.setBool(true, forKey: KFIRSTRUN)
             userDefaults.setBool(showAvatars, forKey: KAVATARSTATE)
+            let imageDic :NSMutableDictionary = [self.chatRoomId: UIImagePNGRepresentation(UIImage(named:"Background_white")!)!]
+            userDefaults.setValuesForKeysWithDictionary(["background" : imageDic])
             userDefaults.synchronize()
         }
         
+        if let imageDictionary  = userDefaults.dictionaryForKey("background"){
+        self.backGround =  UIImage(data: imageDictionary[self.chatRoomId!] as! NSData, scale: 1.0)
+        }
+
         showAvatars = userDefaults.boolForKey(KAVATARSTATE)
         
     }

@@ -55,8 +55,8 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
             avatarSwitchStatus = true
         } else {
             avatarSwitchStatus = false
-            print("avatar switch off")
-        }
+            
+            }
         
        saveUserDefaults()
     }

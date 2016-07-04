@@ -10,13 +10,16 @@ import UIKit
 
 class GroupEditingTableViewController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    
     @IBOutlet weak var changeNameCell: UITableViewCell!
     @IBOutlet weak var changePictureCell: UITableViewCell!
     @IBOutlet weak var leaveGroupCell: UITableViewCell!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupNameLable: UILabel!
+    @IBOutlet weak var backgroundCell: UITableViewCell!
     
+    var recent : NSDictionary!
     var groupChatViewController: GroupChatViewController!
     
     override func viewDidLoad() {
@@ -69,7 +72,7 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 2
+            return 3
         } else if section == 1 {
             return 1
         } else {
@@ -86,6 +89,9 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
         }
         if (indexPath.section == 0) && (indexPath.row == 1) {
             return changePictureCell
+        }
+        if (indexPath.section == 0) && (indexPath.row == 2) {
+            return backgroundCell
         }
         if (indexPath.section == 1) && (indexPath.row == 0) {
             return leaveGroupCell
@@ -134,6 +140,10 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
             changePhoto()
             
         }
+        if indexPath.section == 0 && indexPath.row == 2 {
+            
+            backgroundPressed()
+        }
     }
     
     
@@ -158,7 +168,13 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
     }
 
     
-    
+    func backgroundPressed() {
+        
+        
+        self.performSegueWithIdentifier("groupEditToBackgroundSeg", sender: groupChatViewController)
+        
+        
+    }
     
     func leaveGroupCellPressed()
     {
@@ -189,14 +205,25 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
             let recentVC = segue.destinationViewController as! RecentViewController
             
             let recent = sender as! NSDictionary
-
-            
-            print(recentVC.recents)
             
             //recentVC.recents.removeAtIndex(recentVC.recents.indexOf(recent)!)
             DeleteRecentItem(recent)
             
             recentVC.tableView.reloadData()
+            
+        }
+        
+        if segue.identifier == "groupEditToBackgroundSeg" {
+            
+            let chatViewController = sender as! GroupChatViewController
+            
+            let backgroundVC = segue.destinationViewController as! GroupBackgroundTableViewController
+            
+            backgroundVC.chatRoomId = chatViewController.chatRoomId
+        
+            backgroundVC.groupChatVC = chatViewController
+            
+            backgroundVC.recent = self.recent 
             
         }
         

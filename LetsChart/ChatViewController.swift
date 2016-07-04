@@ -509,7 +509,6 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         }
         
         showAvatars = userDefaults.boolForKey(KAVATARSTATE)
-        
     }
 
 }
