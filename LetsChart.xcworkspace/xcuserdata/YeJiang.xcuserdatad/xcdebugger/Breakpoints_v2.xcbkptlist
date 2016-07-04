@@ -26,11 +26,11 @@
             ignoreCount = "1"
             continueAfterRunningActions = "No"
             filePath = "LetsChart/GroupChatViewController.swift"
-            timestampString = "489336492.437721"
+            timestampString = "489342089.801314"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "542"
-            endingLineNumber = "542"
+            startingLineNumber = "540"
+            endingLineNumber = "540"
             landmarkName = "insertMessages()"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LetsChart/GroupBackgroundTableViewController.swift"
-            timestampString = "489305693.105045"
+            timestampString = "489347635.120568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "chooseDefaultBackgroundPressed()"
             landmarkType = "5">
          </BreakpointContent>

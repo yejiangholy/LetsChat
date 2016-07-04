@@ -220,11 +220,6 @@ class GroupEditingTableViewController: UITableViewController, UINavigationContro
             let backgroundVC = segue.destinationViewController as! GroupBackgroundTableViewController
             
             backgroundVC.chatRoomId = chatViewController.chatRoomId
-        
-            backgroundVC.groupChatVC = chatViewController
-            
-            backgroundVC.recent = self.recent 
-            
         }
         
     }

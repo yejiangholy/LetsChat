@@ -73,8 +73,9 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
         if let image = backGround {
-        print("in view did Load we get '\(image)' to update UI")
+            
         self.collectionView.backgroundColor = UIColor(patternImage: image)
+            
         }
         
     }
@@ -369,8 +370,7 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
 // MARK: loadUserDefaults
     func loadUserDefaults() {
-        
-        print("load user defaults called")
+    
         firstLoad = userDefaults.boolForKey(KFIRSTRUN)
         
         if let imageDictionary  = userDefaults.dictionaryForKey("background"){
@@ -379,8 +379,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             self.backGround =  imageFromDefault!
              self.collectionView.backgroundColor = UIColor(patternImage: imageFromDefault!)
 
-            print("image inside defalut = '\(imageFromDefault!)'")
-            
         }
 
         if !(firstLoad!) {

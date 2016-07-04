@@ -24,6 +24,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     var avatarDictionary: NSMutableDictionary?
     var showAvatars:Bool = false
     var firstLoad: Bool?
+    var backGround: UIImage?
     
     var withUser:BackendlessUser?
     var recent : NSDictionary?
@@ -35,12 +36,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     
     
-    override func viewWillAppear(animated: Bool) {
-        
-        loadUserDefaults()
-        
-    }
-    
+
     override func viewWillDisappear(animated: Bool) {
         
         //updateRecent
@@ -52,6 +48,8 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         loadUserDefaults()
         
         self.senderId = backendless.userService.currentUser.objectId
         self.senderDisplayName = backendless.userService.currentUser.name
@@ -75,6 +73,11 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
+        if let image = backGround {
+            
+            self.collectionView.backgroundColor = UIColor(patternImage: image)
+            
+        }
     }
     
     
@@ -192,6 +195,21 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         }
             
     }
+    
+    
+    
+    @IBAction func EditBackgroundPressed(sender: UIBarButtonItem) {
+        
+         self.performSegueWithIdentifier("SingleChatToBackgound", sender: self)
+    }
+    
+    
+    @IBAction func BackgroundPressed(sender: UIButton) {
+        
+        self.performSegueWithIdentifier("SingleChatToBackgound", sender: self)
+        
+    }
+    
     
     
     override func didPressAccessoryButton(sender: UIButton!) {
@@ -494,6 +512,13 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
             
             mapView.location = mediaItem?.location
         }
+        
+        if segue.identifier == "SingleChatToBackgound" {
+            
+            let singleBackground = segue.destinationViewController as! SingleBackgroundTableViewController
+            
+            singleBackground.chatRoomId = self.chatRoomId
+        }
     }
     
     //MARK: userDefaults functions
@@ -501,6 +526,15 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
     func loadUserDefaults() {
         
         firstLoad = userDefaults.boolForKey(KFIRSTRUN)
+        
+        if let imageDictionary  = userDefaults.dictionaryForKey("background"){
+            
+            let imageFromDefault = UIImage(data: imageDictionary[self.chatRoomId!] as! NSData, scale: 1.0)
+            self.backGround =  imageFromDefault!
+            self.collectionView.backgroundColor = UIColor(patternImage: imageFromDefault!)
+            
+        }
+
         
         if !(firstLoad!) {
             userDefaults.setBool(true, forKey: KFIRSTRUN)

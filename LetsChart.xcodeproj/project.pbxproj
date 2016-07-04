@@ -37,6 +37,7 @@
 		2396574A1D19B9D0009B0DD4 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239657491D19B9D0009B0DD4 /* PushNotifications.swift */; };
 		239C1AED1D10B925008D79EE /* ChooseUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */; };
 		239C1AEF1D10EACE008D79EE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C1AEE1D10EACE008D79EE /* ChatViewController.swift */; };
+		23A48C3D1D2AC710005BB752 /* SingleBackgroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A48C3C1D2AC710005BB752 /* SingleBackgroundTableViewController.swift */; };
 		23A605241D14FABB00DA3C31 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A605231D14FABB00DA3C31 /* Camera.swift */; };
 		23A605261D158CCC00DA3C31 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A605251D158CCC00DA3C31 /* MapViewController.swift */; };
 		23B18FCD1D1DE8470016EDFA /* SearchUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */; };
@@ -288,6 +289,7 @@
 		239657491D19B9D0009B0DD4 /* PushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
 		239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserViewController.swift; sourceTree = "<group>"; };
 		239C1AEE1D10EACE008D79EE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		23A48C3C1D2AC710005BB752 /* SingleBackgroundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBackgroundTableViewController.swift; sourceTree = "<group>"; };
 		23A605231D14FABB00DA3C31 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		23A605251D158CCC00DA3C31 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersTableViewController.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 			children = (
 				239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */,
 				239C1AEE1D10EACE008D79EE /* ChatViewController.swift */,
+				23A48C3C1D2AC710005BB752 /* SingleBackgroundTableViewController.swift */,
 				23A605251D158CCC00DA3C31 /* MapViewController.swift */,
 			);
 			name = "Single Chat";
@@ -1098,6 +1101,7 @@
 				23EB6E8C1D1327E50065749B /* OutgoingMessage.swift in Sources */,
 				23C89A611D0BCB350000858B /* AppDelegate.swift in Sources */,
 				23506D3C1D2077BC00308A17 /* GroupChatViewController.swift in Sources */,
+				23A48C3D1D2AC710005BB752 /* SingleBackgroundTableViewController.swift in Sources */,
 				230588841D1CC4FA004CFDFD /* TermsOfServiceViewController.swift in Sources */,
 				23DAF9161D1654E600BBB13D /* Avatar.swift in Sources */,
 				2395E4201D0CB56D005D64A6 /* ProgressHUD.m in Sources */,
