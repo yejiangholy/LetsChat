@@ -303,7 +303,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About Us " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a6h-2b-Tvt">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a6h-2b-Tvt">
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -412,6 +412,7 @@
                         <outlet property="logoutCell" destination="elF-x0-LpF" id="URe-3k-bzm"/>
                         <outlet property="privacyCell" destination="Ctb-dB-0iR" id="qjQ-oe-t77"/>
                         <outlet property="termsCell" destination="JS9-yz-L0K" id="MMo-fO-KnL"/>
+                        <segue destination="ic2-WW-OD5" kind="show" identifier="SettingToTermsOfService" action="showDetailViewController:sender:" id="mws-Vs-rs4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sb7-zL-CL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -430,37 +431,121 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpZ-3Z-oy2">
-                                <rect key="frame" x="475" y="20" width="105" height="33"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Terms of Service " borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfP-tA-fLj">
+                                <rect key="frame" x="207" y="64" width="187" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="105" id="5MU-9f-87c"/>
+                                    <constraint firstAttribute="height" constant="30" id="Vln-q0-ldn"/>
+                                    <constraint firstAttribute="width" constant="187" id="Y4U-Vk-aq4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="BackButtonPressed:" destination="ic2-WW-OD5" eventType="touchUpInside" id="mgK-Iu-XBT"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="family" translatesAutoresizingMaskIntoConstraints="NO" id="Ttz-K3-aAA">
-                                <rect key="frame" x="20" y="61" width="560" height="478"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26N-2L-MLf">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="RKa-5D-piu">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="CancelButtonPressed:" destination="ic2-WW-OD5" id="jkH-Iq-nP9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-IA-cdV">
+                                <rect key="frame" x="20" y="102" width="560" height="968.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6f3-IA-cdV" secondAttribute="height" multiplier="70:121" id="NpW-TS-szv"/>
+                                </constraints>
+                                <mutableString key="text">This agreement was written in English (US). To the extent any translated version of this agreement confilicts with the English version, the English version controls. Date of Last Revision: July 4, 2016.  
+
+1. Privacy 
+
+Your privacy is significant to us. Let’s Chat will not collect any information from your personal setting and messaging record for any purpose. Your content and information will be processed anonymously. 
+
+2. Safety 
+
+We do our best to keep Let’s Chat safe, but with your help we can do it better. Following are commitments that you admit when using Let’s Chat. 
+
+  1. You will not post or send any unlawful information via Let’s Chat. 
+  2. You will not engage in unlawful muti-level marketing.  
+  3. You will not upload viruses or other malicious code. 
+  4. You will not bully, intimidate, or harass any user. 
+  5. You will not use Let’s Chat to do anything unlawful, misleading, malicious, or discriminatory. 
+  6. You will not do anything that could disable, overburden, or impair the proper working or appearance of Let’s Chat. 
+
+3. Mobile and other Devices 
+
+ 1. We currently provide our mobile services for free, but please be aware that your carrier’s normal    rates and fees, such as text messaging and data charges, will also apply. 
+  2.You provide consent and all rights necessary to enable users to sync ( including through an application ) their devices with any information that is visible to them on Let’s Chat. 
+
+4. Disputes  
+
+ We try to keep Let’s Chat up, bug-free, and safe, but you use it at your own risk, we are providing Let’s Chat as is without any express or implied warranties including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not guarantee that Let’s Chat  will always be safe, secure or error-free or that Let’s Chat will always function without disruptions. delays or imperfections. Let’s Chat is not responsible for the actions, content, information, or data of third parties, and you release us. 
+
+5. Other 
+
+ 1. If any portion of this Statement is found to be unenforceable, the remaining portion will remain in full force and effect. 
+ 2. If we fail to enforce any of this Statement, it will not be considered a waiver. 
+ 3. Any amendment to or waiver of this Statement must be made in writing and signed by us. 
+ 4. You will not transfer any of your rights or obligations under this Statement to anyone else without our consent. 
+ 5. All of our rights and obligations under this Statement are freely assignable by us in connection with a merger, acquisition, or sale of asserts, or by operation of law or otherwise. 
+
+                                                                                                                            </mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UpZ-3Z-oy2" firstAttribute="top" secondItem="1SE-Sx-glW" secondAttribute="bottom" id="Ag5-cf-crb"/>
-                            <constraint firstItem="Ttz-K3-aAA" firstAttribute="top" secondItem="1SE-Sx-glW" secondAttribute="bottom" constant="41" id="EPN-mY-6gW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ttz-K3-aAA" secondAttribute="trailing" id="Iaw-w3-ynv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UpZ-3Z-oy2" secondAttribute="trailing" id="gTe-x7-sQV"/>
-                            <constraint firstItem="Ttz-K3-aAA" firstAttribute="centerY" secondItem="go8-TK-6Nr" secondAttribute="centerY" id="lbH-Wo-Eiz"/>
-                            <constraint firstItem="Ttz-K3-aAA" firstAttribute="centerX" secondItem="go8-TK-6Nr" secondAttribute="centerX" id="pjw-qf-vAt"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="top" secondItem="qfP-tA-fLj" secondAttribute="bottom" constant="8" symbolic="YES" id="2ZQ-JA-wAm"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="trailing" secondItem="go8-TK-6Nr" secondAttribute="trailingMargin" id="6Wt-w5-NPh"/>
+                            <constraint firstItem="qfP-tA-fLj" firstAttribute="centerX" secondItem="26N-2L-MLf" secondAttribute="centerX" id="9L6-pu-wuG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="26N-2L-MLf" secondAttribute="trailing" constant="-20" id="CP4-wN-vBH"/>
+                            <constraint firstItem="26N-2L-MLf" firstAttribute="leading" secondItem="go8-TK-6Nr" secondAttribute="leadingMargin" constant="-20" id="DZE-50-osS"/>
+                            <constraint firstItem="26N-2L-MLf" firstAttribute="centerX" secondItem="go8-TK-6Nr" secondAttribute="centerX" id="GW4-wf-q76"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="leading" secondItem="go8-TK-6Nr" secondAttribute="leadingMargin" id="HBi-6w-nRx"/>
+                            <constraint firstItem="qfP-tA-fLj" firstAttribute="centerX" secondItem="26N-2L-MLf" secondAttribute="centerX" id="MR6-om-kKk"/>
+                            <constraint firstItem="JSd-mO-sar" firstAttribute="top" secondItem="6f3-IA-cdV" secondAttribute="bottom" constant="-514.5" id="PsW-WA-odm"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="centerX" secondItem="go8-TK-6Nr" secondAttribute="centerX" id="U0o-Gd-xNP"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="leading" secondItem="go8-TK-6Nr" secondAttribute="leadingMargin" id="Ur9-EF-y7t"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="centerY" secondItem="go8-TK-6Nr" secondAttribute="centerY" id="XYR-NC-OWu"/>
+                            <constraint firstItem="JSd-mO-sar" firstAttribute="top" secondItem="qfP-tA-fLj" secondAttribute="bottom" constant="462" id="XxG-Gf-m6J"/>
+                            <constraint firstItem="qfP-tA-fLj" firstAttribute="top" secondItem="26N-2L-MLf" secondAttribute="bottom" id="Y1J-5N-GVh"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="trailing" secondItem="go8-TK-6Nr" secondAttribute="trailingMargin" id="aV8-35-kYG"/>
+                            <constraint firstItem="JSd-mO-sar" firstAttribute="top" secondItem="qfP-tA-fLj" secondAttribute="bottom" constant="462" id="aaG-O2-ON0"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="top" secondItem="qfP-tA-fLj" secondAttribute="bottom" constant="8" symbolic="YES" id="euY-2k-2Z6"/>
+                            <constraint firstItem="qfP-tA-fLj" firstAttribute="centerX" secondItem="go8-TK-6Nr" secondAttribute="centerX" id="jxw-4T-WEe"/>
+                            <constraint firstItem="26N-2L-MLf" firstAttribute="top" secondItem="1SE-Sx-glW" secondAttribute="bottom" id="k6Q-6f-6QF"/>
+                            <constraint firstItem="26N-2L-MLf" firstAttribute="top" secondItem="1SE-Sx-glW" secondAttribute="bottom" id="nCl-PZ-8Ft"/>
+                            <constraint firstItem="qfP-tA-fLj" firstAttribute="top" secondItem="1SE-Sx-glW" secondAttribute="bottom" constant="8" symbolic="YES" id="soW-QV-FX7"/>
+                            <constraint firstItem="6f3-IA-cdV" firstAttribute="centerX" secondItem="go8-TK-6Nr" secondAttribute="centerX" id="tI4-zu-Yi9"/>
+                            <constraint firstItem="qfP-tA-fLj" firstAttribute="top" secondItem="26N-2L-MLf" secondAttribute="bottom" symbolic="YES" id="v2I-LZ-nSb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2ZQ-JA-wAm"/>
+                                <exclude reference="XYR-NC-OWu"/>
+                                <exclude reference="tI4-zu-Yi9"/>
+                                <exclude reference="MR6-om-kKk"/>
+                                <exclude reference="soW-QV-FX7"/>
+                                <exclude reference="PsW-WA-odm"/>
+                                <exclude reference="XxG-Gf-m6J"/>
+                                <exclude reference="aaG-O2-ON0"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="GYX-Vx-mul"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="TitleTextField" destination="qfP-tA-fLj" id="9mh-n8-qpm"/>
+                        <outlet property="mainTextView" destination="6f3-IA-cdV" id="S0N-jJ-Zz5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjS-Bu-jfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4197" y="928"/>
+            <point key="canvasLocation" x="4168" y="808"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="ovK-Fz-NeD">
@@ -1499,7 +1584,6 @@
     <resources>
         <image name="Logo" width="303" height="238"/>
         <image name="avatarPlaceholder" width="250" height="250"/>
-        <image name="family" width="960" height="720"/>
         <image name="settings" width="22" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>

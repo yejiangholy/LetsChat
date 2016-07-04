@@ -290,6 +290,11 @@
 		239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserViewController.swift; sourceTree = "<group>"; };
 		239C1AEE1D10EACE008D79EE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		23A48C3C1D2AC710005BB752 /* SingleBackgroundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBackgroundTableViewController.swift; sourceTree = "<group>"; };
+		23A48C461D2AF613005BB752 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		23A48C481D2AF623005BB752 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		23A48C4A1D2AF630005BB752 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		23A48C4C1D2AF63D005BB752 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		23A48C4E1D2AF657005BB752 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		23A605231D14FABB00DA3C31 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		23A605251D158CCC00DA3C31 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersTableViewController.swift; sourceTree = "<group>"; };
@@ -891,6 +896,11 @@
 		F3AF470DF7C9780E868DEEE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23A48C4E1D2AF657005BB752 /* SystemConfiguration.framework */,
+				23A48C4C1D2AF63D005BB752 /* libz.tbd */,
+				23A48C4A1D2AF630005BB752 /* libsqlite3.tbd */,
+				23A48C481D2AF623005BB752 /* CoreTelephony.framework */,
+				23A48C461D2AF613005BB752 /* libc++.tbd */,
 				E70481CCE66C331826A3F499 /* libPods-LetsChart.a */,
 			);
 			name = Frameworks;
@@ -1275,6 +1285,7 @@
 					"$(PROJECT_DIR)/lib/MediaLibiOS3x",
 					"$(PROJECT_DIR)/lib/speex-1.2rc2/lib",
 					"$(PROJECT_DIR)/lib/x264/lib",
+					"$(PROJECT_DIR)/lib/OpenSDK1.7.1",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = umass.edu.yejiang.LetsChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1306,6 +1317,7 @@
 					"$(PROJECT_DIR)/lib/MediaLibiOS3x",
 					"$(PROJECT_DIR)/lib/speex-1.2rc2/lib",
 					"$(PROJECT_DIR)/lib/x264/lib",
+					"$(PROJECT_DIR)/lib/OpenSDK1.7.1",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = umass.edu.yejiang.LetsChart;
 				PRODUCT_NAME = "$(TARGET_NAME)";

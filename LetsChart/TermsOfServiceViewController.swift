@@ -10,10 +10,16 @@ import UIKit
 
 class TermsOfServiceViewController: UIViewController {
 
+
+    
+    
+    @IBOutlet weak var TitleTextField: UITextField!
+    
+    @IBOutlet weak var mainTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
+        TitleTextField.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,11 +27,12 @@ class TermsOfServiceViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func BackButtonPressed(sender: UIButton) {
+    
+    @IBAction func CancelButtonPressed(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     /*
     // MARK: - Navigation
 

@@ -147,12 +147,8 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
         
         if indexPath.section == 0 && indexPath.row == 1 {
             
-            
-            let TermsView = storyboard!.instantiateViewControllerWithIdentifier("TermsOfServiceView")
-            
-            self.presentViewController(TermsView, animated: true, completion: nil)
-            
-
+           
+            self.performSegueWithIdentifier("SettingToTermsOfService", sender: self)
             
         }
     }
