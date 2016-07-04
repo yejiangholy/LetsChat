@@ -118,15 +118,13 @@ class GroupBackgroundTableViewController: UITableViewController,UINavigationCont
                 
                 backgroundDictionary?.updateValue(UIImagePNGRepresentation(UIImage(named: "Background_1")!)!, forKey: self.chatRoomId)
                 
+                self.userDefaults.setObject(backgroundDictionary, forKey: "background")
+                
+                 print("set user default = '\(UIImage(named: "Background_1")!)'")
                 }
             
-            // change groupChatVC's background image ( may be you can delete this line of code)
             
-            self.groupChatVC.backGround = UIImage(named: "Background_1")!
-            
-            // segua back to groupChatVC
-            
-            self.performSegueWithIdentifier("wallPaperBackToGroupChat", sender: self)
+           self.navigationController?.popToRootViewControllerAnimated(true)
             
             
         }
@@ -137,23 +135,20 @@ class GroupBackgroundTableViewController: UITableViewController,UINavigationCont
             //set user defalt this room to this picture
             var backgroundDictionary  = self.userDefaults.dictionaryForKey("background")
             if backgroundDictionary == nil {
+                
                 let backgroundDic : NSMutableDictionary = [self.chatRoomId: UIImagePNGRepresentation(UIImage(named: "Background_2")!)!]
+                
                 self.userDefaults.setObject(backgroundDic, forKey: "background" )
+                print("set user default = '\(UIImage(named: "Background_2")!)'")
                 
             }else {
                 
                 backgroundDictionary?.updateValue(UIImagePNGRepresentation(UIImage(named: "Background_2")!)!, forKey: self.chatRoomId)
-                
+                self.userDefaults.setObject(backgroundDictionary, forKey: "background")
+                print("set user default = '\(UIImage(named: "Background_2")!)'")
             }
             
-            // change groupChatVC's background image ( may be you can delete this line of code)
-            
-             self.groupChatVC.backGround = UIImage(named: "Background_2")!
-            // segua back to groupChatVC
-            
-            //self.performSegueWithIdentifier("wallPaperBackToGroupChat", sender: self)
-          self.navigationController?.popViewControllerAnimated(true)
-            
+          self.navigationController?.popToRootViewControllerAnimated(true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) ->Void in
             
@@ -213,23 +208,12 @@ class GroupBackgroundTableViewController: UITableViewController,UINavigationCont
         }else {
             
             backgroundDictionary?.updateValue(UIImagePNGRepresentation(image!)!, forKey: self.chatRoomId)
-            
+            self.userDefaults.setObject(backgroundDictionary, forKey: "background")
+             print("set user default = '\(image!)'")
         }
-        
-        // change groupChatVC's background image ( may be you can delete this line of code)
-        
-        self.groupChatVC.backGround = image!
-        
         // segua back to groupChatVC
-        
-        self.performSegueWithIdentifier("wallPaperBackToGroupChat", sender: self)
-        
              picker.dismissViewControllerAnimated(true, completion: nil)
-        
+         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-
-    
-    
-    
     
 }

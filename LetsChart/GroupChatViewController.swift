@@ -37,11 +37,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     let outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
     let incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     
-    override func viewWillAppear(animated: Bool) {
-        
-        loadUserDefaults()
-        
-    }
     
     override func viewWillDisappear(animated: Bool) {
         
@@ -51,11 +46,11 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     }
     
     override func viewDidLoad() {
+        
+        loadUserDefaults()
+        
         super.viewDidLoad()
         
-        if let image = backGround {
-        self.collectionView.backgroundColor = UIColor(patternImage: image)
-        }
         self.senderId = backendless.userService.currentUser.objectId
         self.senderDisplayName = backendless.userService.currentUser.name
         
@@ -76,6 +71,11 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         loadMessage()
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
+        
+        if let image = backGround {
+        print("in view did Load we get '\(image)' to update UI")
+        self.collectionView.backgroundColor = UIColor(patternImage: image)
+        }
         
     }
     
@@ -370,22 +370,27 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
 // MARK: loadUserDefaults
     func loadUserDefaults() {
         
+        print("load user defaults called")
         firstLoad = userDefaults.boolForKey(KFIRSTRUN)
         
-        if !(firstLoad!) {
-            userDefaults.setBool(true, forKey: KFIRSTRUN)
-            userDefaults.setBool(showAvatars, forKey: KAVATARSTATE)
-            let imageDic :NSMutableDictionary = [self.chatRoomId: UIImagePNGRepresentation(UIImage(named:"Background_white")!)!]
-            userDefaults.setValuesForKeysWithDictionary(["background" : imageDic])
-            userDefaults.synchronize()
-        }
-        
         if let imageDictionary  = userDefaults.dictionaryForKey("background"){
-        self.backGround =  UIImage(data: imageDictionary[self.chatRoomId!] as! NSData, scale: 1.0)
+            
+            let imageFromDefault = UIImage(data: imageDictionary[self.chatRoomId!] as! NSData, scale: 1.0)
+            self.backGround =  imageFromDefault!
+             self.collectionView.backgroundColor = UIColor(patternImage: imageFromDefault!)
+
+            print("image inside defalut = '\(imageFromDefault!)'")
+            
         }
 
-        showAvatars = userDefaults.boolForKey(KAVATARSTATE)
+        if !(firstLoad!) {
         
+            userDefaults.setBool(true, forKey: KFIRSTRUN)
+            userDefaults.setBool(showAvatars, forKey: KAVATARSTATE)
+            userDefaults.synchronize()
+            
+        }
+        showAvatars = userDefaults.boolForKey(KAVATARSTATE)
     }
     
   
