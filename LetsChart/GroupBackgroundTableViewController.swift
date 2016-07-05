@@ -145,11 +145,37 @@ class GroupBackgroundTableViewController: UITableViewController,UINavigationCont
             
           self.navigationController?.popToRootViewControllerAnimated(true)
         }
+        
+        let defaultThree = UIAlertAction(title: " Default WallPaper 3", style: .Default) { (alert :UIAlertAction!) -> Void in
+            
+            
+            //set user defalt this room to this picture
+            var backgroundDictionary  = self.userDefaults.dictionaryForKey("background")
+            if backgroundDictionary == nil {
+                
+                let backgroundDic : NSMutableDictionary = [self.chatRoomId: UIImagePNGRepresentation(UIImage(named: "Background_3")!)!]
+                
+                self.userDefaults.setObject(backgroundDic, forKey: "background" )
+                print("set user default = '\(UIImage(named: "Background_3")!)'")
+                
+            }else {
+                
+                backgroundDictionary?.updateValue(UIImagePNGRepresentation(UIImage(named: "Background_3")!)!, forKey: self.chatRoomId)
+                self.userDefaults.setObject(backgroundDictionary, forKey: "background")
+                
+            }
+            
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) ->Void in
             
         }
+        
+        
         optionMenu.addAction(defaultOne)
         optionMenu.addAction(defaultTwo)
+        optionMenu.addAction(defaultThree)
         optionMenu.addAction(cancelAction)
         
         self.presentViewController(optionMenu, animated: true, completion: nil)

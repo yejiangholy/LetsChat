@@ -53,7 +53,7 @@
                                     <constraint firstAttribute="height" constant="50" id="eZa-it-dxm"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-X2-iCo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Earth" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-X2-iCo">
                                 <rect key="frame" x="20" y="72" width="560" height="319"/>
                             </imageView>
                         </subviews>
@@ -337,7 +337,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Avatar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhq-d8-R7V">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhq-d8-R7V">
                                                     <rect key="frame" x="17" y="11" width="254" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="QeO-55-t5o"/>
@@ -1576,6 +1576,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
         </scene>
     </scenes>
     <resources>
+        <image name="Earth" width="1280" height="720"/>
         <image name="Logo" width="303" height="238"/>
         <image name="avatarPlaceholder" width="250" height="250"/>
         <image name="settings" width="22" height="23"/>
