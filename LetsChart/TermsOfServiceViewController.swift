@@ -20,6 +20,7 @@ class TermsOfServiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         TitleTextField.enabled = false
+        mainTextView.editable = false
     }
 
     override func didReceiveMemoryWarning() {

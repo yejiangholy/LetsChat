@@ -413,6 +413,7 @@
                         <outlet property="privacyCell" destination="Ctb-dB-0iR" id="qjQ-oe-t77"/>
                         <outlet property="termsCell" destination="JS9-yz-L0K" id="MMo-fO-KnL"/>
                         <segue destination="ic2-WW-OD5" kind="show" identifier="SettingToTermsOfService" action="showDetailViewController:sender:" id="mws-Vs-rs4"/>
+                        <segue destination="4cd-Z0-aiW" kind="showDetail" identifier="SettingToAboutView" id="SbI-88-Rtp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sb7-zL-CL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -555,73 +556,66 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         <viewControllerLayoutGuide type="top" id="XJ4-W5-XV0"/>
                         <viewControllerLayoutGuide type="bottom" id="Per-WS-qtK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="I8w-dr-P4w">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="I8w-dr-P4w">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AV-Tn-dcb">
-                                <rect key="frame" x="245" y="20" width="111" height="115"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="111" id="olD-as-p5X"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="269" y="28" width="111" height="52"/>
-                                </variation>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="v37-FX-7Xr">
-                                <rect key="frame" x="149" y="181" width="302" height="238"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Let's Chat   " borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vrv-Am-cZS">
-                                <rect key="frame" x="250" y="143" width="100" height="30"/>
+                                <rect key="frame" x="196" y="64" width="207" height="171"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="zFh-Ih-WCI"/>
+                                    <constraint firstAttribute="height" constant="171" id="VqD-iG-PxT"/>
+                                    <constraint firstAttribute="width" constant="207" id="trg-bm-wlE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2016 Ye Jiang. All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbh-Ie-ekQ">
-                                <rect key="frame" x="14" y="535" width="560" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="538" width="560" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhi-0w-yxJ">
-                                <rect key="frame" x="491" y="28" width="89" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="2Ms-Ez-M7i"/>
-                                    <constraint firstAttribute="width" constant="89" id="IzA-BC-NEv"/>
-                                </constraints>
-                                <state key="normal" title="Cancle">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="4cd-Z0-aiW" eventType="touchUpInside" id="1SI-RP-Tdy"/>
-                                </connections>
-                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-H3-DBb">
+                                <rect key="frame" x="19" y="223" width="560" height="307"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGJ-6r-KPY">
+                                <rect key="frame" x="-1" y="20" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="Kk6-eB-5UA">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="CancleButtonPressed:" destination="4cd-Z0-aiW" id="AWw-ZW-JUQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="vrv-Am-cZS" firstAttribute="top" secondItem="2AV-Tn-dcb" secondAttribute="bottom" constant="8" id="2Vt-vO-Tjs"/>
-                            <constraint firstItem="2AV-Tn-dcb" firstAttribute="top" secondItem="XJ4-W5-XV0" secondAttribute="bottom" id="64T-TE-4V4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lhi-0w-yxJ" secondAttribute="trailing" id="Abn-dx-ngK"/>
-                            <constraint firstItem="v37-FX-7Xr" firstAttribute="centerY" secondItem="I8w-dr-P4w" secondAttribute="centerY" id="Ayv-L7-tYY"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Jbh-Ie-ekQ" secondAttribute="leading" constant="6" id="MJh-NM-FLe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2AV-Tn-dcb" secondAttribute="trailing" constant="224" id="NPC-la-3vY"/>
-                            <constraint firstItem="Per-WS-qtK" firstAttribute="top" secondItem="Jbh-Ie-ekQ" secondAttribute="bottom" constant="0.5" id="RnB-5T-12x"/>
-                            <constraint firstItem="Lhi-0w-yxJ" firstAttribute="top" secondItem="XJ4-W5-XV0" secondAttribute="bottom" constant="8" symbolic="YES" id="bN8-Mn-NxU"/>
-                            <constraint firstItem="vrv-Am-cZS" firstAttribute="centerX" secondItem="I8w-dr-P4w" secondAttribute="centerX" id="h61-fa-Fuj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Jbh-Ie-ekQ" secondAttribute="trailing" constant="6" id="n4X-E9-Dux"/>
-                            <constraint firstItem="v37-FX-7Xr" firstAttribute="top" secondItem="vrv-Am-cZS" secondAttribute="bottom" constant="8" symbolic="YES" id="q6j-8E-gdR"/>
-                            <constraint firstItem="v37-FX-7Xr" firstAttribute="centerX" secondItem="I8w-dr-P4w" secondAttribute="centerX" id="rIq-jt-m2Z"/>
-                            <constraint firstItem="2AV-Tn-dcb" firstAttribute="centerX" secondItem="vrv-Am-cZS" secondAttribute="centerX" id="uS3-Pn-XtT"/>
-                            <constraint firstItem="v37-FX-7Xr" firstAttribute="width" secondItem="I8w-dr-P4w" secondAttribute="height" multiplier="151:300" id="w03-gh-c0D"/>
+                            <constraint firstItem="Per-WS-qtK" firstAttribute="top" secondItem="Jbh-Ie-ekQ" secondAttribute="bottom" id="0QO-Yf-KvG"/>
+                            <constraint firstItem="Jbh-Ie-ekQ" firstAttribute="top" secondItem="Z0b-H3-DBb" secondAttribute="bottom" constant="8" id="0s6-QM-nNI"/>
+                            <constraint firstItem="Per-WS-qtK" firstAttribute="top" secondItem="Jbh-Ie-ekQ" secondAttribute="bottom" id="319-DB-np8"/>
+                            <constraint firstItem="TGJ-6r-KPY" firstAttribute="top" secondItem="XJ4-W5-XV0" secondAttribute="bottom" id="5u0-nM-TZZ"/>
+                            <constraint firstItem="Jbh-Ie-ekQ" firstAttribute="top" secondItem="Z0b-H3-DBb" secondAttribute="bottom" constant="8" id="6y9-pn-hb2"/>
+                            <constraint firstItem="Z0b-H3-DBb" firstAttribute="trailing" secondItem="I8w-dr-P4w" secondAttribute="trailingMargin" constant="-1" id="74Y-Ed-geP"/>
+                            <constraint firstItem="v37-FX-7Xr" firstAttribute="top" secondItem="TGJ-6r-KPY" secondAttribute="bottom" id="8bL-K8-qol"/>
+                            <constraint firstItem="Jbh-Ie-ekQ" firstAttribute="trailing" secondItem="I8w-dr-P4w" secondAttribute="trailingMargin" id="A5J-jY-UK3"/>
+                            <constraint firstItem="v37-FX-7Xr" firstAttribute="centerY" secondItem="I8w-dr-P4w" secondAttribute="centerY" id="A9f-vU-Gcl"/>
+                            <constraint firstItem="TGJ-6r-KPY" firstAttribute="leading" secondItem="I8w-dr-P4w" secondAttribute="leadingMargin" constant="-21" id="AZD-RN-WtR"/>
+                            <constraint firstItem="Z0b-H3-DBb" firstAttribute="leading" secondItem="I8w-dr-P4w" secondAttribute="leadingMargin" constant="-1" id="OPh-zi-W4D"/>
+                            <constraint firstItem="Z0b-H3-DBb" firstAttribute="top" secondItem="v37-FX-7Xr" secondAttribute="bottom" constant="-12" id="clT-Nj-crR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TGJ-6r-KPY" secondAttribute="trailing" constant="-19" id="ecK-rf-I1d"/>
+                            <constraint firstItem="Jbh-Ie-ekQ" firstAttribute="leading" secondItem="I8w-dr-P4w" secondAttribute="leadingMargin" id="eqQ-iG-3pz"/>
+                            <constraint firstItem="v37-FX-7Xr" firstAttribute="top" secondItem="TGJ-6r-KPY" secondAttribute="bottom" id="t1q-UL-Km5"/>
+                            <constraint firstItem="v37-FX-7Xr" firstAttribute="centerX" secondItem="I8w-dr-P4w" secondAttribute="centerX" id="wH2-AT-ztg"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="NPC-la-3vY"/>
+                                <exclude reference="A9f-vU-Gcl"/>
+                                <exclude reference="t1q-UL-Km5"/>
+                                <exclude reference="0s6-QM-nNI"/>
                             </mask>
                         </variation>
                     </view>
@@ -630,7 +624,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgN-nc-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4991" y="1938"/>
+            <point key="canvasLocation" x="3463" y="1465"/>
         </scene>
         <!--Search Users Table View Controller-->
         <scene sceneID="yAa-77-7BH">

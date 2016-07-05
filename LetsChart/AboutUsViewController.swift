@@ -10,6 +10,12 @@ import UIKit
 
 class AboutUsViewController: UIViewController {
 
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,13 +29,12 @@ class AboutUsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    @IBAction func cancelButtonPressed(sender: UIButton) {
+    @IBAction func CancleButtonPressed(sender: UIBarButtonItem) {
         
           self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
-
+    
     /*
     // MARK: - Navigation
 
