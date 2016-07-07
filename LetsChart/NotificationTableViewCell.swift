@@ -15,6 +15,8 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLable: UILabel!
     
     
+    
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -51,8 +53,7 @@ class NotificationTableViewCell: UITableViewCell {
         }) { (fault) in
             print("error, cound't get user image: \(fault)")
         }
-        nameLable.text = (notification["requesterName"] as? String)?.stringByAppendingString(" want be a friend ~")
-        
+        nameLable.text = "Friend request from ".stringByAppendingString((notification["requesterName"] as? String)!)
         let date = dataFormatter().dateFromString(notification["date"] as! String)
         let seconds = NSDate().timeIntervalSinceDate(date!)
         dateLable.text = TimeElipsed(seconds)

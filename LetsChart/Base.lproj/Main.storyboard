@@ -969,7 +969,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2h-wf-ZJM">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2h-wf-ZJM">
                                 <rect key="frame" x="558" y="28" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="emT-zl-mcX"/>
@@ -1077,7 +1077,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1106,7 +1106,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1123,7 +1123,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1179,7 +1179,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SuH-7R-1pQ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="543"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1198,48 +1198,60 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                         <constraint firstAttribute="height" constant="50" id="ngM-Nf-bdA"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***want be a friend ~ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txf-MH-j9h">
-                                                    <rect key="frame" x="66" y="5" width="364" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRj-Rl-A8h">
+                                                    <rect key="frame" x="444" y="8" width="110" height="25"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="116" id="Pjj-yR-d7V"/>
+                                                        <constraint firstAttribute="height" constant="25" id="PrR-J2-aiS"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Pjj-yR-d7V"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***want be a friend ~ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txf-MH-j9h">
+                                                    <rect key="frame" x="66" y="5" width="370" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="370" id="Fn9-77-quY"/>
                                                         <constraint firstAttribute="width" secondItem="Txf-MH-j9h" secondAttribute="height" multiplier="237:23" id="TQP-V2-EQq"/>
                                                         <constraint firstAttribute="width" constant="364" id="ZMw-Uy-qdL"/>
                                                         <constraint firstAttribute="width" secondItem="Txf-MH-j9h" secondAttribute="height" multiplier="182:25" id="eOn-7m-IG9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="TQP-V2-EQq"/>
                                                             <exclude reference="ZMw-Uy-qdL"/>
+                                                            <exclude reference="eOn-7m-IG9"/>
                                                         </mask>
                                                     </variation>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRj-Rl-A8h">
-                                                    <rect key="frame" x="438" y="8" width="116" height="25"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" id="5CC-S1-7Ud"/>
-                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="5nB-Nr-zuk"/>
-                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" symbolic="YES" id="H2V-ca-hb6"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Txf-MH-j9h" secondAttribute="bottom" constant="-4" id="QGz-rD-fpU"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" id="Av5-g8-Bba"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="5" id="BO3-si-sdn"/>
+                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" id="M2Y-vk-LHy"/>
                                                 <constraint firstItem="TBn-kx-JLX" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="RED-TJ-Bd0"/>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="SMx-Ym-Dn5"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="Se4-D7-gEc"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kRj-Rl-A8h" secondAttribute="bottom" constant="18.5" id="WYj-fD-vkz"/>
                                                 <constraint firstItem="TBn-kx-JLX" firstAttribute="leading" secondItem="Pmo-KY-H7S" secondAttribute="leadingMargin" id="XhA-jc-C3f"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="kRj-Rl-A8h" secondAttribute="bottom" constant="18" id="Y9T-gQ-xMI"/>
+                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" id="YNN-LU-jZz"/>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="cEE-Od-Z8n"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="5" id="h3g-U7-HJ4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="7" id="i1I-rG-CSa"/>
-                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" symbolic="YES" id="nfk-Ue-YZt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="TBn-kx-JLX" secondAttribute="bottom" constant="-3.5" id="oGL-xZ-Kzl"/>
-                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" id="qAT-Vh-VLW"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="5" id="rZK-OF-7TB"/>
                                                 <constraint firstItem="kRj-Rl-A8h" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" id="tPu-FG-qq3"/>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="bottom" secondItem="Pmo-KY-H7S" secondAttribute="bottomMargin" id="tTo-qP-cnp"/>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" symbolic="YES" id="yh4-vZ-NCX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Txf-MH-j9h" secondAttribute="bottom" constant="-3.5" id="zXO-cU-fmM"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -1253,14 +1265,18 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="46" id="Jf5-rj-UKI"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Jf5-rj-UKI"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
-                                            <outlet property="AvatarImage" destination="TBn-kx-JLX" id="AGE-hE-8PD"/>
-                                            <outlet property="NotificationLable" destination="Txf-MH-j9h" id="rav-sb-gJv"/>
-                                            <outlet property="TimeLable" destination="kRj-Rl-A8h" id="dpL-Dd-em1"/>
                                             <outlet property="avatarImageView" destination="TBn-kx-JLX" id="HLi-ax-0i2"/>
                                             <outlet property="dateLable" destination="kRj-Rl-A8h" id="lqE-pV-K9w"/>
                                             <outlet property="nameLable" destination="Txf-MH-j9h" id="u53-UP-TYL"/>
-                                            <outlet property="timeLable" destination="kRj-Rl-A8h" id="U5d-9n-izy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1273,7 +1289,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ToS-TG-WM6" firstAttribute="top" secondItem="SuH-7R-1pQ" secondAttribute="bottom" constant="8" symbolic="YES" id="3r1-lS-w5T"/>
-                            <constraint firstItem="ToS-TG-WM6" firstAttribute="top" secondItem="SuH-7R-1pQ" secondAttribute="bottom" constant="8" symbolic="YES" id="6Ga-Ta-0dX"/>
+                            <constraint firstItem="ToS-TG-WM6" firstAttribute="top" secondItem="SuH-7R-1pQ" secondAttribute="bottom" id="6Ga-Ta-0dX"/>
                             <constraint firstItem="SuH-7R-1pQ" firstAttribute="top" secondItem="iD1-VE-y3z" secondAttribute="bottom" constant="8" symbolic="YES" id="BRQ-n7-7Hh"/>
                             <constraint firstItem="SuH-7R-1pQ" firstAttribute="top" secondItem="e73-Xa-3SB" secondAttribute="topMargin" id="D4o-Ti-VvK"/>
                             <constraint firstItem="SuH-7R-1pQ" firstAttribute="leading" secondItem="e73-Xa-3SB" secondAttribute="leadingMargin" id="bTJ-6J-XK6"/>
@@ -1297,7 +1313,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbN-Lu-kUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2433" y="1456"/>
+            <point key="canvasLocation" x="2690" y="1450"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bIX-yQ-Hfx">
@@ -1458,7 +1474,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5j5-fl-2r1">
                                     <rect key="frame" x="8" y="129" width="584" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edh-Pv-gP7">
@@ -1503,7 +1519,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1520,7 +1536,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1537,7 +1553,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1620,7 +1636,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1649,7 +1665,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1666,7 +1682,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

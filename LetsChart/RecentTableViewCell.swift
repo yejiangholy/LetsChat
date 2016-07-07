@@ -36,6 +36,8 @@ class RecentTableViewCell: UITableViewCell {
             avatarImageView.layer.cornerRadius = avatarImageView.frame.size.width/2
             avatarImageView.layer.masksToBounds = true
             
+            self.avatarImageView.image = UIImage(named: "avatarPlaceholder")
+            
             let withUsersId = recent.objectForKey("withUserUserId") as! [String]
             
             //1. put all withUser's image into images array && name into names
@@ -63,9 +65,6 @@ class RecentTableViewCell: UITableViewCell {
                         
                         recent.setValue(imageLink, forKey: "image")
                     })
-                    
-                    self.avatarImageView.image = UIImage(named: "avatarPlaceholder")
-                    
                 }
             })
             }else {

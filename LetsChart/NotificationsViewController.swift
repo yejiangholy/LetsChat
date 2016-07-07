@@ -100,10 +100,11 @@ class NotificationsViewController: UIViewController ,UITableViewDataSource,UITab
         letThemBecomeFriends(user1Id, user2Id: user2Id) { (result) in
             
             if result == true{
-             ProgressHUD.dismiss()
+                
              ProgressHUD.showSuccess("Your and'\(requesterName)' are friends now  !")
+                
             } else {
-                 ProgressHUD.dismiss()
+        
                 ProgressHUD.showError("server error when adding '\(requesterName)'")
             }
         }

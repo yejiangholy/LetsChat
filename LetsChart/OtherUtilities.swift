@@ -70,7 +70,7 @@ func letThemBecomeFriends(user1Id: String,  user2Id: String, result: (result: Bo
         if  let user1currentFriends = user1FriendsList as? String{
             
             if !(user1currentFriends.containsString(user2.objectId)){
-                updatedList1 = user1currentFriends.stringByAppendingString(" '\(user2.objectId)'")
+                updatedList1 = user1currentFriends.stringByAppendingString(" \(user2.objectId)")
             } else {
                 updatedList1 = user1currentFriends
             }
@@ -83,7 +83,7 @@ func letThemBecomeFriends(user1Id: String,  user2Id: String, result: (result: Bo
         if  let user2currentFriends = user2FriendsList as? String{
             
             if !(user2currentFriends.containsString(user1.objectId)){
-                updatedList2 = user2currentFriends.stringByAppendingString(" '\(user1.objectId)'")
+                updatedList2 = user2currentFriends.stringByAppendingString(" \(user1.objectId)")
             } else {
                 updatedList2 = user2currentFriends
             }
