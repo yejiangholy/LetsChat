@@ -44,6 +44,20 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
         
         if emailTextField.text != "" && usernameTextField.text != "" && passwordTextField.text != "" {
             
+            
+        // check if it is a valid email address also ! 
+            
+            if !(emailTextField.text!.containsString("@")){
+                
+                ProgressHUD.showError("Please enter a valid e-mail address")
+            } else {
+            
+            if (passwordTextField.text!.characters.count < 7)
+            {
+                ProgressHUD.showError("password at least have 7 characters")
+                
+            }else {
+            
             ProgressHUD.show("Registering...")
             
             email = emailTextField.text
@@ -51,6 +65,8 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
             password = passwordTextField.text
             
             register(self.email!, username: self.username!, password: self.password!, avatarImage: self.avatarImage)
+            }
+        }
             
         } else{
             //worning to user ..
