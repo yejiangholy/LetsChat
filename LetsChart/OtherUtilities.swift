@@ -50,6 +50,17 @@ func TimeElipsed(seconds: NSTimeInterval) -> String {
 }
 
 
+func isValidEmail(input: String) -> Bool {
+    
+    let emailRegExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    
+    let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegExpression)
+    
+    return emailTest.evaluateWithObject(input) 
+}
+
+
+
 func letThemBecomeFriends(user1Id: String,  user2Id: String, result: (result: Bool)-> Void)
 {
     let whereClause = "objectId = '\(user1Id)' or objectId = '\(user2Id)'"

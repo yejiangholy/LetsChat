@@ -45,11 +45,11 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
         if emailTextField.text != "" && usernameTextField.text != "" && passwordTextField.text != "" {
             
             
-        // check if it is a valid email address also ! 
-            
-            if !(emailTextField.text!.containsString("@")){
+        // check if it is a valid email address
+            if !(isValidEmail(emailTextField.text!)){
                 
                 ProgressHUD.showError("Please enter a valid e-mail address")
+                
             } else {
             
             if (passwordTextField.text!.characters.count < 7)
