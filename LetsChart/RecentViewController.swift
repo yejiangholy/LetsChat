@@ -199,7 +199,7 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
             if snapshot.exists(){
                 
-                let sorted = (snapshot.value!.allValues as NSArray).sortedArrayUsingDescriptors([NSSortDescriptor(key:"data",ascending: false)])
+                let sorted = (snapshot.value!.allValues as NSArray).sortedArrayUsingDescriptors([NSSortDescriptor(key:"date",ascending: false)])
                 
                 for recent in sorted {
                     
@@ -217,7 +217,4 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.tableView.reloadData()
         })
     }
-        
-    
-   
 }

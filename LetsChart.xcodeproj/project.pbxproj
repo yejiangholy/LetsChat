@@ -54,6 +54,9 @@
 		23DAF9161D1654E600BBB13D /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DAF9151D1654E600BBB13D /* Avatar.swift */; };
 		23EB6E8C1D1327E50065749B /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB6E8B1D1327E50065749B /* OutgoingMessage.swift */; };
 		23EB6E8E1D136A1E0065749B /* IncomingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB6E8D1D136A1E0065749B /* IncomingMessage.swift */; };
+		23ED7D2D1D2D74C2000F007E /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED7D2C1D2D74C2000F007E /* NotificationsViewController.swift */; };
+		23ED7D2F1D2D766E000F007E /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED7D2E1D2D766E000F007E /* NotificationTableViewCell.swift */; };
+		23ED7D311D2DC1D4000F007E /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED7D301D2DC1D4000F007E /* Notification.swift */; };
 		23F616621D22C198000ECC3C /* SettingGroupChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F616611D22C198000ECC3C /* SettingGroupChatTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -317,6 +320,9 @@
 		23DAF9151D1654E600BBB13D /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		23EB6E8B1D1327E50065749B /* OutgoingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
 		23EB6E8D1D136A1E0065749B /* IncomingMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingMessage.swift; sourceTree = "<group>"; };
+		23ED7D2C1D2D74C2000F007E /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		23ED7D2E1D2D766E000F007E /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		23ED7D301D2DC1D4000F007E /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		23F616611D22C198000ECC3C /* SettingGroupChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingGroupChatTableViewController.swift; sourceTree = "<group>"; };
 		5FEB3DA99AF2F1A7E25E7548 /* Pods-LetsChart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsChart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LetsChart/Pods-LetsChart.debug.xcconfig"; sourceTree = "<group>"; };
 		B939F7F39DF7C0BD41EA2299 /* Pods-LetsChart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsChart.release.xcconfig"; path = "Pods/Target Support Files/Pods-LetsChart/Pods-LetsChart.release.xcconfig"; sourceTree = "<group>"; };
@@ -853,6 +859,7 @@
 		23C89A5F1D0BCB350000858B /* LetsChart */ = {
 			isa = PBXGroup;
 			children = (
+				23ED7D2B1D2D7499000F007E /* Notifications */,
 				239EAC271D25C25F0043E702 /* Group Chat */,
 				23461D941D29ABD7005EDE80 /* Single Chat */,
 				2395E4251D0CFAF7005D64A6 /* RecentViewControlers */,
@@ -882,6 +889,16 @@
 				23C89A821D0BCB350000858B /* Info.plist */,
 			);
 			path = LetsChartUITests;
+			sourceTree = "<group>";
+		};
+		23ED7D2B1D2D7499000F007E /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				23ED7D301D2DC1D4000F007E /* Notification.swift */,
+				23ED7D2C1D2D74C2000F007E /* NotificationsViewController.swift */,
+				23ED7D2E1D2D766E000F007E /* NotificationTableViewCell.swift */,
+			);
+			name = Notifications;
 			sourceTree = "<group>";
 		};
 		C8D2A16E968E1BABAF9DBFA1 /* Pods */ = {
@@ -1116,11 +1133,14 @@
 				23DAF9161D1654E600BBB13D /* Avatar.swift in Sources */,
 				2395E4201D0CB56D005D64A6 /* ProgressHUD.m in Sources */,
 				23C89C451D0C52AE0000858B /* WelcomeViewController.swift in Sources */,
+				23ED7D2D1D2D74C2000F007E /* NotificationsViewController.swift in Sources */,
 				2395E4221D0CF5BC005D64A6 /* RecentTableViewCell.swift in Sources */,
 				23EB6E8E1D136A1E0065749B /* IncomingMessage.swift in Sources */,
+				23ED7D2F1D2D766E000F007E /* NotificationTableViewCell.swift in Sources */,
 				23A605241D14FABB00DA3C31 /* Camera.swift in Sources */,
 				23DAF9141D15ED9700BBB13D /* SettingsTableViewController.swift in Sources */,
 				239C1AEF1D10EACE008D79EE /* ChatViewController.swift in Sources */,
+				23ED7D311D2DC1D4000F007E /* Notification.swift in Sources */,
 				23C89C491D0C547A0000858B /* RegisterViewController.swift in Sources */,
 				23F616621D22C198000ECC3C /* SettingGroupChatTableViewController.swift in Sources */,
 				23A605261D158CCC00DA3C31 /* MapViewController.swift in Sources */,

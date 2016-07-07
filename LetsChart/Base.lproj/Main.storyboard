@@ -418,7 +418,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sb7-zL-CL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3452" y="668"/>
+            <point key="canvasLocation" x="4264" y="668"/>
         </scene>
         <!--Terms Of Service View Controller-->
         <scene sceneID="6Xd-Zm-Lfa">
@@ -458,7 +458,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6f3-IA-cdV" secondAttribute="height" multiplier="70:121" id="NpW-TS-szv"/>
                                 </constraints>
-                                <mutableString key="text">This agreement was written in English (US). To the extent any translated version of this agreement confilicts with the English version, the English version controls. Date of Last Revision: July 4, 2016.  
+                                <string key="text">This agreement was written in English (US). To the extent any translated version of this agreement confilicts with the English version, the English version controls. Date of Last Revision: July 4, 2016.  
 
 1. Privacy 
 
@@ -492,7 +492,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
  4. You will not transfer any of your rights or obligations under this Statement to anyone else without our consent. 
  5. All of our rights and obligations under this Statement are freely assignable by us in connection with a merger, acquisition, or sale of asserts, or by operation of law or otherwise. 
 
-                                                                                                                            </mutableString>
+                                                                                                                            </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -546,7 +546,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjS-Bu-jfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4168" y="808"/>
+            <point key="canvasLocation" x="4980" y="808"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="ovK-Fz-NeD">
@@ -624,7 +624,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgN-nc-O08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3463" y="1465"/>
+            <point key="canvasLocation" x="4275" y="1465"/>
         </scene>
         <!--Search Users Table View Controller-->
         <scene sceneID="yAa-77-7BH">
@@ -636,7 +636,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="g0x-2q-xLB" style="IBUITableViewCellStyleDefault" id="eBs-tg-Weh">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eBs-tg-Weh" id="dcm-CY-rXY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -719,7 +719,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
             </objects>
             <point key="canvasLocation" x="3641" y="-1685"/>
         </scene>
-        <!--Chats-->
+        <!--Let's Chat-->
         <scene sceneID="LIc-7x-R64">
             <objects>
                 <viewController storyboardIdentifier="RecentView" id="ppZ-yv-TsH" customClass="RecentViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -732,12 +732,13 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jqx-f2-Lqh">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="cDZ-Vv-UKo" customClass="RecentTableViewCell" customModule="LetsChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cDZ-Vv-UKo" id="hGl-1w-wOi">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="59.5"/>
@@ -834,7 +835,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                             <constraint firstItem="jqx-f2-Lqh" firstAttribute="top" secondItem="E24-VO-Ijq" secondAttribute="topMargin" id="dBq-At-gkN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Chats" id="SXT-LW-wYj">
+                    <navigationItem key="navigationItem" title="Let's Chat" id="SXT-LW-wYj" userLabel="Let's Chat">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="uxB-M5-8ZC">
                             <connections>
                                 <action selector="addSearchUserButtonPressed:" destination="ppZ-yv-TsH" id="xJS-Qv-FhP"/>
@@ -857,7 +858,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsD-eV-KCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4077" y="-233"/>
+            <point key="canvasLocation" x="4060" y="-223"/>
         </scene>
         <!--Choose User View Controller-->
         <scene sceneID="kON-py-n4V">
@@ -1006,7 +1007,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmP-co-riX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4966" y="1203"/>
+            <point key="canvasLocation" x="5778" y="1203"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="LMf-Se-ZCW">
@@ -1052,7 +1053,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zd-Go-vgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5863" y="649"/>
+            <point key="canvasLocation" x="6675" y="649"/>
         </scene>
         <!--Single Background Table View Controller-->
         <scene sceneID="7Gm-X3-18t">
@@ -1066,7 +1067,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                             <tableViewSection headerTitle="Setting Background Wallpaper" id="1cn-Dd-eBi">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="HtJ-aN-FmT" style="IBUITableViewCellStyleDefault" id="MAJ-KX-zmk" userLabel="Choose Default Cell ">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MAJ-KX-zmk" id="My0-Us-Cxy">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -1083,7 +1084,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2kr-Es-KZ1" userLabel="Empty Cell">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2kr-Es-KZ1" id="0n9-s3-Z5B">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1095,7 +1096,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                             <tableViewSection id="gqJ-Ca-UyM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="TZv-y4-i3M" style="IBUITableViewCellStyleDefault" id="KOt-9D-LGL" userLabel="Choose Photo Cell">
-                                        <rect key="frame" x="0.0" y="116" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="180" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KOt-9D-LGL" id="zRI-m4-5Hz">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -1112,7 +1113,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="J16-wj-zL9" style="IBUITableViewCellStyleDefault" id="8MB-6d-Ssc" userLabel="Take Photo Cell">
-                                        <rect key="frame" x="0.0" y="160" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="224" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8MB-6d-Ssc" id="dCn-d9-cMp">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -1144,7 +1145,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8U-Ef-oAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5818" y="1318"/>
+            <point key="canvasLocation" x="6630" y="1318"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KIl-Uw-Med">
@@ -1158,11 +1159,145 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                     <connections>
                         <segue destination="QcA-Mp-God" kind="relationship" relationship="viewControllers" id="S51-jH-65e"/>
                         <segue destination="gVC-Pa-1QQ" kind="relationship" relationship="viewControllers" id="FXD-DX-SlH"/>
+                        <segue destination="Prh-5X-cLl" kind="relationship" relationship="viewControllers" id="THT-tc-qrt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Om9-ar-Yei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2416" y="299"/>
+        </scene>
+        <!--Notifications-->
+        <scene sceneID="cXO-cL-5XF">
+            <objects>
+                <viewController id="zhi-Xm-6w1" customClass="NotificationsViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iD1-VE-y3z"/>
+                        <viewControllerLayoutGuide type="bottom" id="ToS-TG-WM6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e73-Xa-3SB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SuH-7R-1pQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="543"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="e2b-0U-pLD" customClass="NotificationTableViewCell" customModule="LetsChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e2b-0U-pLD" id="Pmo-KY-H7S">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TBn-kx-JLX">
+                                                    <rect key="frame" x="8" y="5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="2xy-NU-t2B"/>
+                                                        <constraint firstAttribute="height" constant="50" id="ngM-Nf-bdA"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***want be a friend ~ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txf-MH-j9h">
+                                                    <rect key="frame" x="66" y="5" width="364" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Txf-MH-j9h" secondAttribute="height" multiplier="237:23" id="TQP-V2-EQq"/>
+                                                        <constraint firstAttribute="width" constant="364" id="ZMw-Uy-qdL"/>
+                                                        <constraint firstAttribute="width" secondItem="Txf-MH-j9h" secondAttribute="height" multiplier="182:25" id="eOn-7m-IG9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="TQP-V2-EQq"/>
+                                                            <exclude reference="ZMw-Uy-qdL"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRj-Rl-A8h">
+                                                    <rect key="frame" x="438" y="8" width="116" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" id="5CC-S1-7Ud"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="5nB-Nr-zuk"/>
+                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" symbolic="YES" id="H2V-ca-hb6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Txf-MH-j9h" secondAttribute="bottom" constant="-4" id="QGz-rD-fpU"/>
+                                                <constraint firstItem="TBn-kx-JLX" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="RED-TJ-Bd0"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="SMx-Ym-Dn5"/>
+                                                <constraint firstItem="TBn-kx-JLX" firstAttribute="leading" secondItem="Pmo-KY-H7S" secondAttribute="leadingMargin" id="XhA-jc-C3f"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="kRj-Rl-A8h" secondAttribute="bottom" constant="18" id="Y9T-gQ-xMI"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="cEE-Od-Z8n"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="7" id="i1I-rG-CSa"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" symbolic="YES" id="nfk-Ue-YZt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TBn-kx-JLX" secondAttribute="bottom" constant="-3.5" id="oGL-xZ-Kzl"/>
+                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" id="qAT-Vh-VLW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="5" id="rZK-OF-7TB"/>
+                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" id="tPu-FG-qq3"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="bottom" secondItem="Pmo-KY-H7S" secondAttribute="bottomMargin" id="tTo-qP-cnp"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" symbolic="YES" id="yh4-vZ-NCX"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="5CC-S1-7Ud"/>
+                                                    <exclude reference="SMx-Ym-Dn5"/>
+                                                    <exclude reference="cEE-Od-Z8n"/>
+                                                    <exclude reference="i1I-rG-CSa"/>
+                                                    <exclude reference="tTo-qP-cnp"/>
+                                                    <exclude reference="yh4-vZ-NCX"/>
+                                                    <exclude reference="tPu-FG-qq3"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="AvatarImage" destination="TBn-kx-JLX" id="AGE-hE-8PD"/>
+                                            <outlet property="NotificationLable" destination="Txf-MH-j9h" id="rav-sb-gJv"/>
+                                            <outlet property="TimeLable" destination="kRj-Rl-A8h" id="dpL-Dd-em1"/>
+                                            <outlet property="avatarImageView" destination="TBn-kx-JLX" id="HLi-ax-0i2"/>
+                                            <outlet property="dateLable" destination="kRj-Rl-A8h" id="lqE-pV-K9w"/>
+                                            <outlet property="nameLable" destination="Txf-MH-j9h" id="u53-UP-TYL"/>
+                                            <outlet property="timeLable" destination="kRj-Rl-A8h" id="U5d-9n-izy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zhi-Xm-6w1" id="3E3-9j-QVG"/>
+                                    <outlet property="delegate" destination="zhi-Xm-6w1" id="byN-0v-87g"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ToS-TG-WM6" firstAttribute="top" secondItem="SuH-7R-1pQ" secondAttribute="bottom" constant="8" symbolic="YES" id="3r1-lS-w5T"/>
+                            <constraint firstItem="ToS-TG-WM6" firstAttribute="top" secondItem="SuH-7R-1pQ" secondAttribute="bottom" constant="8" symbolic="YES" id="6Ga-Ta-0dX"/>
+                            <constraint firstItem="SuH-7R-1pQ" firstAttribute="top" secondItem="iD1-VE-y3z" secondAttribute="bottom" constant="8" symbolic="YES" id="BRQ-n7-7Hh"/>
+                            <constraint firstItem="SuH-7R-1pQ" firstAttribute="top" secondItem="e73-Xa-3SB" secondAttribute="topMargin" id="D4o-Ti-VvK"/>
+                            <constraint firstItem="SuH-7R-1pQ" firstAttribute="leading" secondItem="e73-Xa-3SB" secondAttribute="leadingMargin" id="bTJ-6J-XK6"/>
+                            <constraint firstItem="SuH-7R-1pQ" firstAttribute="trailing" secondItem="e73-Xa-3SB" secondAttribute="trailingMargin" id="kbC-s5-Hjf"/>
+                            <constraint firstItem="SuH-7R-1pQ" firstAttribute="leading" secondItem="e73-Xa-3SB" secondAttribute="leadingMargin" constant="-20" id="vnh-BA-Y0z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SuH-7R-1pQ" secondAttribute="trailing" constant="-20" id="xBc-7z-9YW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BRQ-n7-7Hh"/>
+                                <exclude reference="bTJ-6J-XK6"/>
+                                <exclude reference="kbC-s5-Hjf"/>
+                                <exclude reference="3r1-lS-w5T"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notifications" id="ivt-04-t4v"/>
+                    <connections>
+                        <outlet property="tableView" destination="SuH-7R-1pQ" id="adf-A6-Ili"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AbN-Lu-kUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2433" y="1456"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bIX-yQ-Hfx">
@@ -1211,7 +1346,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" textLabel="iC8-lR-fwJ" style="IBUITableViewCellStyleDefault" id="87v-al-KMw">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="87v-al-KMw" id="p9E-Ik-cBw">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1308,7 +1443,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="KXW-MJ-Pxe">
-                            <rect key="frame" x="0.0" y="232" width="600" height="170"/>
+                            <rect key="frame" x="0.0" y="296" width="600" height="170"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iAu-3w-KK9">
@@ -1358,7 +1493,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                             <tableViewSection headerTitle="Section-1" id="h4b-IL-gcb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="wD6-Kv-kJe" style="IBUITableViewCellStyleDefault" id="ISX-7m-5CH" userLabel="Change Name Cell">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ISX-7m-5CH" id="8ql-Af-vQG">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1375,7 +1510,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="A6l-Xg-DtQ" style="IBUITableViewCellStyleDefault" id="CHK-CI-khm" userLabel="Change Picture Cell">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CHK-CI-khm" id="5A4-Va-AbO">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1392,7 +1527,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="WVC-Ss-aqi" style="IBUITableViewCellStyleDefault" id="POm-iE-laD" userLabel="Background Cell">
-                                        <rect key="frame" x="0.0" y="116" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="180" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="POm-iE-laD" id="bi2-Up-zT2">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -1413,7 +1548,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                             <tableViewSection headerTitle="Section-2" id="zDk-jB-KTt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="O8e-lp-4oK" userLabel="Leave Group Cell">
-                                        <rect key="frame" x="0.0" y="188" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="252" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O8e-lp-4oK" id="1w9-xl-3gF">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1475,7 +1610,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                             <tableViewSection id="xQ0-km-XmN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ZhT-Va-qNG" style="IBUITableViewCellStyleDefault" id="6fa-Xb-C87" userLabel="Choose Default Cell">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6fa-Xb-C87" id="MXg-Vv-4xW">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -1492,7 +1627,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0Tv-Oc-6V4" userLabel="Empty Cell">
-                                        <rect key="frame" x="0.0" y="44" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="108" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Tv-Oc-6V4" id="ycf-qf-5Bc">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1504,7 +1639,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                             <tableViewSection id="PAE-Bz-fYx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YWn-oy-PnJ" style="IBUITableViewCellStyleDefault" id="bCO-3P-z4H" userLabel="ChoosePhotos Cell">
-                                        <rect key="frame" x="0.0" y="88" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="152" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bCO-3P-z4H" id="TMO-nx-Nuv">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -1521,7 +1656,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="1lq-Ha-hn4" style="IBUITableViewCellStyleDefault" id="adG-Br-5gK" userLabel="Take Photos Cell">
-                                        <rect key="frame" x="0.0" y="132" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="196" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="adG-Br-5gK" id="KOW-iY-gdO">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -1574,6 +1709,25 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
             </objects>
             <point key="canvasLocation" x="5000" y="-880"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q2q-IF-Fer">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Prh-5X-cLl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="more" id="cgf-2c-Caa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Z8-of-tB8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zhi-Xm-6w1" kind="relationship" relationship="rootViewController" id="1FO-XV-5WW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNC-xc-PIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1733" y="1450"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Earth" width="1280" height="720"/>
@@ -1582,7 +1736,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
         <image name="settings" width="22" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MNi-pf-ple"/>
-        <segue reference="BZT-Dm-1Uj"/>
+        <segue reference="pwB-qV-Sdd"/>
+        <segue reference="ucr-h0-1ML"/>
     </inferredMetricsTieBreakers>
 </document>

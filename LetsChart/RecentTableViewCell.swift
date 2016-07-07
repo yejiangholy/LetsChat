@@ -151,25 +151,8 @@ class RecentTableViewCell: UITableViewCell {
         UIGraphicsEndImageContext()
         
         return finalImage
-    }/*
-         CGSize size = CGSizeMake(image1.size.width, image1.size.height + image2.size.height);
-         
-         UIGraphicsBeginImageContextWithOptions(size, false, 0.0) // Use this call
-         
-         [image1 drawInRect:CGRectMake(0,0,size.width, image1.size.height)];
-     
-         [image2 drawInRect:CGRectMake(0,image1.size.height,size.width, image2.size.height)];
-         
-         UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
-         
-         UIGraphicsEndImageContext();
-         
-         //Add image to view
-         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, finalImage.size.width, finalImage.size.height)];
-         imageView.image = finalImage;
-         [self.view addSubview:imageView];
-        }*/
-    
+    }
+ 
     
     func nameFromNames(names: [String]) -> String
     {
@@ -184,33 +167,4 @@ class RecentTableViewCell: UITableViewCell {
         return name
     }
     
-    func TimeElipsed(seconds: NSTimeInterval) -> String {
-        let elapsed: String?
-        
-        if seconds < 60 {
-            elapsed = "Just Now"
-        } else if (seconds < 60 * 60){
-            let minutes = Int(seconds / 60)
-            var minText = "min"
-            if minutes > 1 {
-                minText = "mins"
-            }
-            elapsed = "\(minutes) \(minText)"
-        }else if (seconds < 24 * 60 * 60){
-            let hours = Int(seconds / (60 * 60))
-            var hourText = "hour"
-            if hours > 1 {
-                hourText = "hours"
-            }
-            elapsed = "\(hours) \(hourText)"
-        } else {
-            let days = Int(seconds / (24 * 60 * 60))
-            var dayText = "day"
-            if days > 1 {
-                dayText = "days"
-            }
-            elapsed = "\(days) \(dayText)"
-        }
-           return elapsed!
-        }
-    }
+}
