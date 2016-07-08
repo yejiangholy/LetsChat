@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0AE834749C3E7EC0B93E1168 /* libPods-LetsChart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E70481CCE66C331826A3F499 /* libPods-LetsChart.a */; };
 		230588841D1CC4FA004CFDFD /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230588831D1CC4FA004CFDFD /* TermsOfServiceViewController.swift */; };
+		231150B31D300F1A00841ED8 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231150B21D300F1A00841ED8 /* FriendsTableViewCell.swift */; };
 		23375FCB1D26F63F000A3E1E /* GroupEditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23375FCA1D26F63F000A3E1E /* GroupEditingTableViewController.swift */; };
 		23375FCD1D274D00000A3E1E /* OtherUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23375FCC1D274D00000A3E1E /* OtherUtilities.swift */; };
 		23461D961D29C157005EDE80 /* GroupBackgroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23461D951D29C157005EDE80 /* GroupBackgroundTableViewController.swift */; };
@@ -92,6 +93,7 @@
 
 /* Begin PBXFileReference section */
 		230588831D1CC4FA004CFDFD /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		231150B21D300F1A00841ED8 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		23375FCA1D26F63F000A3E1E /* GroupEditingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditingTableViewController.swift; sourceTree = "<group>"; };
 		23375FCC1D274D00000A3E1E /* OtherUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUtilities.swift; sourceTree = "<group>"; };
 		23461D951D29C157005EDE80 /* GroupBackgroundTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupBackgroundTableViewController.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				239C1AEC1D10B925008D79EE /* ChooseUserViewController.swift */,
+				231150B21D300F1A00841ED8 /* FriendsTableViewCell.swift */,
 				239C1AEE1D10EACE008D79EE /* ChatViewController.swift */,
 				23A48C3C1D2AC710005BB752 /* SingleBackgroundTableViewController.swift */,
 				23A605251D158CCC00DA3C31 /* MapViewController.swift */,
@@ -1138,6 +1141,7 @@
 				23EB6E8E1D136A1E0065749B /* IncomingMessage.swift in Sources */,
 				23ED7D2F1D2D766E000F007E /* NotificationTableViewCell.swift in Sources */,
 				23A605241D14FABB00DA3C31 /* Camera.swift in Sources */,
+				231150B31D300F1A00841ED8 /* FriendsTableViewCell.swift in Sources */,
 				23DAF9141D15ED9700BBB13D /* SettingsTableViewController.swift in Sources */,
 				239C1AEF1D10EACE008D79EE /* ChatViewController.swift in Sources */,
 				23ED7D311D2DC1D4000F007E /* Notification.swift in Sources */,

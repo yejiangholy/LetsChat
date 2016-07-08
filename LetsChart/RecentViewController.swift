@@ -117,7 +117,8 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "recentToChooseUserVC"{
             let vc = segue.destinationViewController as! ChooseUserViewController
-            vc.delegate = self
+            vc.SingleDelegate = self
+            vc.GroupDelegate = self 
         }
         
         if segue.identifier == "recentToChatSeg"{
