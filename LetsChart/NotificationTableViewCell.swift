@@ -13,7 +13,7 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLable: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var dateLable: UILabel!
-    
+    @IBOutlet weak var typeLable: UILabel!
     
     
     
@@ -56,10 +56,13 @@ class NotificationTableViewCell: UITableViewCell {
         }) { (fault) in
             print("error, cound't get user image: \(fault)")
         }
-        nameLable.text = (notification["requesterName"] as! String).stringByAppendingString("want be your friend ^^")
+        nameLable.text = (notification["requesterName"] as! String)
+            
         let date = dataFormatter().dateFromString(notification["date"] as! String)
         let seconds = NSDate().timeIntervalSinceDate(date!)
         dateLable.text = TimeElipsed(seconds)
+            
+        typeLable.text = "Friend Request"
       }
         
         if type == "Confirmation" {
@@ -96,6 +99,7 @@ class NotificationTableViewCell: UITableViewCell {
             let date = dataFormatter().dateFromString(notification["date"] as! String)
             let seconds = NSDate().timeIntervalSinceDate(date!)
             dateLable.text = TimeElipsed(seconds)
+            typeLable.text = "Confirmation"
         }
         
     }

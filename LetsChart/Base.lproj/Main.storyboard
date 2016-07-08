@@ -1203,12 +1203,34 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                         <constraint firstAttribute="height" constant="50" id="ngM-Nf-bdA"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***want be a friend ~ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txf-MH-j9h">
-                                                    <rect key="frame" x="66" y="5" width="400" height="50"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRj-Rl-A8h">
+                                                    <rect key="frame" x="474" y="0.0" width="80" height="25"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="BBl-de-oxE"/>
+                                                        <constraint firstAttribute="width" constant="80" id="Nu4-Ai-8rb"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="PCg-Rt-BBe"/>
+                                                        <constraint firstAttribute="width" constant="116" id="Pjj-yR-d7V"/>
+                                                        <constraint firstAttribute="height" constant="25" id="PrR-J2-aiS"/>
+                                                        <constraint firstAttribute="width" constant="80" id="pCN-g3-8jO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="PCg-Rt-BBe"/>
+                                                            <exclude reference="Pjj-yR-d7V"/>
+                                                            <exclude reference="PrR-J2-aiS"/>
+                                                            <exclude reference="pCN-g3-8jO"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***want be a friend ~ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txf-MH-j9h">
+                                                    <rect key="frame" x="66" y="5" width="362" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Bf1-gk-roi"/>
                                                         <constraint firstAttribute="width" constant="370" id="Fn9-77-quY"/>
                                                         <constraint firstAttribute="width" secondItem="Txf-MH-j9h" secondAttribute="height" multiplier="237:23" id="TQP-V2-EQq"/>
-                                                        <constraint firstAttribute="height" constant="50" id="UIC-3S-wIl"/>
                                                         <constraint firstAttribute="width" constant="364" id="ZMw-Uy-qdL"/>
                                                         <constraint firstAttribute="width" secondItem="Txf-MH-j9h" secondAttribute="height" multiplier="182:25" id="eOn-7m-IG9"/>
                                                     </constraints>
@@ -1224,42 +1246,48 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRj-Rl-A8h">
-                                                    <rect key="frame" x="474" y="8" width="80" height="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ce-Pb-SK8">
+                                                    <rect key="frame" x="436" y="30" width="118" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="116" id="Pjj-yR-d7V"/>
-                                                        <constraint firstAttribute="height" constant="25" id="PrR-J2-aiS"/>
-                                                        <constraint firstAttribute="width" constant="80" id="pCN-g3-8jO"/>
+                                                        <constraint firstAttribute="width" constant="80" id="DcA-Sx-DVS"/>
+                                                        <constraint firstAttribute="height" constant="25" id="NU9-YB-zHI"/>
+                                                        <constraint firstAttribute="width" constant="118" id="tfl-zG-LPF"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="Pjj-yR-d7V"/>
+                                                            <exclude reference="DcA-Sx-DVS"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" id="5CC-S1-7Ud"/>
-                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" id="Av5-g8-Bba"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="5" id="BO3-si-sdn"/>
-                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" id="M2Y-vk-LHy"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Txf-MH-j9h" secondAttribute="bottom" constant="-3.5" id="BgJ-DD-wO5"/>
+                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-8" id="CDn-Gc-o3K"/>
+                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" id="Ffl-f0-KyN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9ce-Pb-SK8" secondAttribute="bottom" constant="-3.5" id="Gzy-Cs-AeY"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="5" id="J3L-UM-Duv"/>
+                                                <constraint firstItem="9ce-Pb-SK8" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" id="K2C-Kg-Mcq"/>
                                                 <constraint firstItem="TBn-kx-JLX" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="RED-TJ-Bd0"/>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="SMx-Ym-Dn5"/>
-                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="Se4-D7-gEc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="5" id="The-2G-laQ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="kRj-Rl-A8h" secondAttribute="bottom" constant="18.5" id="WYj-fD-vkz"/>
                                                 <constraint firstItem="TBn-kx-JLX" firstAttribute="leading" secondItem="Pmo-KY-H7S" secondAttribute="leadingMargin" id="XhA-jc-C3f"/>
-                                                <constraint firstItem="kRj-Rl-A8h" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" id="YNN-LU-jZz"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" id="c3V-sG-fWA"/>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="cEE-Od-Z8n"/>
+                                                <constraint firstItem="9ce-Pb-SK8" firstAttribute="top" secondItem="kRj-Rl-A8h" secondAttribute="bottom" constant="5" id="eIU-WF-U8F"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kRj-Rl-A8h" secondAttribute="trailing" constant="5" id="h3g-U7-HJ4"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="7" id="i1I-rG-CSa"/>
+                                                <constraint firstItem="9ce-Pb-SK8" firstAttribute="top" secondItem="kRj-Rl-A8h" secondAttribute="bottom" id="iWa-SP-5qV"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="TBn-kx-JLX" secondAttribute="bottom" constant="-3.5" id="oGL-xZ-Kzl"/>
+                                                <constraint firstItem="Txf-MH-j9h" firstAttribute="top" secondItem="Pmo-KY-H7S" secondAttribute="topMargin" constant="-3" id="qtl-y9-lZM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9ce-Pb-SK8" secondAttribute="trailing" constant="5" id="r1C-x7-9fK"/>
                                                 <constraint firstItem="kRj-Rl-A8h" firstAttribute="leading" secondItem="Txf-MH-j9h" secondAttribute="trailing" constant="8" id="tPu-FG-qq3"/>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="bottom" secondItem="Pmo-KY-H7S" secondAttribute="bottomMargin" id="tTo-qP-cnp"/>
                                                 <constraint firstItem="Txf-MH-j9h" firstAttribute="leading" secondItem="TBn-kx-JLX" secondAttribute="trailing" constant="8" symbolic="YES" id="yh4-vZ-NCX"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Txf-MH-j9h" secondAttribute="bottom" constant="-3.5" id="zXO-cU-fmM"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -1269,6 +1297,11 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <exclude reference="i1I-rG-CSa"/>
                                                     <exclude reference="tTo-qP-cnp"/>
                                                     <exclude reference="yh4-vZ-NCX"/>
+                                                    <exclude reference="iWa-SP-5qV"/>
+                                                    <exclude reference="Ffl-f0-KyN"/>
+                                                    <exclude reference="The-2G-laQ"/>
+                                                    <exclude reference="WYj-fD-vkz"/>
+                                                    <exclude reference="h3g-U7-HJ4"/>
                                                     <exclude reference="tPu-FG-qq3"/>
                                                 </mask>
                                             </variation>
@@ -1285,6 +1318,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                             <outlet property="avatarImageView" destination="TBn-kx-JLX" id="HLi-ax-0i2"/>
                                             <outlet property="dateLable" destination="kRj-Rl-A8h" id="lqE-pV-K9w"/>
                                             <outlet property="nameLable" destination="Txf-MH-j9h" id="u53-UP-TYL"/>
+                                            <outlet property="typeLable" destination="9ce-Pb-SK8" id="zLm-7i-v5k"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
