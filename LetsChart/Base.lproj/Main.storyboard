@@ -811,6 +811,11 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                 <constraint firstItem="WgF-pM-qHe" firstAttribute="trailing" secondItem="hGl-1w-wOi" secondAttribute="trailingMargin" id="vwu-J0-RXl"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="UE2-4X-gOM" secondAttribute="bottom" constant="-3.5" id="wD3-14-Sca"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="CYs-DD-t9w"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avatarImageView" destination="3Oh-IZ-iLm" id="0z0-b0-rxc"/>
@@ -1198,26 +1203,12 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                         <constraint firstAttribute="height" constant="50" id="ngM-Nf-bdA"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRj-Rl-A8h">
-                                                    <rect key="frame" x="444" y="8" width="110" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="116" id="Pjj-yR-d7V"/>
-                                                        <constraint firstAttribute="height" constant="25" id="PrR-J2-aiS"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="Pjj-yR-d7V"/>
-                                                        </mask>
-                                                    </variation>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="***want be a friend ~ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txf-MH-j9h">
-                                                    <rect key="frame" x="66" y="5" width="370" height="50"/>
+                                                    <rect key="frame" x="66" y="5" width="400" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="370" id="Fn9-77-quY"/>
                                                         <constraint firstAttribute="width" secondItem="Txf-MH-j9h" secondAttribute="height" multiplier="237:23" id="TQP-V2-EQq"/>
+                                                        <constraint firstAttribute="height" constant="50" id="UIC-3S-wIl"/>
                                                         <constraint firstAttribute="width" constant="364" id="ZMw-Uy-qdL"/>
                                                         <constraint firstAttribute="width" secondItem="Txf-MH-j9h" secondAttribute="height" multiplier="182:25" id="eOn-7m-IG9"/>
                                                     </constraints>
@@ -1226,9 +1217,26 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
+                                                            <exclude reference="Fn9-77-quY"/>
                                                             <exclude reference="TQP-V2-EQq"/>
                                                             <exclude reference="ZMw-Uy-qdL"/>
                                                             <exclude reference="eOn-7m-IG9"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRj-Rl-A8h">
+                                                    <rect key="frame" x="474" y="8" width="80" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="116" id="Pjj-yR-d7V"/>
+                                                        <constraint firstAttribute="height" constant="25" id="PrR-J2-aiS"/>
+                                                        <constraint firstAttribute="width" constant="80" id="pCN-g3-8jO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Pjj-yR-d7V"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -1313,7 +1321,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbN-Lu-kUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2690" y="1450"/>
+            <point key="canvasLocation" x="2857" y="1465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bIX-yQ-Hfx">

@@ -15,10 +15,14 @@ class NotificationsViewController: UIViewController ,UITableViewDataSource,UITab
     
     var notifications:[NSDictionary] = []
     
+    var confirmations:[NSDictionary] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         loadNotifications()
+        
+        loadConfirmations()
 
     }
 
@@ -31,11 +35,21 @@ class NotificationsViewController: UIViewController ,UITableViewDataSource,UITab
  //MARK: UITableViewDataSource 
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notifications.count
+        if(section == 0 )
+        {
+            return notifications.count
+        }
+        if(section == 1)
+        {
+            return confirmations.count
+        }
+        else {
+            return 0
+        }
     }
 
     
@@ -44,15 +58,20 @@ class NotificationsViewController: UIViewController ,UITableViewDataSource,UITab
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         as! NotificationTableViewCell
         
+        if(indexPath.section == 0){
         let notification = notifications[indexPath.row]
-        
         cell.bindData(notification)
-        
         return cell
+        }
+        else{
+            let confirmation = confirmations[indexPath.row]
+            cell.bindData(confirmation)
+            return cell
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        if( indexPath.section == 0 ) {
         let notification = notifications[indexPath.row]
         
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -78,15 +97,81 @@ class NotificationsViewController: UIViewController ,UITableViewDataSource,UITab
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) ->Void in
             
+              self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
         }
         optionMenu.addAction(confirm)
         optionMenu.addAction(reject)
         optionMenu.addAction(cancelAction)
         
         self.presentViewController(optionMenu, animated: true, completion: nil)
-        
+        }
+        else if indexPath.section == 1  {
+           // display action sheet, have two option, 1. go and say Hi ~  2 . cancel 
+            // both of action will delete this confirmatin both in table view and in database 
+            // go and say Hi --> do the same thing as create a chat room for them 
+            // cancel just delete this confirmation 
+            
+            let confirmation = confirmations[indexPath.row]
+            
+            let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            
+            let sayHi = UIAlertAction(title: " go and say Hi ~  ", style: .Default) { (alert: UIAlertAction!) -> Void in
+                
+                // crate a chat room and segue to that single chat room
+                let friendId = confirmation["friendId"] as! String
+                let whereClause = "objectId = '\(friendId)'"
+                let dataQuery = BackendlessDataQuery()
+                dataQuery.whereClause = whereClause
+                let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+                
+                dataStore.find(dataQuery, response: { (users) in
+                    
+                    let friend = users.data.first as! BackendlessUser
+                    
+                    self.CreateChatRoom(friend)
+                    
+                    }, error: { (fault) in
+                        
+                    ProgressHUD.showError("could find this User")
+                })
+                
+                // delte this confirmation from table
+                self.confirmations.removeAtIndex(indexPath.row)
+                DeleteConfirmationItem(confirmation)
+                self.tableView.reloadData()
+                
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) ->Void in
+                
+                // delte this confirmation from table
+                self.confirmations.removeAtIndex(indexPath.row)
+                DeleteConfirmationItem(confirmation)
+                self.tableView.reloadData()
+                
+            }
+            optionMenu.addAction(sayHi)
+            optionMenu.addAction(cancelAction)
+            
+            self.presentViewController(optionMenu, animated: true, completion: nil)
+        }
     }
     
+    
+    func CreateChatRoom( user: BackendlessUser)
+    {
+        let chatVC = ChatViewController()
+        
+        chatVC.hidesBottomBarWhenPushed = true // no button bar when chat
+        
+        navigationController?.pushViewController(chatVC, animated: true)
+        
+        //set chatVC recent to our recent
+        chatVC.withUser = user
+        chatVC.chatRoomId = startChatId(backendless.userService.currentUser, user2: user)
+        
+    }
     
     func confirmRequest( request: NSDictionary)
     {
@@ -100,6 +185,10 @@ class NotificationsViewController: UIViewController ,UITableViewDataSource,UITab
         letThemBecomeFriends(user1Id, user2Id: user2Id) { (result) in
             
             if result == true{
+                
+                // create a confirmation  ot requester 
+                
+                SendConfirmation(request)
                 
              ProgressHUD.showSuccess("Your and'\(requesterName)' are friends now  !")
                 
@@ -146,6 +235,25 @@ class NotificationsViewController: UIViewController ,UITableViewDataSource,UITab
             }
             self.tableView.reloadData()
         })
+    }
+    
+    func loadConfirmations()
+    {
+        firebase.child("Confirmation").queryOrderedByChild("requesterId").queryEqualToValue(backendless.userService.currentUser.objectId).observeEventType(.Value, withBlock: { snapshot in
+            self.confirmations.removeAll()
+            
+            if snapshot.exists(){
+                
+                let sorted = (snapshot.value!.allValues as NSArray).sortedArrayUsingDescriptors([NSSortDescriptor(key:"date",ascending: false)])
+                
+                for confirmation in sorted {
+                    
+                    self.confirmations.append(confirmation as! NSDictionary)
+                }
+            }
+            self.tableView.reloadData()
+        })
+        
     }
     
 }

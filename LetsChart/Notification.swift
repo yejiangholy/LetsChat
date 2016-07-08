@@ -50,6 +50,36 @@ func CreateRequestNotification( requesterId: String, friendId: String , notifica
     })
 }
 
+func SendConfirmation(notification: NSDictionary)
+{
+    
+    let date = dataFormatter().stringFromDate(NSDate())
+    let ref = firebase.child("Confirmation").childByAutoId()
+    let autoId = ref.key
+    let confirmationId = notification["notificationId"] as! String
+    let requesterId = notification["requesterId"] as! String
+    let requesterName = notification["requesterName"] as! String
+    let friendId = notification["friendId"] as! String
+    let friendName =  notification["friendName"] as! String
+    let type = "Confirmation"
+    
+    let confirmation = ["autoId": autoId , "confirmationId": confirmationId, "requesterId" : requesterId , "friendId" : friendId , "requesterName" : requesterName , "friendName" : friendName, "type" : type, "date": date]
+    
+    
+    ref.setValue(confirmation)
+}
+
+func DeleteConfirmationItem(confirmation: NSDictionary)
+{
+    
+    firebase.child("Confirmation").child((confirmation["autoId"] as? String)!).removeValueWithCompletionBlock { (error, ref) -> Void in
+        if error != nil {
+            print("Error deleting confirmation item: \(error)")
+        }
+    }
+    
+}
+
 
 func DeleteNotificationItem(notification: NSDictionary)
 {
