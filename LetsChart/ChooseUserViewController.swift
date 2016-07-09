@@ -183,6 +183,9 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
         
         LeaveAlert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             
+            
+            self.friends.removeAtIndex(indexPath.row)
+
             let currentUser = backendless.userService.currentUser
             
                 let friendsList = currentUser.getProperty("FriendsList")
@@ -197,7 +200,6 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
                         updatedList = ""
                         
                     } else {
-                        
                         updatedList = friendsIdArray[0]
                         
                         for i in 1..<friendsIdArray.count
@@ -206,11 +208,11 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
                             updatedList! += friendsIdArray[i]
                         }
                     }
-                    
                     let property = ["FriendsList" : updatedList]
-                    
+
                     currentUser.updateProperties(property)
                     backendless.userService.update(currentUser)
+                     self.tableView.reloadData()
             }
             
         }))

@@ -10,14 +10,12 @@ import UIKit
 
 class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpdating {
     
-    var AllUsers:[BackendlessUser] = []
-    var filterUsers:[BackendlessUser] = []
     var resultSearchController = UISearchController()
+    var SearchUsers : [BackendlessUser] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUsers()
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
         self.resultSearchController.searchResultsUpdater = self
@@ -26,11 +24,12 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
         self.resultSearchController.searchBar.sizeToFit()
         
         self.tableView.tableHeaderView = self.resultSearchController.searchBar
+        self.resultSearchController.searchBar.placeholder = "Search user by their name"
         
         self.tableView.reloadData()
         
     }
-
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,46 +41,52 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
+    
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       if self.resultSearchController.active
-       {
-         return self.filterUsers.count
-       }else {
-        return self.AllUsers.count
-        }
-        
-        
-    }
+       return SearchUsers.count
+       }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell?
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SearchUserTableViewCell
         
-        if self.resultSearchController.active
-        {
-            cell!.textLabel?.text = self.filterUsers[indexPath.row].name
-        }
-        else{
-            cell!.textLabel?.text = self.AllUsers[indexPath.row].name
-        }
+        cell.bindData(SearchUsers[indexPath.row])
         
-        return cell!
+        return cell
     }
     
     // MARK : UISearchResultUpdating
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
-        self.filterUsers.removeAll(keepCapacity: false)
         
-        let searchPredicate = NSPredicate(format: "SELF.name CONTAINS[c] %@", searchController.searchBar.text!)
-        
-        let array = (self.AllUsers as NSArray).filteredArrayUsingPredicate(searchPredicate)
-        
-        self.filterUsers = array as! [BackendlessUser]
-        
-        self.tableView.reloadData()
-        
+        if let text = searchController.searchBar.text {
+            
+            if text != "" {
+                self.SearchUsers.removeAll(keepCapacity: false)
+                
+                //let searchPredicate = NSPredicate(format: "SELF.name CONTAINS[c] %@", searchController.searchBar.text!)
+                let whereClause = "name = '\(text)'"
+                print("whereClause : name = '\(text)'")
+                let dataQuery = BackendlessDataQuery()
+                dataQuery.whereClause = whereClause
+                
+                let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+                dataStore.find(dataQuery, response: { (users: BackendlessCollection!) in
+                    
+                    self.SearchUsers = (users.data as? [BackendlessUser])!
+                    
+                    self.tableView.reloadData()
+                    
+                }) { (fault: Fault!) in
+                    
+                    print("Error, couldn't find users: \(fault)")
+                    
+                }
+            }
+        }
     }
     
     
@@ -90,36 +95,15 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    //MARK: Load Backendless Users
-    func loadUsers(){
-        
-        ProgressHUD.show("Loading")
-        let whereClause = "objectId != '\(backendless.userService.currentUser.objectId)'"
-        let dataQuery = BackendlessDataQuery()
-        dataQuery.whereClause = whereClause
-        
-        let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
-        dataStore.find(dataQuery, response: { (users: BackendlessCollection!) in
-            
-            self.AllUsers = users.data as! [BackendlessUser]
-            
-            
-            ProgressHUD.dismiss()
-            self.tableView.reloadData()
-            
-        }) { (fault: Fault!) in
-            
-            print("Error, couldn't retrive users: \(fault)")
-
-        }
-    }
-    // MARK : UITableviewController
+    
+    
+       // MARK : UITableviewController
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let user = AllUsers[indexPath.row]
+        let user = SearchUsers[indexPath.row]
         let userName = user.name
         
         // show alert to confirm do you really want to add this person as your friends ? 

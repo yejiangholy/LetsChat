@@ -41,6 +41,7 @@
 		23A48C3D1D2AC710005BB752 /* SingleBackgroundTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A48C3C1D2AC710005BB752 /* SingleBackgroundTableViewController.swift */; };
 		23A605241D14FABB00DA3C31 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A605231D14FABB00DA3C31 /* Camera.swift */; };
 		23A605261D158CCC00DA3C31 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A605251D158CCC00DA3C31 /* MapViewController.swift */; };
+		23AF08B61D30C417008439B6 /* SearchUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AF08B51D30C417008439B6 /* SearchUserTableViewCell.swift */; };
 		23B18FCD1D1DE8470016EDFA /* SearchUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */; };
 		23C89A611D0BCB350000858B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C89A601D0BCB350000858B /* AppDelegate.swift */; };
 		23C89A661D0BCB350000858B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23C89A641D0BCB350000858B /* Main.storyboard */; };
@@ -302,6 +303,7 @@
 		23A48C4E1D2AF657005BB752 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		23A605231D14FABB00DA3C31 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		23A605251D158CCC00DA3C31 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		23AF08B51D30C417008439B6 /* SearchUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewCell.swift; sourceTree = "<group>"; };
 		23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersTableViewController.swift; sourceTree = "<group>"; };
 		23C89A5D1D0BCB350000858B /* LetsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23C89A601D0BCB350000858B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				23B18FCC1D1DE8470016EDFA /* SearchUsersTableViewController.swift */,
+				23AF08B51D30C417008439B6 /* SearchUserTableViewCell.swift */,
 				2395E4211D0CF5BC005D64A6 /* RecentTableViewCell.swift */,
 				2395E4231D0CF8BE005D64A6 /* RecentViewController.swift */,
 			);
@@ -1133,6 +1136,7 @@
 				23506D3C1D2077BC00308A17 /* GroupChatViewController.swift in Sources */,
 				23A48C3D1D2AC710005BB752 /* SingleBackgroundTableViewController.swift in Sources */,
 				230588841D1CC4FA004CFDFD /* TermsOfServiceViewController.swift in Sources */,
+				23AF08B61D30C417008439B6 /* SearchUserTableViewCell.swift in Sources */,
 				23DAF9161D1654E600BBB13D /* Avatar.swift in Sources */,
 				2395E4201D0CB56D005D64A6 /* ProgressHUD.m in Sources */,
 				23C89C451D0C52AE0000858B /* WelcomeViewController.swift in Sources */,

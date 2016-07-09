@@ -96,16 +96,11 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.performSegueWithIdentifier("RecentToSearchSeg", sender: self)
             
         }
-        let formGroupChat = UIAlertAction(title: "Form a group chat", style: .Default) { (alert :UIAlertAction!) -> Void in
-            
-             self.performSegueWithIdentifier("recentToGroupSettingSeg", sender: self)
-        }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction!) ->Void in
             
             print("Cancel")
         }
         optionMenu.addAction(searchUsers)
-        optionMenu.addAction(formGroupChat)
         optionMenu.addAction(cancelAction)
         
         self.presentViewController(optionMenu, animated: true, completion: nil)
