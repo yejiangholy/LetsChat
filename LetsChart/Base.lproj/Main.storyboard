@@ -54,29 +54,28 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Earth" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-X2-iCo">
-                                <rect key="frame" x="20" y="72" width="560" height="319"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="397"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5SB-21-MMB"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7WZ-Oo-rgK"/>
-                            <constraint firstItem="q8h-X2-iCo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7fc-Th-MoJ"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8BJ-O9-za6"/>
-                            <constraint firstItem="q8h-X2-iCo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="8wn-Hm-o7T"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="top" secondItem="HRt-vU-cka" secondAttribute="bottom" constant="14" id="ERw-Zw-dwq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kUt-9Z-v6P" secondAttribute="bottom" constant="20" id="EYO-Yi-bKB"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="q8h-X2-iCo" secondAttribute="leading" id="EgM-U8-bnL"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="G54-xy-Upd"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="GOw-GD-kOo"/>
                             <constraint firstItem="HRt-vU-cka" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HTp-IN-Swi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q8h-X2-iCo" secondAttribute="trailing" id="Ihz-JI-rFh"/>
+                            <constraint firstItem="HRt-vU-cka" firstAttribute="top" secondItem="q8h-X2-iCo" secondAttribute="bottom" constant="2" id="LhR-80-oYd"/>
+                            <constraint firstItem="q8h-X2-iCo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Qgn-LW-7ZM"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="top" secondItem="3AU-0u-sAc" secondAttribute="bottom" constant="15" id="SKw-6H-Ydp"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="top" secondItem="q8h-X2-iCo" secondAttribute="bottom" constant="72" id="XDA-D7-Oqc"/>
+                            <constraint firstItem="q8h-X2-iCo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="aOC-dA-SgU"/>
                             <constraint firstItem="HRt-vU-cka" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bBq-bx-psy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q8h-X2-iCo" secondAttribute="trailing" constant="-20" id="hWj-tx-1Ra"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="top" secondItem="3AU-0u-sAc" secondAttribute="bottom" constant="17" id="ify-1J-lCH"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jbe-vg-DZN"/>
-                            <constraint firstItem="HRt-vU-cka" firstAttribute="top" secondItem="q8h-X2-iCo" secondAttribute="bottom" constant="8" symbolic="YES" id="wlg-8X-VQK"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -573,13 +572,6 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-H3-DBb">
-                                <rect key="frame" x="19" y="223" width="560" height="307"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGJ-6r-KPY">
                                 <rect key="frame" x="-1" y="20" width="600" height="44"/>
                                 <items>
@@ -591,6 +583,20 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-H3-DBb">
+                                <rect key="frame" x="19" y="223" width="560" height="307"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">   Thank you for using  Let’s Chat :-)
+   Let's Chat  is a real-time chat application. It allows you to send text ,pictures, and locations to your friends and also support offline push notifications. 
+   At the beginning, you could search for a specific user by his/her name in the search users page. Then a request will be sent to the user you would like to add. You also will get a confirmation message in your notification page after the user confirmed this request.  After you get one or more friends, you could then enjoy private or group chat with them !  
+   Let’s Chat is also my first personal Application in IOS store. It must have many places need to be improved.  I would love to hear any of your thoughts, comments, suggestions or, even complaints about this App in appletschat@gmail.com.  Besides, It will be my honor if you would like to send a personal Hi in yeeejiang@outlook.com. 
+   Happy chatting.
+   Sincerely . 
+   Ye Jiang.  </mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1807,11 +1813,11 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
             </objects>
             <point key="canvasLocation" x="5000" y="-880"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Notifications-->
         <scene sceneID="q2q-IF-Fer">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Prh-5X-cLl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="cgf-2c-Caa"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="notification" id="cgf-2c-Caa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Z8-of-tB8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1831,6 +1837,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
         <image name="Earth" width="1280" height="720"/>
         <image name="Logo" width="303" height="238"/>
         <image name="avatarPlaceholder" width="250" height="250"/>
+        <image name="notification" width="30" height="30"/>
         <image name="settings" width="22" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>

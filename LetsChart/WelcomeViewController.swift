@@ -34,6 +34,8 @@ class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBarHidden = true
 
         fbLoginButton.readPermissions = ["public_profile" , "email"]
         
