@@ -268,7 +268,6 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
     
     //MARK: Load currentUser's friends
     func loadFriends(){
-        ProgressHUD.show("Loading")
         // 1. get current user's friends list
         let whereClause = "objectId = '\(backendless.userService.currentUser.objectId)'"
         let dataQuery = BackendlessDataQuery()
@@ -281,10 +280,20 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
             
         let friendsList = currentUser.getProperty("FriendsList")
             if let friendIdList = friendsList as? String{
+                
+                if friendIdList == "" {
+                    
+                    ProgressHUD.showSuccess("Go add more friends to chat !")
+                    
+                    return
+                }
             
                 let friendsIdArray = friendIdList.componentsSeparatedByString(" ")
+                
                               
                 var whereClause = "objectId = '\(friendsIdArray[0])'"
+                
+               
                 
                 if friendsIdArray.count > 1 {
                     
@@ -302,7 +311,6 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
                         
                         self.friends = users.data as! [BackendlessUser]
                         
-                        ProgressHUD.dismiss()
                         self.tableView.reloadData()//update table
                         
                         }, error: { (fault : Fault!) in
@@ -331,7 +339,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
                 }
             }else {
                 // do not have any friends in current user's friends list
-                ProgressHUD.showError("go add friends to chat !")
+                ProgressHUD.showSuccess("go Add friends to chat !")
             }
             
         }){ (fault : Fault!) in

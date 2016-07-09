@@ -25,6 +25,8 @@ public func SendPushNotification(chatRoomID: String, message: String) {
 
 func SendPushHelper(members: [String], message: String)
 {
+    
+    if members.count <= 2 {
     let message = backendless.userService.currentUser.name + ": " + message
     
     let withUserId = withUserIdFromArray(members)!
@@ -47,7 +49,73 @@ func SendPushHelper(members: [String], message: String)
         
         print("Error can not get from users table")
     }
+    } else {
+        
+         let message = backendless.userService.currentUser.name + ": " + message
+        
+         let withUsersId = withUsersIdFromArray(members)
+        
+        var  whereClause = "objectId = '\(withUsersId[0])'"
+        
+        for i in 1..<withUsersId.count {
+            
+            whereClause += " or objectId = '\(withUsersId[i])'"
+        }
+        let queryData = BackendlessDataQuery()
+        
+        queryData.whereClause = whereClause
+        
+        let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+
+        dataStore.find(queryData, response: { (users) in
+            
+            let withUsers = users.data as! [BackendlessUser]
+            
+            for user in withUsers {
+            
+            SendPushMessage(user, message: message)
+                
+            }
+            
+        }) { (fault: Fault!) in
+            
+            print("Error can not get from users table")
+        }
+    }
 }
+
+// MARK: send push notification when user get friends Request 
+
+func PushRequestNotification(requester: BackendlessUser, friend: BackendlessUser)
+{
+    
+    let deviceId = friend.getProperty("deviceId") as! String
+    let deliveryOptions = DeliveryOptions()
+    deliveryOptions.pushSinglecast = [deviceId]
+    deliveryOptions.pushPolicy(PUSH_ONLY)
+    let publishOptions = PublishOptions()
+    
+    publishOptions.assignHeaders(["ios-alert" : "Friend request from \(requester.name)", "ios-badge" : 1 , "ios-sound" : "default"])
+    
+    backendless.messagingService.publish("default", message: "Friend Request", deliveryOptions: deliveryOptions)
+    
+}
+
+func PushConfirmNotification(requester:BackendlessUser, friendName: String)
+{
+    
+    let deviceId = requester.getProperty("deviceId") as! String
+    let deliveryOptions = DeliveryOptions()
+    deliveryOptions.pushSinglecast = [deviceId]
+    deliveryOptions.pushPolicy(PUSH_ONLY)
+    let publishOptions = PublishOptions()
+
+    publishOptions.assignHeaders(["ios-alert" : "Friend confirmation from \(friendName)", "ios-badge" : 1 , "ios-sound" : "default"])
+
+    backendless.messagingService.publish("default", message: "Friend Confirmation", deliveryOptions: deliveryOptions)
+}
+
+
 
 func SendPushMessage(toUser: BackendlessUser , message: String)
 {
@@ -64,6 +132,22 @@ func SendPushMessage(toUser: BackendlessUser , message: String)
     publishOptions.assignHeaders(["ios-alert" : "New message from \(backendless.userService.currentUser.name)", "ios-badge" : 1 , "ios-sound" : "default"])
     
     backendless.messagingService.publish("default", message: message, deliveryOptions: deliveryOptions)
+}
+
+
+func withUsersIdFromArray(usersId: [String]) -> [String] {
+    
+    var withUsersId : [String] = []
+    
+    for userId in usersId {
+        
+        if userId != backendless.userService.currentUser.objectId {
+            
+            withUsersId.append(userId)
+        }
+    }
+    
+    return withUsersId
 }
 
 func withUserIdFromArray(usersId: [String])-> String? {

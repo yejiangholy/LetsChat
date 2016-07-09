@@ -19,12 +19,16 @@ func sendRequestNotification(requester: BackendlessUser, friend: BackendlessUser
    let notificationId = requesterId.stringByAppendingString(friendId)
     
  
-    CreateRequestNotification(requesterId, friendId: friendId, notificationId: notificationId, requesterName: requester.name, friendName: friend.name, type: "Request")
-    
+    CreateRequestNotification(requesterId, friendId: friendId, notificationId: notificationId, requesterName: requester.name, friendName: friend.name, type: "Request") { (result) in
+        
+        if result == true {
+            PushRequestNotification(requester, friend: friend)
+        }
+    }
 }
 
 
-func CreateRequestNotification( requesterId: String, friendId: String , notificationId: String, requesterName: String , friendName: String , type : String){
+func CreateRequestNotification( requesterId: String, friendId: String , notificationId: String, requesterName: String , friendName: String , type : String, result: (result: Bool)-> Void ){
     firebase.child("Notification").queryOrderedByChild("notificationId").queryEqualToValue(notificationId).observeSingleEventOfType(.Value, withBlock: { snapshot in
         var create = true
         
@@ -33,7 +37,7 @@ func CreateRequestNotification( requesterId: String, friendId: String , notifica
             for notification in snapshot.value!.allValues{
                 if notification["type"] as! String == "Request"{
                     create = false
-                    
+                    result(result: false)
                 }
             }
         }
@@ -46,6 +50,7 @@ func CreateRequestNotification( requesterId: String, friendId: String , notifica
             let notification = ["autoId": autoId , "notificationId" : notificationId ,"requesterId" : requesterId , "friendId" : friendId , "requesterName" : requesterName , "friendName" : friendName, "type" : type, "date": date]
             
             ref.setValue(notification)
+             result(result: true)
         }
     })
 }
@@ -65,8 +70,30 @@ func SendConfirmation(notification: NSDictionary)
     
     let confirmation = ["autoId": autoId , "confirmationId": confirmationId, "requesterId" : requesterId , "friendId" : friendId , "requesterName" : requesterName , "friendName" : friendName, "type" : type, "date": date]
     
-    
     ref.setValue(confirmation)
+    
+    
+    // sending confirm push notification 
+    
+    let whereClause = "objectId = '\(requesterId)'"
+    
+    let queryData = BackendlessDataQuery()
+    
+    queryData.whereClause = whereClause
+    
+    let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+    
+    dataStore.find(queryData, response: { (users) in
+        
+        let requester = users.data[0] as! BackendlessUser
+        
+     PushConfirmNotification(requester, friendName: friendName)
+        
+    }) { (fault: Fault!) in
+        
+        print("Error can not get from users table")
+    }
+
 }
 
 func DeleteConfirmationItem(confirmation: NSDictionary)
