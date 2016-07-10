@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
 
     //MARK: IBActions
     
-    @IBAction func loginBarButtonPressed(sender: UIBarButtonItem) {
+    @IBAction func loginBarButtonPressed(sender: AnyObject) {
         if emailTextField.text != "" && passwordTextField.text != "" {
             self.email = emailTextField.text
             self.password = passwordTextField.text

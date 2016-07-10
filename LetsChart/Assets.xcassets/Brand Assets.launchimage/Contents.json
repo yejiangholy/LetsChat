@@ -3,7 +3,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "ipad_portrait_small.png",
+      "filename" : "ipad_por_samll.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -11,7 +11,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "ipad_landscape_small.png",
+      "filename" : "ipad_land_small.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -19,7 +19,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "ipad_portrait_big.png",
+      "filename" : "ipad_por_big.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -27,7 +27,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "ipad_landscape_big.png",
+      "filename" : "ipad_land_big.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
