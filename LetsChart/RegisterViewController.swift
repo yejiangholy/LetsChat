@@ -22,10 +22,10 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
     var username:String?
     var password:String?
     var avatarImage:UIImage?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBarHidden = false
         newUser = BackendlessUser()
         
        // self.hideKeyboardWhenTappedAround()
@@ -36,6 +36,16 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    
     
 
    //MARK: IBActions

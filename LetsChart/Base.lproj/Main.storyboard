@@ -158,6 +158,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="eKE-K2-nKT">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="vni-al-Nqy">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="fNT-SD-Q13" id="3Wa-nI-vrV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="bCF-5U-NYf">
                             <connections>
                                 <action selector="uploadPhotoButtonPressed:" destination="fNT-SD-Q13" id="vr6-sw-Vij"/>
@@ -172,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uF1-8q-H3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="-66"/>
+            <point key="canvasLocation" x="1520" y="-52"/>
         </scene>
         <!--Log in-->
         <scene sceneID="JZz-L3-axt">
@@ -228,7 +234,14 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Log in" id="iOZ-xh-isn">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4mD-Zy-yrN">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="CancelButtonPressed:" destination="Svo-4e-FM3" id="ET5-Sf-BWH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log in" id="kFH-RZ-xNj">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="loginBarButtonPressed:" destination="Svo-4e-FM3" id="d7v-us-W50"/>
                             </connections>
@@ -241,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yES-8o-XDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="639"/>
+            <point key="canvasLocation" x="1656" y="638"/>
         </scene>
         <!--Settings-->
         <scene sceneID="5vv-4P-cqC">
