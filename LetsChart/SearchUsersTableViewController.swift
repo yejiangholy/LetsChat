@@ -106,7 +106,8 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
         let user = SearchUsers[indexPath.row]
         let userName = user.name
         
-        // show alert to confirm do you really want to add this person as your friends ? 
+        
+        // show alert to confirm do you really want to add this person as your friends ?
         
         let optionMenu = UIAlertController(title: "Add '\(userName)' as your friends ?", message: nil, preferredStyle: .ActionSheet)
         
@@ -115,6 +116,12 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
                 self.userIsNotFriends(user, result: { (result) in
                 if result == true {
                    
+                    if user.objectId == backendless.userService.currentUser.objectId {
+                        
+                        ProgressHUD.showError("Could't add youself as a friend")
+                        
+                        return 
+                    }
                     
                     // create Notification send to firebase 
                    sendRequestNotification(backendless.userService.currentUser, friend: user)

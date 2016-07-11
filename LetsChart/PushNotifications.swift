@@ -89,7 +89,9 @@ func SendPushHelper(members: [String], message: String)
 func PushRequestNotification(requester: BackendlessUser, friend: BackendlessUser)
 {
     
-    let deviceId = friend.getProperty("deviceId") as! String
+    if let deviceId = friend.getProperty("deviceId") as? String {
+        
+    if deviceId != "" {
     let deliveryOptions = DeliveryOptions()
     deliveryOptions.pushSinglecast = [deviceId]
     deliveryOptions.pushPolicy(PUSH_ONLY)
@@ -98,13 +100,17 @@ func PushRequestNotification(requester: BackendlessUser, friend: BackendlessUser
     publishOptions.assignHeaders(["ios-alert" : "Friend request from \(requester.name)", "ios-badge" : 1 , "ios-sound" : "default"])
     
     backendless.messagingService.publish("default", message: "Friend Request", deliveryOptions: deliveryOptions)
+        }
+    }
     
 }
 
 func PushConfirmNotification(requester:BackendlessUser, friendName: String)
 {
     
-    let deviceId = requester.getProperty("deviceId") as! String
+    if let deviceId = requester.getProperty("deviceId") as? String {
+        
+        if deviceId != "" {
     let deliveryOptions = DeliveryOptions()
     deliveryOptions.pushSinglecast = [deviceId]
     deliveryOptions.pushPolicy(PUSH_ONLY)
@@ -113,13 +119,17 @@ func PushConfirmNotification(requester:BackendlessUser, friendName: String)
     publishOptions.assignHeaders(["ios-alert" : "Friend confirmation from \(friendName)", "ios-badge" : 1 , "ios-sound" : "default"])
 
     backendless.messagingService.publish("default", message: "Friend Confirmation", deliveryOptions: deliveryOptions)
+        }
+    }
 }
 
 
 
 func SendPushMessage(toUser: BackendlessUser , message: String)
 {
-    let deviceId = toUser.getProperty("deviceId") as! String
+    if let deviceId = toUser.getProperty("deviceId") as? String {
+        
+        if deviceId != "" {
     
     let deliveryOptions = DeliveryOptions()
     
@@ -132,6 +142,8 @@ func SendPushMessage(toUser: BackendlessUser , message: String)
     publishOptions.assignHeaders(["ios-alert" : "New message from \(backendless.userService.currentUser.name)", "ios-badge" : 1 , "ios-sound" : "default"])
     
     backendless.messagingService.publish("default", message: message, deliveryOptions: deliveryOptions)
+        }
+    }
 }
 
 

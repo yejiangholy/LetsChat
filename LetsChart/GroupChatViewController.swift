@@ -72,12 +72,6 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
-        if let image = backGround {
-            
-        self.collectionView.backgroundColor = UIColor(patternImage: image)
-            
-        }
-        
     }
     
     //MARK: JSQMessage dataSrouce functions 
@@ -377,8 +371,22 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             
             let imageFromDefault = UIImage(data: imageDictionary[self.chatRoomId!] as! NSData, scale: 1.0)
             self.backGround =  imageFromDefault!
-             self.collectionView.backgroundColor = UIColor(patternImage: imageFromDefault!)
-
+            
+            
+           // set background image size to fit
+            let size = CGSize(width: self.view.frame.size.width * CGFloat(2), height: self.view.frame.size.height * CGFloat(2))
+            UIGraphicsBeginImageContext(size)
+            let oldRect = self.view.bounds
+            let width = CGRectGetWidth(oldRect)
+            let height = CGRectGetHeight(oldRect)
+            let scale : CGFloat = 2
+            let newWidth = sqrt(width * width * scale)
+            let newHeight = sqrt(height * height * scale)
+            let newRec = CGRectInset(oldRect, (width-newWidth)/2, (height-newHeight)/2 )
+            imageFromDefault!.drawInRect(newRec)
+            let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            self.collectionView.backgroundColor = UIColor(patternImage: image)
         }
 
         if !(firstLoad!) {
