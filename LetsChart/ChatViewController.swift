@@ -533,22 +533,12 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
             
             let imageFromDefault = UIImage(data: imageDictionary[self.chatRoomId!] as! NSData, scale: 1.0)
             self.backGround =  imageFromDefault!
-           
-            // set background image in view size to fit
-            let size = CGSize(width: self.view.frame.size.width * CGFloat(2.5), height: self.view.frame.size.height * CGFloat(2.5))
-            UIGraphicsBeginImageContext(size)
-            let oldRect = self.view.bounds
-            let width = CGRectGetWidth(oldRect)
-            let height = CGRectGetHeight(oldRect)
-            let scale : CGFloat = 2.5
-            let newWidth = sqrt(width * width * scale)
-            let newHeight = sqrt(height * height * scale)
-            let newRec = CGRectInset(oldRect, (width-newWidth)/2, (height-newHeight)/2 )
-            imageFromDefault!.drawInRect(newRec)
-            let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            //print(image)
-            self.collectionView.backgroundColor = UIColor(patternImage: image)
+          
+            let imgBackground:UIImageView = UIImageView(frame: self.view.bounds)
+            imgBackground.image = imageFromDefault!
+            imgBackground.contentMode = UIViewContentMode.ScaleAspectFill
+            imgBackground.clipsToBounds = true
+            self.collectionView.backgroundView = imgBackground
             
         }
 

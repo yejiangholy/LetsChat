@@ -32,6 +32,10 @@ let firebase = FIRDatabase.database().reference()
     }else {
         chatRoomId = userID2.stringByAppendingString(userID1)
     }
+    //add current date to Id to enable same person different room
+    let date = dataFormatter().stringFromDate(NSDate())
+    chatRoomId = chatRoomId.stringByAppendingString(date)
+    
     
     let members :[String] = [userID1 , userID2]
     //create recent
@@ -51,6 +55,9 @@ func startGroupChatId (users:[BackendlessUser], name: String, Image: UIImage?) -
     for i in 0..<sortedUsers.count {
         chatRoomId = chatRoomId.stringByAppendingString(sortedUsers[i].objectId!)
     }
+    //add current date to Id to enable same person different room
+    let date = dataFormatter().stringFromDate(NSDate())
+    chatRoomId = chatRoomId.stringByAppendingString(date)
     
     var allMembers : [String] = []
     for i in 0..<sortedUsers.count{
