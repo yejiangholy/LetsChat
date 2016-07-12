@@ -47,9 +47,9 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
     
     override func viewDidLoad() {
         
-        loadUserDefaults()
-        
         super.viewDidLoad()
+        
+         loadUserDefaults()
         
         self.senderId = backendless.userService.currentUser.objectId
         self.senderDisplayName = backendless.userService.currentUser.name
@@ -72,7 +72,16 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
         
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
     }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     
     //MARK: JSQMessage dataSrouce functions 
     
@@ -373,20 +382,22 @@ class GroupChatViewController: JSQMessagesViewController , UINavigationControlle
             self.backGround =  imageFromDefault!
             
             
-           // set background image size to fit
-            let size = CGSize(width: self.view.frame.size.width * CGFloat(2), height: self.view.frame.size.height * CGFloat(2))
+            // set background image in view size to fit
+            let size = CGSize(width: self.view.frame.size.width * CGFloat(2.5), height: self.view.frame.size.height * CGFloat(2.5))
             UIGraphicsBeginImageContext(size)
             let oldRect = self.view.bounds
             let width = CGRectGetWidth(oldRect)
             let height = CGRectGetHeight(oldRect)
-            let scale : CGFloat = 2
+            let scale : CGFloat = 2.5
             let newWidth = sqrt(width * width * scale)
             let newHeight = sqrt(height * height * scale)
             let newRec = CGRectInset(oldRect, (width-newWidth)/2, (height-newHeight)/2 )
             imageFromDefault!.drawInRect(newRec)
             let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
+            //print(image)
             self.collectionView.backgroundColor = UIColor(patternImage: image)
+          
         }
 
         if !(firstLoad!) {

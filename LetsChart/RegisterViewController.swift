@@ -22,15 +22,24 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
     var username:String?
     var password:String?
     var avatarImage:UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBarHidden = false
         newUser = BackendlessUser()
         
-       // self.hideKeyboardWhenTappedAround()
-
-            }
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard as UIInputViewController -> () -> Void))
+        view.addGestureRecognizer(tap)
+      
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,7 +59,7 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
 
    //MARK: IBActions
     
-    @IBAction func registerButtonPressed(sender: UIButton) {
+    @IBAction func registerButtonPressed(sender: AnyObject) {
         
         if emailTextField.text != "" && usernameTextField.text != "" && passwordTextField.text != "" {
             
@@ -61,22 +70,32 @@ class RegisterViewController: UIViewController , UINavigationControllerDelegate,
                 ProgressHUD.showError("Please enter a valid e-mail address")
                 
             } else {
-            
-            if (passwordTextField.text!.characters.count < 7)
-            {
-                ProgressHUD.showError("password at least have 7 characters")
                 
-            }else {
-            
-            ProgressHUD.show("Registering...")
-            
-            email = emailTextField.text
-            username = usernameTextField.text
-            password = passwordTextField.text
-            
-            register(self.email!, username: self.username!, password: self.password!, avatarImage: self.avatarImage)
+                if (passwordTextField.text!.characters.count < 7)
+                {
+                    ProgressHUD.showError("password at least have 7 characters")
+                    
+                }else {
+                    
+                    emailHasBeenRegistered(emailTextField.text!, result: { (result) in
+                        
+                        if result == true {
+                            
+                            ProgressHUD.showError("Account already exist Please Login")
+                            
+                        } else {
+                            
+                            ProgressHUD.show("Registering...")
+                            
+                            self.email = self.emailTextField.text
+                            self.username = self.usernameTextField.text
+                            self.password = self.passwordTextField.text
+                            
+                            self.register(self.email!, username: self.username!, password: self.password!, avatarImage: self.avatarImage)
+                        }
+                    })
+                }
             }
-        }
             
         } else{
             //worning to user ..

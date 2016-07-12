@@ -8,17 +8,6 @@
 
 import Foundation
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
 func TimeElipsed(seconds: NSTimeInterval) -> String {
     let elapsed: String?
     
@@ -59,7 +48,31 @@ func isValidEmail(input: String) -> Bool {
     return emailTest.evaluateWithObject(input) 
 }
 
-
+func emailHasBeenRegistered(email: String, result: (result: Bool) -> Void)
+{
+    
+    let whereClause = "email = '\(email)'"
+    let dataQuery = BackendlessDataQuery()
+    dataQuery.whereClause = whereClause
+    
+    let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
+    dataStore.find(dataQuery, response: {(users:BackendlessCollection!)-> Void in
+        
+        if let user = users.data.first as? BackendlessUser {
+            
+            result(result: true)
+            
+        } else {
+            
+            result(result: false)
+        }
+        
+        
+    }){(fault:Fault!)-> Void in
+        
+       result(result: true)
+    }
+}
 
 func letThemBecomeFriends(user1Id: String,  user2Id: String, result: (result: Bool)-> Void)
 {

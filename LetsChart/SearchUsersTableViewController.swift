@@ -69,7 +69,7 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
                 
                 //let searchPredicate = NSPredicate(format: "SELF.name CONTAINS[c] %@", searchController.searchBar.text!)
                 let whereClause = "name = '\(text)'"
-                print("whereClause : name = '\(text)'")
+                
                 let dataQuery = BackendlessDataQuery()
                 dataQuery.whereClause = whereClause
                 

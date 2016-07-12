@@ -190,10 +190,10 @@
                                 <action selector="cancelButtonPressed:" destination="fNT-SD-Q13" id="3Wa-nI-vrV"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="bCF-5U-NYf">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <barButtonItem key="rightBarButtonItem" title="Register" id="vqX-OB-DE1">
+                            <color key="tintColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="uploadPhotoButtonPressed:" destination="fNT-SD-Q13" id="vr6-sw-Vij"/>
+                                <action selector="registerButtonPressed:" destination="fNT-SD-Q13" id="qp0-t6-SLn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -205,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uF1-8q-H3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="-58"/>
+            <point key="canvasLocation" x="1478" y="-38"/>
         </scene>
         <!--Log in-->
         <scene sceneID="JZz-L3-axt">
@@ -299,7 +299,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log in" id="kFH-RZ-xNj">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.1080627545" green="0.60024038459999995" blue="0.1354707882" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="loginBarButtonPressed:" destination="Svo-4e-FM3" id="d7v-us-W50"/>
                             </connections>

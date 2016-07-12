@@ -74,9 +74,15 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
         self.inputToolbar?.contentView?.textView?.placeHolder = "New Message"
         
         
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -541,6 +547,7 @@ class ChatViewController: JSQMessagesViewController, UINavigationControllerDeleg
             imageFromDefault!.drawInRect(newRec)
             let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
+            //print(image)
             self.collectionView.backgroundColor = UIColor(patternImage: image)
             
         }

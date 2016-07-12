@@ -23,10 +23,16 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
          self.navigationController?.navigationBarHidden = false
-
-       // self.hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard as UIInputViewController -> () -> Void))
+        view.addGestureRecognizer(tap)
     }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,14 +57,19 @@ class LoginViewController: UIViewController {
             self.email = emailTextField.text
             self.password = passwordTextField.text
             
-            // log in user 
-            loginUser(email!, password: password!)
             
-            UIApplication.sharedApplication().registerForRemoteNotifications()
-            
+            emailHasBeenRegistered(emailTextField.text!, result: { (result) in
+                
+                if result == true {
+                    // log in user
+                    self.loginUser(self.email!, password: self.password!)
+                    UIApplication.sharedApplication().registerForRemoteNotifications()
+                    
+                } else {
+                    ProgressHUD.showError("Account do not exist, Please register first")
+                }
+            })
         } else {
-            // warning to user
-            
             ProgressHUD.showError("All fields are required")
         }
         
@@ -82,6 +93,7 @@ class LoginViewController: UIViewController {
             ProgressHUD.dismiss()
             
         }) { (fault:Fault!) -> Void in
+            
             ProgressHUD.showError("Invalid password entered, Please try again")
         }
     }
