@@ -129,6 +129,12 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
             // it is a group chat first. show alert let user input a goup name
             // then do the same thing as we did in previously groupchat
             
+            if chatMembers.count > 100 {
+                
+                ProgressHUD.showError("Do not support group chat over 100 people")
+                
+            } else {
+            
             var inputTextField: UITextField?
             let groupNamePrompt = UIAlertController(title: "Name your Group", message: "Anyone in the group can change the name later ~", preferredStyle: UIAlertControllerStyle.Alert)
             groupNamePrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
@@ -158,7 +164,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
             })
             
             presentViewController(groupNamePrompt, animated: true, completion: nil)
-            
+            }
         }
         
     }
