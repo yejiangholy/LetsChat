@@ -58,7 +58,7 @@ func emailHasBeenRegistered(email: String, result: (result: Bool) -> Void)
     let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
     dataStore.find(dataQuery, response: {(users:BackendlessCollection!)-> Void in
         
-        if let user = users.data.first as? BackendlessUser {
+        if (users.data.first as? BackendlessUser) != nil {
             
             result(result: true)
             

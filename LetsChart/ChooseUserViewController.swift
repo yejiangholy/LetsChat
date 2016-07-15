@@ -19,8 +19,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
     var friends:[BackendlessUser] = []
     var filterFriends:[BackendlessUser] = []
     var chatMembers :[BackendlessUser] = []
-    var resultSearchController = UISearchController()
-    
+    var resultSearchController : UISearchController? = nil
     
 
     @IBOutlet weak var tableView: UITableView!
@@ -30,12 +29,12 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
         loadFriends()
 
         self.resultSearchController = UISearchController(searchResultsController: nil)
-        self.resultSearchController.searchResultsUpdater = self
+        self.resultSearchController!.searchResultsUpdater = self
         
-        self.resultSearchController.dimsBackgroundDuringPresentation = true
-        self.resultSearchController.searchBar.sizeToFit()
+        self.resultSearchController!.dimsBackgroundDuringPresentation = true
+        self.resultSearchController!.searchBar.sizeToFit()
         
-        self.tableView.tableHeaderView = self.resultSearchController.searchBar
+        self.tableView.tableHeaderView = self.resultSearchController!.searchBar
         
         self.tableView.reloadData()
     }
@@ -49,7 +48,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if self.resultSearchController.active
+        if self.resultSearchController!.active
         {
             return self.filterFriends.count
         }else {
@@ -61,7 +60,7 @@ class ChooseUserViewController: UIViewController ,UITableViewDelegate, UITableVi
     
           let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! FriendsTableViewCell
         
-        if self.resultSearchController.active
+        if self.resultSearchController!.active
         {
             cell.bindData(self.filterFriends[indexPath.row])
         }else {

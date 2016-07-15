@@ -10,7 +10,7 @@ import UIKit
 
 class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpdating {
     
-    var resultSearchController = UISearchController()
+    var resultSearchController : UISearchController? = nil
     var SearchUsers : [BackendlessUser] = []
     
     
@@ -18,13 +18,13 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
         super.viewDidLoad()
         
         self.resultSearchController = UISearchController(searchResultsController: nil)
-        self.resultSearchController.searchResultsUpdater = self
+        self.resultSearchController!.searchResultsUpdater = self
         
-        self.resultSearchController.dimsBackgroundDuringPresentation = true
-        self.resultSearchController.searchBar.sizeToFit()
+        self.resultSearchController!.dimsBackgroundDuringPresentation = true
+        self.resultSearchController!.searchBar.sizeToFit()
         
-        self.tableView.tableHeaderView = self.resultSearchController.searchBar
-        self.resultSearchController.searchBar.placeholder = "Search user by their name"
+        self.tableView.tableHeaderView = self.resultSearchController!.searchBar
+        self.resultSearchController!.searchBar.placeholder = "Search user by their name"
         
         self.tableView.reloadData()
         

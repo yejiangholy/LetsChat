@@ -212,8 +212,8 @@ class SettingsTableViewController: UITableViewController ,UINavigationController
         
         avatarSwitch.setOn(avatarSwitchStatus, animated: true)
         
-        if let imageLink = backendless.userService.currentUser.getProperty("Avatar") {
-            getImageFromURL(imageLink as! String, result: { (image) in
+        if let imageLink = backendless.userService.currentUser.getProperty("Avatar") as? String {
+            getImageFromURL(imageLink , result: { (image) in
                 
                 self.ImageUser.image = image
                 
