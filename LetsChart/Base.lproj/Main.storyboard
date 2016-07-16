@@ -757,10 +757,10 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="P2k-UO-lzr">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="naJ-8x-3uY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Su9-2G-V1i">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="cancelButtonPressed:" destination="t9h-CN-ctq" id="qpU-Je-EGU"/>
+                                <action selector="cancelButtonPressed:" destination="t9h-CN-ctq" id="5wN-0b-iiQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -939,20 +939,15 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Let's Chat" id="SXT-LW-wYj" userLabel="Let's Chat">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="uxB-M5-8ZC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="7hz-14-vAA">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="addSearchUserButtonPressed:" destination="ppZ-yv-TsH" id="xJS-Qv-FhP"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="7G3-9N-egF">
-                            <connections>
-                                <action selector="startNewChatBarButtonPressed:" destination="ppZ-yv-TsH" id="bRx-Mh-WTz"/>
+                                <action selector="addSearchUserButtonPressed:" destination="ppZ-yv-TsH" id="ryB-Ga-Isn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jqx-f2-Lqh" id="x6d-9y-RHW"/>
-                        <segue destination="I8O-fs-Px4" kind="presentation" identifier="recentToChooseUserVC" id="f5y-Et-2xd"/>
                         <segue destination="Caz-t2-fBX" kind="show" identifier="recentToChatSeg" id="pTY-n3-7hd"/>
                         <segue destination="dhC-a8-Qgc" kind="presentation" identifier="RecentToSearchSeg" id="TLl-2d-Q67"/>
                         <segue destination="dv8-vb-9XF" kind="presentation" identifier="recentToGroupSettingSeg" id="WiR-Bn-Vbk"/>
@@ -963,7 +958,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
             </objects>
             <point key="canvasLocation" x="3996" y="-206"/>
         </scene>
-        <!--Choose User View Controller-->
+        <!--Friends-->
         <scene sceneID="kON-py-n4V">
             <objects>
                 <viewController id="I8O-fs-Px4" customClass="ChooseUserViewController" customModule="LetsChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -1008,7 +1003,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Flh-a3-zLe">
-                                <rect key="frame" x="0.0" y="70" width="600" height="530"/>
+                                <rect key="frame" x="0.0" y="70" width="600" height="481"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="7ub-6l-hAB">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -1060,24 +1055,25 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                         </subviews>
                         <color key="backgroundColor" white="0.9622221057" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Flh-a3-zLe" firstAttribute="leading" secondItem="cFq-X4-92T" secondAttribute="leadingMargin" constant="-20" id="2Ho-Gj-zjF"/>
-                            <constraint firstItem="Flh-a3-zLe" firstAttribute="top" secondItem="DtW-Ah-MjN" secondAttribute="bottom" id="Bdb-l7-UyA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Flh-a3-zLe" secondAttribute="trailing" constant="-20" id="7ha-YT-A2p"/>
                             <constraint firstItem="DtW-Ah-MjN" firstAttribute="leading" secondItem="cFq-X4-92T" secondAttribute="leadingMargin" constant="-20" id="I2f-La-2Zo"/>
+                            <constraint firstItem="vyv-5g-pgN" firstAttribute="top" secondItem="Flh-a3-zLe" secondAttribute="bottom" id="JEy-kL-8sE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DtW-Ah-MjN" secondAttribute="trailing" constant="-20" id="Jyr-cf-5a0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Flh-a3-zLe" secondAttribute="trailing" constant="-20" id="N1v-HB-872"/>
                             <constraint firstItem="DtW-Ah-MjN" firstAttribute="top" secondItem="D43-Md-oNB" secondAttribute="bottom" id="Y6W-YO-ytf"/>
-                            <constraint firstItem="Flh-a3-zLe" firstAttribute="bottom" secondItem="cFq-X4-92T" secondAttribute="bottomMargin" id="g5b-BB-59J"/>
+                            <constraint firstItem="Flh-a3-zLe" firstAttribute="top" secondItem="DtW-Ah-MjN" secondAttribute="bottom" id="jFz-W1-BkJ"/>
+                            <constraint firstItem="Flh-a3-zLe" firstAttribute="leading" secondItem="cFq-X4-92T" secondAttribute="leadingMargin" constant="-20" id="reF-48-ZBB"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Friends" image="friends 16.10.24" id="vGB-jS-w5r"/>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Flh-a3-zLe" id="uoP-UM-cqe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPw-aI-CGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4947" y="563"/>
+            <point key="canvasLocation" x="2613" y="1105"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="X4r-pc-DOC">
@@ -1280,8 +1276,9 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                     </tabBar>
                     <connections>
                         <segue destination="QcA-Mp-God" kind="relationship" relationship="viewControllers" id="S51-jH-65e"/>
-                        <segue destination="gVC-Pa-1QQ" kind="relationship" relationship="viewControllers" id="FXD-DX-SlH"/>
+                        <segue destination="I8O-fs-Px4" kind="relationship" relationship="viewControllers" id="9s2-VG-so0"/>
                         <segue destination="Prh-5X-cLl" kind="relationship" relationship="viewControllers" id="THT-tc-qrt"/>
+                        <segue destination="gVC-Pa-1QQ" kind="relationship" relationship="viewControllers" id="FXD-DX-SlH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Om9-ar-Yei" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1472,7 +1469,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbN-Lu-kUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857" y="1465"/>
+            <point key="canvasLocation" x="2745" y="1798"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bIX-yQ-Hfx">
@@ -1909,6 +1906,7 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
         <image name="Logo" width="303" height="238"/>
         <image name="Register" width="842" height="595"/>
         <image name="avatarPlaceholder" width="250" height="250"/>
+        <image name="friends 16.10.24" width="30" height="30"/>
         <image name="notification" width="30" height="30"/>
         <image name="settings" width="22" height="23"/>
         <image name="welcome" width="1224" height="1154"/>

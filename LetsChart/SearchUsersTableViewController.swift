@@ -76,7 +76,7 @@ class SearchUsersTableViewController: UITableViewController ,UISearchResultsUpda
                 let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass())
                 dataStore.find(dataQuery, response: { (users: BackendlessCollection!) in
                     
-                    self.SearchUsers = (users.data as? [BackendlessUser])!
+                self.SearchUsers = (users.data as? [BackendlessUser])!
                     
                     self.tableView.reloadData()
                     

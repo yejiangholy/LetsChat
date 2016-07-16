@@ -87,6 +87,8 @@ class RecentViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
     }
     
+    
+    
     @IBAction func addSearchUserButtonPressed(sender: AnyObject) {
         
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
