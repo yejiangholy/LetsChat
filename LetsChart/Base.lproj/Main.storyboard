@@ -977,12 +977,6 @@ We do our best to keep Let’s Chat safe, but with your help we can do it better
                                         <rect key="frame" x="0.0" y="3" width="600" height="44"/>
                                         <items>
                                             <navigationItem title="Friends" id="96c-q2-ZXP">
-                                                <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="50T-W7-u0L">
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <connections>
-                                                        <action selector="cancelButtonPressed:" destination="I8O-fs-Px4" id="ebR-0U-w1k"/>
-                                                    </connections>
-                                                </barButtonItem>
                                                 <barButtonItem key="rightBarButtonItem" systemItem="compose" id="iIy-K9-Bp4">
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <connections>
