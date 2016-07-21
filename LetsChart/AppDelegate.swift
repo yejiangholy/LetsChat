@@ -134,6 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
+        do {
         let result = FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
         
         if result {
@@ -160,7 +161,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             backendless.userService.loginWithFacebookSDK(token, fieldsMapping: filedsMapping)
         }
         
-        return result 
+        return result
+            
+    } catch _ {
+            
+            ProgressHUD.showError("unstable login with facebook")
+        }
     }
 
 }
