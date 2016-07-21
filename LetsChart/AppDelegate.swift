@@ -140,25 +140,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         if result {
             
             let token = FBSDKAccessToken.currentAccessToken()
+            
             let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email"], tokenString: token.tokenString, version: nil, HTTPMethod: "GET")
             
-            request.startWithCompletionHandler({ (connection, result, error) in
+            request.startWithCompletionHandler({ (connection, result, error : NSError!) -> Void in
                 
                 if error == nil {
                     let facebookId = result["id"]! as! String
+                    
                     let avatarUrl = "https://graph.facebook.com/\(facebookId)/picture?type=normal"
                     
-                     //update backendless user with avatar link
-                   updateBackendlessUser(facebookId, avatarUrl: avatarUrl)
+                    //update backendless user with avatar link
+                    updateBackendlessUser(facebookId, avatarUrl: avatarUrl)
                     
                 } else {
                     print("Facebook request error \(error)")
                 }
             })
             
-            let filedsMapping = ["id" : "facebookId" , "name" : "name" , "email" : "email"]
+            let fieldsMapping = ["id" : "facebookId", "name" : "name", "email" : "email"]
             
-            backendless.userService.loginWithFacebookSDK(token, fieldsMapping: filedsMapping)
+            backendless.userService.loginWithFacebookSDK(token, fieldsMapping: fieldsMapping)
         }
         
         return result
@@ -167,7 +169,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             
             ProgressHUD.showError("unstable login with facebook")
         }
-    }
 
+     }
 }
-

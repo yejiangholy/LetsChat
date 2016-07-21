@@ -10,15 +10,14 @@ import Foundation
 
 public func registerUserDeviceId() {
     
-    if backendless.messagingService.getRegistration().deviceId != nil {
-        
-        let deviceId = backendless.messagingService.getRegistration().deviceId
+        if let deviceId = backendless.messagingService.getRegistration()?.deviceId {
         
         let properties = ["deviceId" : deviceId]
         
-       backendless.userService.currentUser.updateProperties(properties)
+        backendless.userService.currentUser!.updateProperties(properties)
         backendless.userService.update(backendless.userService.currentUser)
-    }
+            
+        }
     
 }
 

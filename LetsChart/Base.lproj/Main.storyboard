@@ -46,15 +46,8 @@
                                     <segue destination="fNT-SD-Q13" kind="show" id="nvy-PB-s7c"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRt-vU-cka" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="20" y="399" width="560" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="eZa-it-dxm"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="q8h-X2-iCo">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="397"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="460"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -62,17 +55,14 @@
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="5SB-21-MMB"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7WZ-Oo-rgK"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8BJ-O9-za6"/>
-                            <constraint firstItem="3AU-0u-sAc" firstAttribute="top" secondItem="HRt-vU-cka" secondAttribute="bottom" constant="14" id="ERw-Zw-dwq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kUt-9Z-v6P" secondAttribute="bottom" constant="20" id="EYO-Yi-bKB"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="G54-xy-Upd"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="GOw-GD-kOo"/>
-                            <constraint firstItem="HRt-vU-cka" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="HTp-IN-Swi"/>
-                            <constraint firstItem="HRt-vU-cka" firstAttribute="top" secondItem="q8h-X2-iCo" secondAttribute="bottom" constant="2" id="LhR-80-oYd"/>
                             <constraint firstItem="q8h-X2-iCo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Qgn-LW-7ZM"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="top" secondItem="3AU-0u-sAc" secondAttribute="bottom" constant="15" id="SKw-6H-Ydp"/>
                             <constraint firstItem="3AU-0u-sAc" firstAttribute="top" secondItem="q8h-X2-iCo" secondAttribute="bottom" constant="72" id="XDA-D7-Oqc"/>
+                            <constraint firstItem="3AU-0u-sAc" firstAttribute="top" secondItem="q8h-X2-iCo" secondAttribute="bottom" constant="3" id="Y3t-7j-Vgi"/>
                             <constraint firstItem="q8h-X2-iCo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="aOC-dA-SgU"/>
-                            <constraint firstItem="HRt-vU-cka" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bBq-bx-psy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q8h-X2-iCo" secondAttribute="trailing" constant="-20" id="hWj-tx-1Ra"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="top" secondItem="3AU-0u-sAc" secondAttribute="bottom" constant="17" id="ify-1J-lCH"/>
                             <constraint firstItem="kUt-9Z-v6P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jbe-vg-DZN"/>
@@ -85,9 +75,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="j0J-eO-Due"/>
-                    <connections>
-                        <outlet property="fbLoginButton" destination="HRt-vU-cka" id="BGG-Ln-NRa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
